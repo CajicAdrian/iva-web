@@ -1,0 +1,35 @@
+.layout_ui h1 {
+  width: 60%;
+  margin: auto 0;
+}
+.layout_ui p {
+  width: 40%;
+  padding: 30px;
+}
+.layout_ui {
+  border-bottom: 1px solid #000000;
+  border-right: 1px solid #000000;
+  margin: 50px auto;
+}
+.layout_mockup img {
+  width: 70%;
+  padding-bottom: 10%;
+  filter: grayscale(100%);
+  transition: all 0.5s linear;
+}
+.layout_mockup img:hover {
+  filter: grayscale(0%); 
+}
+.layout_mockup a {
+  width: 20%;
+}
+.layout_mockup .btn {
+  padding: 30px 40px;
+  border-bottom: 1px solid #000000;
+  border-right: 1px solid #000000;
+  margin-top: auto;
+}
+.layout_mockup .btn:hover {
+  border-top: 1px solid #000000;
+  border-left: 1px solid #000000;
+}

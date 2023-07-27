@@ -1,0 +1,24 @@
+.wrapp {
+  max-width: 80%;
+  display: flex;
+  margin: auto;
+}
+.wrapp .app {
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.app.dragging {
+  cursor: grab;
+  scroll-behavior: auto;
+}
+
+.app img {
+  height: fit-content;
+  border: 1px solid #000000;
+  object-fit: scale-down;
+  width: calc(200px / 1);
+  margin: 12px;
+}
