@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Iva Valencic - Designer"><main>
+    <section class="container layout_ui">
+      <h1>Projects</h1>
+      <p>Here is a selection of UI projects that showcase my personal style and knowledge. This mix includes projects
+        completed for clients as well as projects created during my time in college.</p>
+    </section>
+    <section class="container layout_mockup">
+      <img src="slike/ui_design/jungle.jpg" alt="Jungle dance studio" class="color-change-image">
+      <a href="projekti/jungle_portfolio.html" class="btn">read more</a>
+
+    </section>
+    <section class="container layout_mockup">
+      <img src="slike/ui_design/leko.jpg" alt="Leko and partneri" class="color-change-image">
+      <a href="projekti/leko_i_partneri.html" class="btn">read more</a>
+
+    </section>
+    <section class="container layout_mockup">
+      <img src="slike/ui_design/Intention_keeper.png" alt="IntentionKeeper" class="color-change-image">
+      <a href="projekti/intention_keeper.html" class="btn">read more</a>
+    </section>
+
+  </main>
+</Layout>
+<script>
+    if (window.matchMedia("(max-width: 1400px)").matches) {
+      const images = document.querySelectorAll(".color-change-image");
+
+      const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1// Adjust this value based on how much of the image needs to be visible to trigger the color change
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // If the image is in the viewport, remove the grayscale filter
+            entry.target.style.filter = "none";
+          } else {
+            // If the image is not in the viewport, apply the grayscale filter
+            entry.target.style.filter = "grayscale(100%)";
+          }
+        });
+      }, options);
+
+      // Start observing each image
+      images.forEach((image) => {
+        observer.observe(image);
+      });
+    }
+  </script>

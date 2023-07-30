@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Iva Valencic - Designer">
+    <main>
+
+        <section class="container layout_contact">
+            <h3 class="">Send me <br class="mob_img">a message</h3>
+            <p>I would love to hear from you! Use this form to send me an email and ask any questions you may have.</p>
+            <div>
+                <form class="mail">
+                    <label for="ime">Name and surname:</label>
+                    <input id="ime" name="ime" type="text" required>
+                    <label for="email">Email:</label>
+                    <input id="email" name="email" type="email" required>
+                    <label for="poruka">Text:</label>
+                    <textarea name="poruka" id="poruka" rows="10"></textarea>
+                    <section class="send">
+                        <input type="submit" value="Reach Out" onclick="sendMail(); reset(); return false;">
+                    </section>
+                </form>
+            </div>
+            <img src="slike/contact_img.png" alt="Contact photo">
+        </section>
+
+    </main>
+</Layout>

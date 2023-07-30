@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Iva Valencic - Designer">
+    <section class="Ostali_projekti">
+        <a href="jungle_portfolio.html">Jungle</a>
+        <a href="leko_i_partneri.html">Leko & Partneri</a>
+        <a href="intention_keeper.html" class="trenutno">Intention Keeper</a>
+    </section>
+    <main>
+        <div class="mockup_right">
+            <section class="container portfolio_ui_web">
+                <div class="portfolio_ui_text">
+                    <h3 class="h3_full">Intention Keeper</h3>
+                    <h3>App Usage Manager</h3>
+                    <p>informacije o aplikaciji
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic dolorem labore aperiam itaque delectus nemo quibusdam ipsum reprehenderit est aliquid officiis numquam recusandae odit, perspiciatis ullam voluptates provident quos ab.
+                    </p>
+                    <a href="https://www.figma.com/proto/0hE5dwBKcWNWYO9qlhj6Wf/IntentionKeeper---App?page-id=0%3A1&type=design&node-id=1-2&viewport=42%2C357%2C0.09&t=Oy7QhdHCN20l8LuQ-1&scaling=scale-down&starting-point-node-id=1%3A2&show-proto-sidebar=1&mode=design"
+                        class="btn" target="_blank">figma prototype</a>
+                </div>
+            </section>
+            <img src="../slike/ui_design/Intention_keeper.png" alt="IntentionKeeper" class="web_img">
+        </div>
+        <img src="../slike/Projekti/Intention_keeper.png" alt="IntentionKeeper" class="mob_img projekt_mob_img">
+        <section class="container">
+            <p>informacije o aplikaciji
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic dolorem labore aperiam itaque delectus nemo quibusdam ipsum reprehenderit est aliquid officiis numquam recusandae odit, perspiciatis ullam voluptates provident quos ab.</p>
+        </section>
+        <section class="wrapp">
+            <a class="left app_strelica" onclick="left()">&#10094;</a>
+            <div class="app">
+                <img src="../slike/Projekti/IntentionKeeper/Landing_page.jpg" alt="IntentionKeeper Landing page">
+                <img src="../slike/Projekti/IntentionKeeper/Home.jpg" alt="IntentionKeeper Home">
+                <img src="../slike/Projekti/IntentionKeeper/Specific_app.jpg" alt="IntentionKeeper Specific app">
+                <img src="../slike/Projekti/IntentionKeeper/Lock.jpg" alt="IntentionKeeper Locking apps">
+                <img src="../slike/Projekti/IntentionKeeper/Unlocked_apps.jpg" alt="IntentionKeeper Unlocked apps">
+                <img src="../slike/Projekti/IntentionKeeper/Settings.jpg" alt="IntentionKeeper Settings">
+                <img src="../slike/Projekti/IntentionKeeper/Pop-up_lock-screen.jpg"
+                    alt="IntentionKeeper Pop-up lock screen">
+                <img src="../slike/Projekti/IntentionKeeper/Pop-up_lock-screen-unlocked_apps.jpg"
+                    alt="IntentionKeeper Pop-up Unlocked apps">
+                <img src="../slike/Projekti/IntentionKeeper/Pop-up_app-type.jpg" alt="IntentionKeeper Type">
+                <img src="../slike/Projekti/IntentionKeeper/Pop-up_lock_screen-done.jpg"
+                    alt="IntentionKeeper Screen done">
+                <img src="../slike/Projekti/IntentionKeeper/Pop-up_app-timer.jpg"
+                    alt="IntentionKeeper Pop-up lock screen">
+                <img src="../slike/Projekti/IntentionKeeper/Pop-up_app-9min.jpg" alt="IntentionKeeper Countdown">
+                <img src="../slike/Projekti/IntentionKeeper/Pop-up_app-ad.jpg" alt="IntentionKeeper Pop-up app-ad">
+            </div>
+            <a class="right app_strelica" onclick="right()">&#10095;</a>
+        </section>
+    </main>
+    <section class="Ostali_projekti">
+        <a href="jungle_portfolio.html">Jungle</a>
+        <a href="leko_i_partneri.html">Leko & Partneri</a>
+        <a href="intention_keeper.html" class="trenutno">Intention Keeper</a>
+    </section>
+</Layout>
+<script>
+    const app = document.querySelector(".app");
+    const firstImg = app.querySelectorAll("img")[0];
+
+    let firstImgWidth = firstImg.clientWidth + 32; // getting firsth img width  and adding 32px (30m 2b) for the margin value
+
+    function left() {
+        app.scrollLeft -= firstImgWidth;
+    }
+    function right() {
+        app.scrollLeft += firstImgWidth;
+    }
+
+
+</script>

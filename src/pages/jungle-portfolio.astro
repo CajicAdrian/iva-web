@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Iva Valencic - Designer">
+    <main>
+        <div class="mockup_right">
+            <section class="portfolio_ui_web">
+                <div class="portfolio_ui_text">
+                    <h3 class="h3_full">Jungle</h3>
+                    <h3>Dance studio</h3>
+                    <p>This profound dance studio located in the heart of Zagreb offers a captivating blend of classical
+                        and Zumba dances that ignites a passion for movement. As a web designer, I aimed to capture that
+                        movement through an elegant and classic site. I had the pleasure of collaborating with my
+                        talented colleague, Tee Huljek, who created a stunning logo that served as the inspiration for
+                        this exquisite web design.</p>
+                    <a href="https://www.figma.com/proto/XV01yFse3RNwkVUkXaLVcd/Jungle?page-id=0%3A1&type=design&node-id=2-4&viewport=464%2C438%2C0.31&scaling=min-zoom&starting-point-node-id=2%3A4"
+                        class="btn" target="_blank">figma prototype</a>
+                </div>
+            </section>
+            <img src="../slike/ui_design/jungle.jpg" alt="Jungle dance studio" class="projekt_web_img">
+
+        </div>
+        <img src="../slike/Projekti/jungle.jpg" alt="Jungle dance studio" class="projekt_mob_img">
+        <section class="container">
+            <p>Drawing inspiration from the logo redesign, I sought to create a visually immersive experience that
+                seamlessly combines the raw energy of the jungle with the refined elegance of classical dances. To
+                achieve this, I embraced a palette of earthy and natural muted colors, invoking a sense of connectivity
+                and harmony with the natural world. To capture the essence of classical dances, I incorporated design
+                elements that exude sophistication and grace.</p>
+        </section>
+        <section class="wrapp wrapp_mob">
+            <a class="left app_strelica" onclick="left()">&#10094;</a>
+            <div class="app">
+                <img src="../slike/Projekti/Jungle/Home.jpg" alt="Jungle Home" onclick="openModal();currentSlide(1)"
+                    class="hover-shadow cursor">
+                <img src="../slike/Projekti/Jungle/O_nama.jpg" alt="Jungle About us"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                <img src="../slike/Projekti/Jungle/Tecajevi_Zumba.jpg" alt="Jungle Zumba"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                <img src="../slike/Projekti/Jungle/Termini.jpg" alt="Jungle Dance dates"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                <img src="../slike/Projekti/Jungle/Upisni_list.jpg" alt="Jungle Enrollment form"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+                <img src="../slike/Projekti/Jungle/Kontakt.jpg" alt="Jungle Contact"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+            </div>
+            <a class="right app_strelica" onclick="right()">&#10095;</a>
+        </section>
+        <section>
+            <div class="container gallery web_img">
+                <img src="../slike/Projekti/Jungle/Home.jpg" alt="Jungle Home" onclick="openModal();currentSlide(1)"
+                    class="hover-shadow cursor">
+                <img src="../slike/Projekti/Jungle/O_nama.jpg" alt="Jungle About us"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                <img src="../slike/Projekti/Jungle/Tecajevi_Zumba.jpg" alt="Jungle Zumba"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            </div>
+            <div class="container gallery web_img">
+                <img src="../slike/Projekti/Jungle/Termini.jpg" alt="Jungle Dance dates"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                <img src="../slike/Projekti/Jungle/Upisni_list.jpg" alt="Jungle Enrollment form"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+                <img src="../slike/Projekti/Jungle/Kontakt.jpg" alt="Jungle Contact"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+            </div>
+        </section>
+
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+                <div class="mySlides">
+                    <img src="../slike/Projekti/Jungle/Home.jpg" alt="Jungle Home" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <img src="../slike/Projekti/Jungle/O_nama.jpg" alt="Jungle About us" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <img src="../slike/Projekti/Jungle/Tecajevi_Zumba.jpg" alt="Jungle Zumba" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <img src="../slike/Projekti/Jungle/Termini.jpg" alt="Jungle Dance dates" style="width:100%">
+                </div>
+                <div class="mySlides">
+                    <img src="../slike/Projekti/Jungle/Upisni_list.jpg" alt="Jungle Enrollment form" style="width:100%">
+                </div>
+                <div class="mySlides">
+                    <img src="../slike/Projekti/Jungle/Kontakt.jpg" alt="Jungle Contact" style="width:100%">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                <div class="caption-container">
+                    <p id="caption"></p>
+                </div>
+
+
+                <div class=" gallerymini">
+                    <img class="demo" src="../slike/Projekti/Jungle/Home.jpg" alt="Jungle Home"
+                        onclick="currentSlide(1)">
+                    <img class="demo " src="../slike/Projekti/Jungle/O_nama.jpg" alt="Jungle About us"
+                        onclick="currentSlide(2)">
+                    <img class="demo" src="../slike/Projekti/Jungle/Tecajevi_Zumba.jpg" alt="Jungle Zumba"
+                        onclick="currentSlide(3)">
+                </div>
+                <div class=" gallerymini">
+                    <img class="demo" src="../slike/Projekti/Jungle/Termini.jpg" alt="Jungle Dance dates"
+                        onclick="currentSlide(4)">
+                    <img class="demo " src="../slike/Projekti/Jungle/Upisni_list.jpg" alt="Jungle Enrollment form"
+                        onclick="currentSlide(5)">
+                    <img class="demo" src="../slike/Projekti/Jungle/Kontakt.jpg" alt="Jungle Contact"
+                        onclick="currentSlide(6)">
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <section class="Ostali_projekti">
+        <a href="jungle_portfolio.html" class="trenutno">Jungle</a>
+        <a href="leko_i_partneri.html">Leko & Partneri</a>
+        <a href="intention_keeper.html">Intention Keeper</a>
+    </section>
+</Layout>
+<script>
+    function openModal() {
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+    function openModal() {
+        document.getElementById("myModal").style.display = "block";
+        document.body.classList.add("modal-open"); // Add the class 'modal-open' to the body
+    }
+
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+        document.body.classList.remove("modal-open"); // Remove the class 'modal-open' from the body
+    }
+    const app = document.querySelector(".app");
+    firstImg = app.querySelectorAll("img")[0];
+
+    let firstImgWidth = firstImg.clientWidth + 32; // getting firsth img width  and adding 32px (30m 2b) for the margin value
+
+    function left() {
+        app.scrollLeft -= firstImgWidth;
+    }
+    function right() {
+        app.scrollLeft += firstImgWidth;
+    }
+</script>
