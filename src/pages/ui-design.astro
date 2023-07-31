@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import jungle from "../asssets/images/ui_design/jungle.jpg"
+import leko from "../asssets/images/ui_design/leko.jpg"
+import intention from "../asssets/images/ui_design/intention_keeper.png"
 ---
 
 <Layout title="Iva Valencic - Designer"><main>
@@ -9,23 +13,23 @@ import Layout from '../layouts/Layout.astro';
         completed for clients as well as projects created during my time in college.</p>
     </section>
     <section class="container layout_mockup">
-      <img src="slike/ui_design/jungle.jpg" alt="Jungle dance studio" class="color-change-image">
-      <a href="projekti/jungle_portfolio.html" class="btn">read more</a>
+      <Image src={jungle} alt="Jungle dance studio" class="color-change-image" title="jungle"/>
+      <a href="/jungle-portfolio" class="btn">read more</a>
 
     </section>
     <section class="container layout_mockup">
-      <img src="slike/ui_design/leko.jpg" alt="Leko and partneri" class="color-change-image">
-      <a href="projekti/leko_i_partneri.html" class="btn">read more</a>
+      <Image src={leko} alt="Leko and partneri" class="color-change-image" title="leko"/>
+      <a href="/leko-i-partneri" class="btn">read more</a>
 
     </section>
     <section class="container layout_mockup">
-      <img src="slike/ui_design/Intention_keeper.png" alt="IntentionKeeper" class="color-change-image">
-      <a href="projekti/intention_keeper.html" class="btn">read more</a>
+      <Image src={intention} alt="IntentionKeeper" class="color-change-image" title="intention keeper"/>
+      <a href="/intention-keeper" class="btn">read more</a>
     </section>
 
   </main>
 </Layout>
-<script>
+<!-- <script>
     if (window.matchMedia("(max-width: 1400px)").matches) {
       const images = document.querySelectorAll(".color-change-image");
 
@@ -52,4 +56,42 @@ import Layout from '../layouts/Layout.astro';
         observer.observe(image);
       });
     }
-  </script>
+  </script> -->
+
+  <style>
+  .layout_ui h1 {
+  width: 60%;
+  margin: auto 0;
+}
+.layout_ui p {
+  width: 40%;
+  padding: 30px;
+}
+.layout_ui {
+  border-bottom: 1px solid #000000;
+  border-right: 1px solid #000000;
+  margin: 50px auto;
+}
+.layout_mockup img {
+  width: 70%;
+  padding-bottom: 10%;
+  filter: grayscale(100%);
+  transition: all 0.5s linear;
+}
+.layout_mockup img:hover {
+  filter: grayscale(0%); 
+}
+.layout_mockup a {
+  width: 20%;
+}
+.layout_mockup .btn {
+  padding: 30px 40px;
+  border-bottom: 1px solid #000000;
+  border-right: 1px solid #000000;
+  margin-top: auto;
+}
+.layout_mockup .btn:hover {
+  border-top: 1px solid #000000;
+  border-left: 1px solid #000000;
+}
+  </style>

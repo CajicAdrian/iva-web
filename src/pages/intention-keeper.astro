@@ -1,12 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import landing from "../asssets/images/projects/intention-keeper/landing_page.jpg"
+import home from "../asssets/images/projects/intention-keeper/home.jpg"
+import specific from "../asssets/images/projects/intention-keeper/lock.jpg"
+import lock from "../asssets/images/projects/intention-keeper/lock.jpg"
+import unlock from "../asssets/images/projects/intention-keeper/unlocked_apps.jpg"
+import settings from "../asssets/images/projects/intention-keeper/settings.jpg"
+import popuplock from "../asssets/images/projects/intention-keeper/pop_up_lock_screen.jpg"
+import popupunlock from "../asssets/images/projects/intention-keeper/pop_up_lock_screen_unlocked_apps.jpg"
+import popuptype from "../asssets/images/projects/intention-keeper/pop_up_app_type.jpg"
+import popupscreen from "../asssets/images/projects/intention-keeper/pop_up_lock_screen_done.jpg"
+import popuptimer from "../asssets/images/projects/intention-keeper/pop_up_app_timer.jpg"
+import popup9 from "../asssets/images/projects/intention-keeper/pop_up_app_9min.jpg"
+import popupad from "../asssets/images/projects/intention-keeper/pop_up_app_ad.jpg"
+import intention from "../asssets/images/ui_design/intention_keeper.png"
 ---
 
 <Layout title="Iva Valencic - Designer">
     <section class="Ostali_projekti">
-        <a href="jungle_portfolio.html">Jungle</a>
-        <a href="leko_i_partneri.html">Leko & Partneri</a>
-        <a href="intention_keeper.html" class="trenutno">Intention Keeper</a>
+        <a href="/jungle-portfolio">Jungle</a>
+        <a href="/leko-i-partneri">Leko & Partneri</a>
+        <a href="/intention-keeper" class="trenutno">Intention Keeper</a>
     </section>
     <main>
         <div class="mockup_right">
@@ -21,44 +36,40 @@ import Layout from '../layouts/Layout.astro';
                         class="btn" target="_blank">figma prototype</a>
                 </div>
             </section>
-            <img src="../slike/ui_design/Intention_keeper.png" alt="IntentionKeeper" class="web_img">
+            <Image src={intention} alt="IntentionKeeper" class="web_img" title="intention keeper">
         </div>
-        <img src="../slike/Projekti/Intention_keeper.png" alt="IntentionKeeper" class="mob_img projekt_mob_img">
+        <Image src={intention} alt="IntentionKeeper" class="mob_img projekt_mob_img" title="intention keeper">
         <section class="container">
             <p>informacije o aplikaciji
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic dolorem labore aperiam itaque delectus nemo quibusdam ipsum reprehenderit est aliquid officiis numquam recusandae odit, perspiciatis ullam voluptates provident quos ab.</p>
         </section>
         <section class="wrapp">
-            <a class="left app_strelica" onclick="left()">&#10094;</a>
+            <!-- <a class="left app_strelica" onclick="left()">&#10094;</a> -->
             <div class="app">
-                <img src="../slike/Projekti/IntentionKeeper/Landing_page.jpg" alt="IntentionKeeper Landing page">
-                <img src="../slike/Projekti/IntentionKeeper/Home.jpg" alt="IntentionKeeper Home">
-                <img src="../slike/Projekti/IntentionKeeper/Specific_app.jpg" alt="IntentionKeeper Specific app">
-                <img src="../slike/Projekti/IntentionKeeper/Lock.jpg" alt="IntentionKeeper Locking apps">
-                <img src="../slike/Projekti/IntentionKeeper/Unlocked_apps.jpg" alt="IntentionKeeper Unlocked apps">
-                <img src="../slike/Projekti/IntentionKeeper/Settings.jpg" alt="IntentionKeeper Settings">
-                <img src="../slike/Projekti/IntentionKeeper/Pop-up_lock-screen.jpg"
-                    alt="IntentionKeeper Pop-up lock screen">
-                <img src="../slike/Projekti/IntentionKeeper/Pop-up_lock-screen-unlocked_apps.jpg"
-                    alt="IntentionKeeper Pop-up Unlocked apps">
-                <img src="../slike/Projekti/IntentionKeeper/Pop-up_app-type.jpg" alt="IntentionKeeper Type">
-                <img src="../slike/Projekti/IntentionKeeper/Pop-up_lock_screen-done.jpg"
-                    alt="IntentionKeeper Screen done">
-                <img src="../slike/Projekti/IntentionKeeper/Pop-up_app-timer.jpg"
-                    alt="IntentionKeeper Pop-up lock screen">
-                <img src="../slike/Projekti/IntentionKeeper/Pop-up_app-9min.jpg" alt="IntentionKeeper Countdown">
-                <img src="../slike/Projekti/IntentionKeeper/Pop-up_app-ad.jpg" alt="IntentionKeeper Pop-up app-ad">
+                <Image src={landing} alt="IntentionKeeper Landing page" title="landing">
+                <Image src={home} alt="IntentionKeeper Home" title="home">
+                <Image src={specific} alt="IntentionKeeper Specific app" title="specific">
+                <Image src={lock} alt="IntentionKeeper Locking apps" title="lock">
+                <Image src={unlock} alt="IntentionKeeper Unlocked apps" title="unlock">
+                <Image src={settings} alt="IntentionKeeper Settings" title="settings">
+                <Image src={popuplock} alt="IntentionKeeper Pop-up lock screen" title="popuplock">
+                <Image src={popupunlock} alt="IntentionKeeper Pop-up Unlocked apps" title="popupunlock">
+                <Image src={popuptype} alt="IntentionKeeper Type" title="popuptype">
+                <Image src={popupscreen} alt="IntentionKeeper Screen done" title="popupscreen">
+                <Image src={popuptimer} alt="IntentionKeeper Pop-up lock screen" title="popuptimer">
+                <Image src={popup9} alt="IntentionKeeper Countdown" title="popup9min">
+                <Image src={popupad} alt="IntentionKeeper Pop-up app-ad" title="popupad">
             </div>
-            <a class="right app_strelica" onclick="right()">&#10095;</a>
+            <!-- <a class="right app_strelica" onclick="right()">&#10095;</a> -->
         </section>
     </main>
     <section class="Ostali_projekti">
-        <a href="jungle_portfolio.html">Jungle</a>
-        <a href="leko_i_partneri.html">Leko & Partneri</a>
-        <a href="intention_keeper.html" class="trenutno">Intention Keeper</a>
+        <a href="/jungle-portfolio">Jungle</a>
+        <a href="/leko-i-partneri">Leko & Partneri</a>
+        <a href="/intention-keeper" class="trenutno">Intention Keeper</a>
     </section>
 </Layout>
-<script>
+<!-- <script>
     const app = document.querySelector(".app");
     const firstImg = app.querySelectorAll("img")[0];
 
@@ -72,4 +83,4 @@ import Layout from '../layouts/Layout.astro';
     }
 
 
-</script>
+</script> -->

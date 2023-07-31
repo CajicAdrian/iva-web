@@ -1,9 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import jungle from "../asssets/images/ui_design/jungle.jpg"
+import home from "../asssets/images/projects/jungle/home.jpg"
+import onama from "../asssets/images/projects/jungle/about_us.jpg"
+import tecajevi from "../asssets/images/projects/jungle/zumba.jpg"
+import termini from "../asssets/images/projects/jungle/dates.jpg"
+import upis from "../asssets/images/projects/jungle/enrollment_form.jpg"
+import kontakt from "../asssets/images/projects/jungle/contact.jpg"
 ---
 
 <Layout title="Iva Valencic - Designer">
     <main>
+        <section class="Ostali_projekti">
+            <a href="/jungle-portfolio" class="trenutno">Jungle</a>
+            <a href="/leko-i-partneri">Leko & Partneri</a>
+            <a href="/intention-keeper">Intention Keeper</a>
+        </section>
         <div class="mockup_right">
             <section class="portfolio_ui_web">
                 <div class="portfolio_ui_text">
@@ -18,10 +31,10 @@ import Layout from '../layouts/Layout.astro';
                         class="btn" target="_blank">figma prototype</a>
                 </div>
             </section>
-            <img src="../slike/ui_design/jungle.jpg" alt="Jungle dance studio" class="projekt_web_img">
+            <Image src={jungle} alt="Jungle dance studio" class="projekt_web_img" title="jungle" />
 
         </div>
-        <img src="../slike/Projekti/jungle.jpg" alt="Jungle dance studio" class="projekt_mob_img">
+        <Image src={jungle} alt="Jungle dance studio" class="projekt_mob_img" title="jungle" />
         <section class="container">
             <p>Drawing inspiration from the logo redesign, I sought to create a visually immersive experience that
                 seamlessly combines the raw energy of the jungle with the refined elegance of classical dances. To
@@ -30,39 +43,39 @@ import Layout from '../layouts/Layout.astro';
                 elements that exude sophistication and grace.</p>
         </section>
         <section class="wrapp wrapp_mob">
-            <a class="left app_strelica" onclick="left()">&#10094;</a>
+            <!-- <a class="left app_strelica" onclick="left()">&#10094;</a> -->
             <div class="app">
-                <img src="../slike/Projekti/Jungle/Home.jpg" alt="Jungle Home" onclick="openModal();currentSlide(1)"
-                    class="hover-shadow cursor">
-                <img src="../slike/Projekti/Jungle/O_nama.jpg" alt="Jungle About us"
-                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-                <img src="../slike/Projekti/Jungle/Tecajevi_Zumba.jpg" alt="Jungle Zumba"
-                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-                <img src="../slike/Projekti/Jungle/Termini.jpg" alt="Jungle Dance dates"
-                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
-                <img src="../slike/Projekti/Jungle/Upisni_list.jpg" alt="Jungle Enrollment form"
-                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
-                <img src="../slike/Projekti/Jungle/Kontakt.jpg" alt="Jungle Contact"
-                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+                <Image src={home} alt="Jungle Home" 
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor" title="home"/>
+                <Image src={onama} alt="Jungle About us"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor" title="onama"/>
+                <Image src={tecajevi} alt="Jungle Zumba"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor" title="tecajvi"/>
+                <Image src={termini} alt="Jungle Dance dates"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor" title="termini"/>
+                <Image src={upis} alt="Jungle Enrollment form"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor" title="upis"/>
+                <Image src={kontakt} alt="Jungle Contact"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor" title="kontakt"/>
             </div>
-            <a class="right app_strelica" onclick="right()">&#10095;</a>
+            <!-- <a class="right app_strelica" onclick="right()">&#10095;</a> -->
         </section>
         <section>
             <div class="container gallery web_img">
-                <img src="../slike/Projekti/Jungle/Home.jpg" alt="Jungle Home" onclick="openModal();currentSlide(1)"
-                    class="hover-shadow cursor">
-                <img src="../slike/Projekti/Jungle/O_nama.jpg" alt="Jungle About us"
-                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-                <img src="../slike/Projekti/Jungle/Tecajevi_Zumba.jpg" alt="Jungle Zumba"
-                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                <Image src={home} alt="Jungle Home" onclick="openModal();currentSlide(1)"
+                    class="hover-shadow cursor" title="home"/>
+                <Image src={onama} alt="Jungle About us"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor" title="onama"/>
+                <Image src={tecajevi} alt="Jungle Zumba"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor" title="tecajvi"/>
             </div>
             <div class="container gallery web_img">
-                <img src="../slike/Projekti/Jungle/Termini.jpg" alt="Jungle Dance dates"
-                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
-                <img src="../slike/Projekti/Jungle/Upisni_list.jpg" alt="Jungle Enrollment form"
-                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
-                <img src="../slike/Projekti/Jungle/Kontakt.jpg" alt="Jungle Contact"
-                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+                <Image src={termini} alt="Jungle Dance dates"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor" title="termini"/>
+                <Image src={upis} alt="Jungle Enrollment form"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor" title="upis"/>
+                <Image src={kontakt} alt="Jungle Contact"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor" title="kontakt"/>
             </div>
         </section>
 
@@ -71,29 +84,29 @@ import Layout from '../layouts/Layout.astro';
             <div class="modal-content">
 
                 <div class="mySlides">
-                    <img src="../slike/Projekti/Jungle/Home.jpg" alt="Jungle Home" style="width:100%">
+                    <Image src={home} alt="Jungle Home" style="width:100%" title="home"/>
                 </div>
 
                 <div class="mySlides">
-                    <img src="../slike/Projekti/Jungle/O_nama.jpg" alt="Jungle About us" style="width:100%">
+                    <Image src={onama} alt="Jungle About us" style="width:100%" title="onama"/>
                 </div>
 
                 <div class="mySlides">
-                    <img src="../slike/Projekti/Jungle/Tecajevi_Zumba.jpg" alt="Jungle Zumba" style="width:100%">
+                    <Image src={tecajevi} alt="Jungle Zumba" style="width:100%" title="tecajvi"/>
                 </div>
 
                 <div class="mySlides">
-                    <img src="../slike/Projekti/Jungle/Termini.jpg" alt="Jungle Dance dates" style="width:100%">
+                    <Image src={termini} alt="Jungle Dance dates" style="width:100%" title="termini"/>
                 </div>
                 <div class="mySlides">
-                    <img src="../slike/Projekti/Jungle/Upisni_list.jpg" alt="Jungle Enrollment form" style="width:100%">
+                    <Image src={upis} alt="Jungle Enrollment form" style="width:100%" title="upis"/>
                 </div>
                 <div class="mySlides">
-                    <img src="../slike/Projekti/Jungle/Kontakt.jpg" alt="Jungle Contact" style="width:100%">
+                    <Image src={kontakt} alt="Jungle Contact" style="width:100%" title="kontakt"/>
                 </div>
 
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
 
                 <div class="caption-container">
                     <p id="caption"></p>
@@ -101,32 +114,32 @@ import Layout from '../layouts/Layout.astro';
 
 
                 <div class=" gallerymini">
-                    <img class="demo" src="../slike/Projekti/Jungle/Home.jpg" alt="Jungle Home"
-                        onclick="currentSlide(1)">
-                    <img class="demo " src="../slike/Projekti/Jungle/O_nama.jpg" alt="Jungle About us"
-                        onclick="currentSlide(2)">
-                    <img class="demo" src="../slike/Projekti/Jungle/Tecajevi_Zumba.jpg" alt="Jungle Zumba"
-                        onclick="currentSlide(3)">
+                    <Image class="demo" src={home} alt="Jungle Home"
+                        onclick="currentSlide(1)" title="home"/>
+                    <Image class="demo " src={onama} alt="Jungle About us"
+                        onclick="currentSlide(2)" title="onama"/>
+                    <Image class="demo" src={tecajevi} alt="Jungle Zumba"
+                        onclick="currentSlide(3)" title="tecajvi"/>
                 </div>
                 <div class=" gallerymini">
-                    <img class="demo" src="../slike/Projekti/Jungle/Termini.jpg" alt="Jungle Dance dates"
-                        onclick="currentSlide(4)">
-                    <img class="demo " src="../slike/Projekti/Jungle/Upisni_list.jpg" alt="Jungle Enrollment form"
-                        onclick="currentSlide(5)">
-                    <img class="demo" src="../slike/Projekti/Jungle/Kontakt.jpg" alt="Jungle Contact"
-                        onclick="currentSlide(6)">
+                    <Image class="demo" src={termini} alt="Jungle Dance dates"
+                        onclick="currentSlide(4)" title="termini"/>
+                    <Image class="demo " src={upis} alt="Jungle Enrollment form"
+                        onclick="currentSlide(5)" title="upis"/>
+                    <Image class="demo" src={kontakt} alt="Jungle Contact"
+                        onclick="currentSlide(6)" title="kontakt"/>
                 </div>
             </div>
         </div>
 
     </main>
     <section class="Ostali_projekti">
-        <a href="jungle_portfolio.html" class="trenutno">Jungle</a>
-        <a href="leko_i_partneri.html">Leko & Partneri</a>
-        <a href="intention_keeper.html">Intention Keeper</a>
+        <a href="/jungle-portfolio" class="trenutno">Jungle</a>
+        <a href="/leko-i-partneri">Leko & Partneri</a>
+        <a href="/intention-keeper">Intention Keeper</a>
     </section>
 </Layout>
-<script>
+<!-- <script>
     function openModal() {
         document.getElementById("myModal").style.display = "block";
     }
@@ -183,4 +196,4 @@ import Layout from '../layouts/Layout.astro';
     function right() {
         app.scrollLeft += firstImgWidth;
     }
-</script>
+</script> -->
