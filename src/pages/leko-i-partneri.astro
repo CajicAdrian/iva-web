@@ -1,0 +1,181 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import leko from "../asssets/images/ui_design/leko.jpg"
+import naslovna from "../asssets/images/projects/leko/home.jpg"
+import onama from "../asssets/images/projects/leko/about_us.jpg"
+import nastim from "../asssets/images/projects/leko/our_team.jpg"
+import timosoba from "../asssets/images/projects/leko/team_person.jpg"
+import usluge from "../asssets/images/projects/leko/services.jpg"
+import kontakt from "../asssets/images/projects/leko/contact.jpg"
+---
+
+<Layout title="Iva Valencic - Designer">
+    <main>
+        <section class="Ostali_projekti">
+            <a href="/jungle-portfolio">Jungle</a>
+            <a href="/leko-i-partneri" class="trenutno">Leko & Partneri</a>
+            <a href="/intention-keeper">Intention Keeper</a>
+        </section>
+        <div class="mockup_right">
+            <section class="container portfolio_ui_web">
+                <div class="portfolio_ui_text">
+                    <h3 class="h3_full">Leko and partners</h3>
+                    <h3>Law firm</h3>
+                    <p>Leko & Partners is a prestigious law firm with over 30 years of experience in providing exceptional legal consulting services. As a web designer, I had the privilege of creating a visually captivating online presence that truly reflects their status as a premium service.</p>
+                    <a href="https://www.figma.com/proto/WcraIe19Y7ou6EZKvjgH3B/Leko-i-partneri?page-id=0%3A1&type=design&node-id=606-1105&viewport=391%2C373%2C0.03&t=9YycYTaCmyzzJMau-1&scaling=min-zoom&mode=design"
+                        class="btn" target="_blank">figma prototype</a>
+                </div>
+            </section>
+            <Image src={leko} alt="Leko and partners" class="web_img" title="leko" />
+        </div>
+        <Image src={leko} alt="Leko and partners" class="mob_img projekt_mob_img" title="leko" />
+        <section class="container">
+            <p>To ensure that the website perfectly aligns with Leko & Partners' vision, I incorporated their new brand colors, exuding elegance and professionalism throughout every page. Through careful collaboration and understanding of their unique requirements, with the help of Luna&Tocka, I crafted an experience that brilliantly showcases their expertise. With engaging visuals, concise yet compelling content, and intuitive navigation, I aimed to create an immersive experience that effectively communicates Leko & Partners' dedication to providing top-tier legal advice and guidance.</p>
+        </section>
+        <section class="wrapp wrapp_mob">
+            <!-- <a class="left app_strelica" onclick="left()">&#10094;</a> -->
+            <div class="app">
+                <Image src={naslovna} alt="Leko & Partners Home"
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor" title="naslovna" />
+                <Image src={onama} alt="Leko & Partners About us"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor" title="onama" />
+                <Image src={nastim} alt="Leko & Partners Team"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor" title="nastim" />
+                <Image src={timosoba} alt="Leko & Partners Person"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor" title="timosoba" />
+                <Image src={usluge} alt="Leko & Partners Services"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor" title="usluge" />
+                <Image src={kontakt} alt="Leko & Partners Contact"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor" title="kontakt" />
+            </div>
+            <!-- <a class="right app_strelica" onclick="right()">&#10095;</a> -->
+        </section>
+        <section>
+            <div class="container gallery web_img">
+                <Image src={naslovna} alt="Leko & Partners Home"
+                    onclick="openModal();currentSlide(1)" class="hover-shadow cursor" title="naslovna" />
+                <Image src={onama} alt="Leko & Partners About us"
+                    onclick="openModal();currentSlide(2)" class="hover-shadow cursor" title="onama" />
+                <Image src={nastim} alt="Leko & Partners Team"
+                    onclick="openModal();currentSlide(3)" class="hover-shadow cursor" title="nastim" />
+            </div>
+            <div class="container gallery web_img">
+                <Image src={timosoba} alt="Leko & Partners Person"
+                    onclick="openModal();currentSlide(4)" class="hover-shadow cursor" title="timosoba" />
+                <Image src={usluge} alt="Leko & Partners Services"
+                    onclick="openModal();currentSlide(5)" class="hover-shadow cursor" title="usluge" />
+                <Image src={kontakt} alt="Leko & Partners Contact"
+                    onclick="openModal();currentSlide(6)" class="hover-shadow cursor" title="kontakt" />
+            </div>
+        </section>
+
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+                <div class="mySlides">
+                    <Image src={naslovna} alt="Leko & Partners Home" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <Image src={onama} alt="Leko & Partners About us" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <Image src={nastim} alt="Leko & Partners Team" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <Image src={timosoba} alt="Leko & Partners Person" style="width:100%">
+                </div>
+                <div class="mySlides">
+                    <Image src={usluge} alt="Leko & Partners Services" style="width:100%">
+                </div>
+                <div class="mySlides">
+                    <Image src={kontakt} alt="Leko & Partners Contact" style="width:100%">
+                </div>
+
+                <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+
+                <div class="caption-container">
+                    <p id="caption"></p>
+                </div>
+
+
+                <div class=" gallerymini">
+                    <Image src={naslovna} alt="Leko & Partners Home"
+                        onclick="currentSlide(1)" class="demo" title="naslovna" />
+                    <Image src={onama} alt="Leko & Partners About us"
+                        onclick=";currentSlide(2)" class="demo" title="onama" />
+                    <Image src={nastim} alt="Leko & Partners Team"
+                        onclick=";currentSlide(3)" class="dedmo" title="nastim" />
+                </div>
+                <div class=" gallerymini">
+                    <Image src={timosoba} alt="Leko & Partners Person"
+                        onclick="currentSlide(4)" class="demo" title="timosoba" />
+                    <Image src={usluge} alt="Leko & Partners Services"
+                        onclick="currentSlide(5)" class="demo" title="usluge" />
+                    <Image src={kontakt} alt="Leko & Partners Contact"
+                        onclick="currentSlide(6)" class="demo" title="kontakt" />
+                </div>
+            </div>
+        </div>
+    </main>
+    <section class="Ostali_projekti">
+        <a href="/jungle-portfolio">Jungle</a>
+        <a href="/leko-i-partneri" class="trenutno">Leko & Partneri</a>
+        <a href="/intention-keeper">Intention Keeper</a>
+    </section>
+    </Layout>
+    <!-- <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+    
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+    
+        var slideIndex = 1;
+        showSlides(slideIndex);
+    
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+    
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+    
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+        const app = document.querySelector(".app");
+        firstImg = app.querySelectorAll("img")[0];
+    
+        let firstImgWidth = firstImg.clientWidth + 32; // getting firsth img width  and adding 32px (30m 2b) for the margin value
+    
+        function left() {
+            app.scrollLeft -= firstImgWidth;
+        }
+        function right() {
+            app.scrollLeft += firstImgWidth;
+        }
+    
+    </script> -->

@@ -1,5 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import ivafoto from "../asssets/images/iva_foto.jpg"
+import ivanew from "../asssets/images/iva_new_mamber.jpg"
+import ivasome from "../asssets/images/iva_somebody.jpg"
+
+import leko from "../asssets/images/logo/Leko_partneri.svg"
+import intention from "../asssets/images/logo/IntentionKeeper.svg"
+import jungle from "../asssets/images/logo/jungle.svg"
+import figma from "../asssets/images/icons/figma.png"
+import photoshop from "../asssets/images/icons/ps.png"
+import indesign from "../asssets/images/icons/ai.png"
+import affinity from "../asssets/images/icons/affinity.png"
+import html from "../asssets/images/icons/html.png"
+import css from "../asssets/images/icons/css.png"
+
 ---
 
 <Layout title="Iva Valencic - Designer">
@@ -8,21 +23,23 @@ import Layout from '../layouts/Layout.astro';
       <div class="name">
         <p>ui designer</p>
         <h1>Iva Valenčić</h1>
-        <a href="kontakt.html" class="btn">See the latest project</a>
+        <a href="src/pages/ui-design.astro" class="btn">See the latest project</a>
       </div>
 
-      <img
-        src="images/iva_foto.jpg"
+      <Image
+        src={ivafoto}
         alt="Iva Valencic"
         class="color-change-image"
+        title="iva foto"
       />
     </section>
     <section class="container layout_new_member">
       <h4>Looking for a new member for your creative team?</h4>
-      <img
-        src="images/iva_new_mamber.jpg"
+      <Image
+        src={ivanew}
         alt="Iva Valencic"
         class="web_img color-change-image"
+        title="iva new member"
       />
       <div class="text_padding">
         <p>
@@ -33,8 +50,8 @@ import Layout from '../layouts/Layout.astro';
           Lingua School to create one of their pages. I took part in the ICDC
           Challenge 2023 as a member of the Croatian team.
         </p>
-        <img
-          src="images/iva_new_mamber.jpg"
+        <Image
+          src={ivanew}
           alt="Iva Valencic"
           class="mob_img color-change-image"
         />
@@ -46,63 +63,63 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
     <section class="wrapper">
-      <a class="left" onclick="left()">&#10094;</a>
+      <!-- <a class="left" onclick="left()">&#10094;</a> -->
       <div class="carousel">
         <a href="projekti/leko_i_partneri.html"
-          ><img
-            src="images/logo/Leko_partneri.svg"
+          ><Image
+            src={leko}
             alt="Leko i prijatelji"
             id="leko"
           /></a
         >
-        <a href="projekti/intention_keeper.html"
-          ><img
-            src="images/logo/IntentionKeeper.svg"
+        <ac href="projekti/intention_keeper.html"
+          ><Image
+            src={intention}
             alt="IntentionKeeper"
             id="IntentionKeeper"
-          /></a
+          /></ac
         >
         <a href="projekti/jungle_portfolio.html"
-          ><img
-            src="images/logo/jungle.svg"
+          ><Image
+            src={jungle}
             alt="Jungle dance studio"
             id="jungle"
           /></a
         >
         <a href="projekti/leko_i_partneri.html"
-          ><img
-            src="images/logo/Leko_partneri.svg"
+          ><Image
+            src={leko}
             alt="Leko i prijatelji"
             id="leko"
           /></a
         >
-        <a href="projekti/intention_keeper.html"
-          ><img
-            src="images/logo/IntentionKeeper.svg"
+        <ac href="projekti/intention_keeper.html"
+          ><Image
+            src={intention}
             alt="IntentionKeeper"
             id="IntentionKeeper"
-          /></a
+          /></ac
         >
         <a href="projekti/jungle_portfolio.html"
-          ><img
-            src="images/logo/jungle.svg"
+          ><Image
+            src={jungle}
             alt="Jungle dance studio"
             id="jungle"
           /></a
         >
       </div>
-      <a class="right" onclick="right()">&#10095;</a>
+      <!-- <a class="right" onclick="right()">&#10095;</a> -->
     </section>
 
     <section class="icon">
       <div class="container">
         <h4>What I use:</h4>
-        <img src="images/ikone/figma.png" alt="Figma" />
-        <img src="images/ikone/ps.png" alt="Photoshop" />
-        <img src="images/ikone/ai.png" alt="Indesign" />
-        <img src="images/ikone/affinity.png" alt="Affinity" />
-        <img src="images/ikone/html.png" alt="HTML" />
-        <img src="images/ikone/css.png" alt="CSS" />
+        <Image src={figma} alt="Figma" title="figma" />
+        <Image src={photoshop} alt="Photoshop" title="photoshop"/>
+        <Image src={indesign} alt="Indesign" title="indesign"/>
+        <Image src={affinity} alt="Affinity" title="affinity" />
+        <Image src={html} alt="HTML" title="html" />
+        <Image src={css} alt="CSS" title="css" />
       </div>
     </section>
 
@@ -125,10 +142,11 @@ import Layout from '../layouts/Layout.astro';
           knowledge. I work to make smaller brands find their customers and
           captivate them with their prestige.
         </p>
-        <img
-          src="images/iva_somebody.jpg"
+        <Image
+          src={ivasome}
           alt="Iva_foto"
           class="mob_img color-change-image"
+          title="iva somebody"
         />
         <p>
           Elegance is felt in every click a customer makes before deciding to
@@ -137,16 +155,17 @@ import Layout from '../layouts/Layout.astro';
           the new way to solve their problems.
         </p>
       </div>
-      <img
-        src="images/iva_somebody.jpg"
+      <Image
+        src={ivasome}
         alt="Iva_foto"
         class="web_img color-change-image"
+        title="iva somebody"
       />
     </section>
   </main>
 </Layout>
 
-<script>
+<!-- <script>
   const carousel = document.querySelector('.carousel')!;
   const firstImg = carousel.querySelectorAll('img')[0];
 
@@ -185,4 +204,213 @@ import Layout from '../layouts/Layout.astro';
       observer.observe(image);
     });
   }
-</script>
+</script> -->
+
+<style>
+  .layout_name_foto {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px auto;
+}
+.name {
+  width: 60%;
+  text-align: left;
+  padding-top: 30px;
+}
+.name p {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 320%;
+  text-transform: uppercase;
+}
+.name h1 {
+  margin-bottom: 75px;
+}
+.layout_name_foto img {
+  width: 40%;
+  position: relative;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: all 0.5s linear;
+}
+.layout_name_foto img:hover {
+  filter: grayscale(0%);
+}
+.btn {
+  width: fit-content;
+  height: min-content;
+  text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #000000;
+  text-decoration: none;
+}
+.name .btn {
+  padding: 30px 40px;
+  border-bottom: 1px solid #000000;
+  border-left: 1px solid #000000;
+}
+.name .btn:hover {
+  border-top: 1px solid #000000;
+  border-right: 1px solid #000000;
+}
+
+.layout_new_member {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px auto;
+  gap: 5%;
+}
+.layout_new_member h4 {
+  width: 100%;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding: 10px;
+}
+.layout_new_member img {
+  width: 50%;
+  position: relative;
+  padding-left: 30px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: all 0.5s linear;
+}
+.layout_new_member div {
+  width: 45%;
+  margin-top: auto;
+  padding-bottom: 20px;
+  padding-top: 30px;
+}
+.text_padding p {
+  padding: 10px;
+}
+.layout_new_member img:hover {
+  filter: grayscale(0%);
+}
+
+#IntentionKeeper:hover {
+  background-color: #000000;
+}
+#leko:hover {
+  background-color: #666666;
+}
+#jungle:hover {
+  background-color: #8f918c;
+}
+.icon {
+  padding: 20px;
+  margin-bottom: 30px;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+.icon h4 {
+  margin: auto 0;
+}
+.icon img {
+  filter: grayscale(100%);
+}
+.icon img:hover {
+  filter: grayscale(0%);
+}
+
+.layout_need_somebody {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px auto;
+  gap: 5%;
+}
+.layout_need_somebody h4 {
+  width: 100%;
+  border-left: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding: 10px;
+}
+.layout_need_somebody img {
+  width: 60%;
+  position: relative;
+  padding-left: 30px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: all 0.5s linear;
+}
+.layout_need_somebody div {
+  width: 35%;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-bottom: 20px;
+  padding-top: 30px;
+}
+.layout_need_somebody img:hover {
+  filter: grayscale(0%);
+}
+
+.wrapper {
+  max-width: 100%;
+  display: flex;
+}
+.wrapper .carousel {
+  font-size: 0px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.carousel.dragging {
+  cursor: grab;
+  scroll-behavior: auto;
+}
+
+.carousel img {
+  height: 350px;
+  object-fit: scale-down;
+  border: 1px solid #000000;
+  margin: 0 15px;
+  width: calc(95% / 3);
+  filter: grayscale(100%);
+  filter: contrast(0%);
+  filter: brightness(0%);
+}
+
+.carousel img:hover {
+  filter: grayscale(0%);
+  filter: contrast(100%);
+  filter: brightness(100%);
+}
+
+.left,
+.right {
+  cursor: pointer;
+  position: inherit;
+  width: auto;
+  height: 61px;
+  padding: 16px;
+  margin-top: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 5px 5px 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Position the "next button" to the right */
+.right {
+  border-radius: 5px 0 0 5px;
+  margin-left: 10px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.left:hover,
+.right:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+</style>

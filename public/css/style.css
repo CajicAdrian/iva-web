@@ -1,11 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap");
-@import url(body.css);
-@import url(nav.css);
-@import url(index.css);
-@import url(footer.css);
-@import url(ui_design.css);
 @import url(ui_design_project.css);
-@import url(contact.css);
 @import url(app.css);
 @import url(mob.css);
 @import url(1440.css);
