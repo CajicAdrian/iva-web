@@ -21,6 +21,7 @@ import iva_logo from "../asssets/images/logo/iva_logo.svg"
   margin-top: 10px;
 }
 .logo {
+  width: fit-content;
   height: 75px;
   transition: all 0.7s linear;
 }
@@ -39,5 +40,18 @@ import iva_logo from "../asssets/images/logo/iva_logo.svg"
 .navbar a:hover {
   -webkit-text-stroke: 0.4px black;
   color: #fff;
+}
+
+@media (max-width: 768px) {
+  .container {
+
+  }
+  .navbar a {
+    font-size: 16px;
+    letter-spacing: 0.1em;
+  }
+  .logo {
+    height: 50px;
+  }
 }
 </style>

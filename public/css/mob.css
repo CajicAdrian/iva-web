@@ -8,16 +8,7 @@
   display: none;
 }
 
-@media only screen and (max-width: 760px) {
-  /* Navbar */
-  .navbar a {
-    font-size: 16px;
-    letter-spacing: 0.1em;
-  }
-
-  .logo {
-    height: 50px;
-  }
+@media (max-width: 760px) {
   .name {
     width: 100%;
     padding-top: 0;
@@ -140,30 +131,6 @@
   }
   .layout_need_somebody div {
     width: 100%;
-  }
-  /* Footer */
-
-  .contact_footer {
-    width: 100%;
-    gap: 0;
-  }
-
-  .contact_footer p {
-    width: 100%;
-  }
-  .contact_footer p img {
-    height: 40px;
-    transform: translate(10px, 10px);
-  }
-
-  .nav_footer {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .nav_footer a {
-    width: 33.333333%;
-    padding: 20px 0;
   }
 
   /* Ui design */

@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import ivlogo from "../asssets/images/logo/iva_valencic_logo.svg"
+import ivlogo from "../asssets/images/logo/iva-valencic-logo.svg"
 import wapp from "../asssets/images/icons/wapp.svg"
 ---
 
@@ -99,6 +99,21 @@ import wapp from "../asssets/images/icons/wapp.svg"
 }
 .active {
   font-style: italic;
+}
+@media only screen and (max-width: 768px) {
+  .contact_footer {
+    width: 100%;
+    gap: 0;
+  }
+
+  .nav_footer {
+    width: 100%;
+  }
+
+  .nav_footer a {
+    width: 33.333333%;
+    padding: 20px 0;
+  }
 }
 
 </style>
