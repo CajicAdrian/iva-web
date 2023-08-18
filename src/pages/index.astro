@@ -146,6 +146,7 @@ import css from "../asssets/images/icons/css.png"
           src={ivasome}
           alt="Iva_foto"
           class="mob_img color-change-image"
+          id=ivasome
           title="iva somebody"
         />
         <p>
@@ -414,8 +415,17 @@ import css from "../asssets/images/icons/css.png"
 .right:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+.mob_img {
+  display: none;
+  }
+  .projekt_mob_img {
+  display: none;
+  }
+  .wrapp_mob {
+  display: none;
+  }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .name {
     width: 100%;
     padding-top: 0;
@@ -423,8 +433,11 @@ import css from "../asssets/images/icons/css.png"
   .name p {
     font-size: 18px;
   }
+  .name h1 {
+    
+  }
   h1 {
-    font-size: 2.7em;
+    font-size: 1.7em;
   }
   .layout_name_foto img {
     width: 100%;
@@ -432,18 +445,7 @@ import css from "../asssets/images/icons/css.png"
     padding: 0;
     margin-top: 60px;
   }
-  .text_padding p {
-    font-size: 16px;
-    padding: 0 auto;
-    width: 250px;
-    
-  }
-
-  .layout_new_member img{
-    width: fit-content;
-    height: 200px;
-    padding: 0;
-  }
+  
   .color-change-image {
     filter: grayscale(100%);
   }
@@ -455,10 +457,199 @@ import css from "../asssets/images/icons/css.png"
     border-top: 1px solid #000000;
     border-right: 1px solid #000000;
   }
+  h2 {
+    font-size: 50px;
+  }
+  h3 {
+    font-size: 25px;
+    padding-bottom: 10px;
+  }
+  .h3_full {
+    color: #5b5b5b;
+    font-size: 35px;
+  }
+  h4 {
+    font-size: 18px;
+    text-transform: none;
+    color: #5b5b5b;
+  }
+  .layout_new_member {
+    margin: 30px auto;
+    gap: 0;
+  }
+  .layout_new_member h4 {
+    width: 100%;
+  }
+  .web_img {
+    display: none;
+  }
+  .projekt_web_img {
+    display: none;
+  }
+  .mob_img {
+    display: inline;
+  }
+
+  .layout_new_member img {
+    width: 100%;
+    padding: 0;
+  }
+  .layout_new_member div {
+    width: 100%;
+  }
+  /* Slide */
+  #IntentionKeeper {
+    background-color: #000000;
+  }
+  #leko {
+    background-color: #666666;
+  }
+  #jungle {
+    background-color: #8f918c;
+  }
+  .carousel img {
+    height: 150px;
+    padding: 10px 20px;
+    border: 1px solid #000000;
+    width: calc(95% / 1);
+    filter: grayscale(0%);
+    filter: contrast(100%);
+    filter: brightness(100%);
+  }
+
+  .left,
+  .right {
+    margin-top: 50px;
+  }
+  /* Icons */
+  .icon {
+    padding: 30px;
+    padding-top: 0;
+    margin-top: 30px;
+  }
+  .icon h4 {
+    margin: 10px 0;
+    width: 100%;
+  }
+  .icon img {
+    filter: grayscale(100%);
+    width: fit-content;
+    height: 30px;
+  }
+  /* Somebody */
+  .layout_need_somebody {
+    gap: 0;
+  }
+  .layout_need_somebody h4 {
+    width: 100%;
+  }
   .layout_need_somebody img {
     width: fit-content;
     height: 250px;
     padding: 5px;
+  }
+  .layout_need_somebody div {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1400px) and (min-width: 768px) {
+  .name h1 {
+    font-size: 50px;
+    margin-bottom: 70px;
+  }
+
+  .layout_name_foto img {
+    width: 50%;
+    margin: 0;
+  }
+  .name {
+    width: 50%;
+  }
+  .name h1 {
+    font-size: 2.5rem;
+  }
+  .name .btn {
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+  }
+
+  .layout_new_member img {
+    width: 70%;
+    padding-left: 0px;
+  }
+
+  .layout_new_member div {
+    width: 100%;
+  }
+  #IntentionKeeper {
+    background-color: #000000;
+  }
+  #leko {
+    background-color: #666666;
+  }
+  #jungle {
+    background-color: #8f918c;
+  }
+  .carousel img {
+    height: 200px;
+    padding: 40px 40px;
+    border: 1px solid #000000;
+    width: calc(95% / 2);
+    filter: grayscale(0%);
+    filter: contrast(100%);
+    filter: brightness(100%);
+  }
+
+  .left,
+  .right {
+    margin-top: 70px;
+  }
+  .icon {
+    padding: 10px;
+    margin-top: 30px;
+  }
+  .icon h4 {
+    margin: 30px 0;
+    width: 40%;
+  }
+  .icon img {
+    filter: grayscale(100%);
+    width: fit-content;
+    height: 40px;
+    margin: auto;
+  }
+  h4 {
+    font-size: 30px;
+    text-transform: none;
+    color: #5b5b5b;
+  }
+  .web_br {
+    display: none;
+  }
+
+  .layout_need_somebody {
+    margin: 40px auto;
+    gap: 0;
+  }
+
+  .layout_need_somebody img {
+    width: 100%;
+  }
+  .layout_need_somebody div {
+    width: 100%;
+  }
+  
+  .mob_img {
+    display: inline;
+    margin-left: 10px;
+  }
+  #ivasome {
+    display: inline;
+    min-height: 400px;
+    margin-left: 0;
+  }
+  .web_img {
+    display: none;
   }
 }
 

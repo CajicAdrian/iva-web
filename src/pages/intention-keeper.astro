@@ -36,7 +36,7 @@ import intention from "../asssets/images/ui_design/intention_keeper.png"
                         class="btn" target="_blank">figma prototype</a>
                 </div>
             </section>
-            <Image src={intention} alt="IntentionKeeper" class="web_img" title="intention keeper">
+            <Image src={intention} alt="IntentionKeeper" class="projekt_web_img" title="intention keeper">
         </div>
         <Image src={intention} alt="IntentionKeeper" class="mob_img projekt_mob_img" title="intention keeper">
         <section class="container">
@@ -84,3 +84,319 @@ import intention from "../asssets/images/ui_design/intention_keeper.png"
 
 
 </script> -->
+<style>
+.Ostali_projekti {
+  width: 70%;
+  margin: 0 auto;
+}
+.Ostali_projekti a {
+  padding: 3px 2px;
+  margin: 0 8px;
+  color: #5b5b5b;
+  text-decoration: none;
+  font-size: 12px;
+}
+.Ostali_projekti a:hover {
+  border-bottom: 0.5px solid #000000;
+}
+.trenutno {
+  border-bottom: 0.5px solid #000000;
+}
+.mockup_right {
+  width: 96%;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: 14%;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+.mockup_right img {
+  object-fit: scale-down;
+  overflow: hidden;
+}
+.portfolio_ui_web {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px auto;
+  width: 70%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.portfolio_ui_text {
+  width: 70%;
+  text-align: left;
+  padding-top: 30px;
+}
+.portfolio_ui_text p {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+.portfolio_ui_web .btn {
+  padding: 30px 40px;
+  border-bottom: 1px solid #000000;
+  border-left: 1px solid #000000;
+}
+.portfolio_ui_web .btn:hover {
+  border-top: 1px solid #000000;
+  border-right: 1px solid #000000;
+}
+.gallery {
+  overflow: hidden;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.gallery img {
+  width: 33.333333%;
+  padding: 10px;
+  height: fit-content;
+  transition: all 0.3s linear;
+}
+.gallery img:hover {
+  padding: 0;
+}
+
+.gallerymini {
+  overflow: hidden;
+  height: 300px;
+  margin-bottom: 30px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #000000;
+}
+
+.gallerymini img {
+  width: 33.333333%;
+  padding: 10px;
+  height: fit-content;
+  transition: all 0.3s linear;
+}
+
+.gallerymini img:hover {
+  padding: 0;
+}
+
+.row > .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: fixed;
+  top: 10px;
+  right: 40px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  margin-right: 17px;
+  right: 6.5%;
+  border-radius: 3px 0 0 3px;
+}
+.prev {
+  left: 6.5%;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mob_img {
+  display: none;
+  }
+  .projekt_mob_img {
+  display: none;
+  }
+  .wrapp_mob {
+  display: none;
+  }
+@media (max-width: 768px) {
+  .Ostali_projekti {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .Ostali_projekti a {
+    margin: 0 5px;
+    font-size: 12px;
+  }
+
+  .mockup_right {
+    width: 100%;
+
+    margin-left: 0;
+    margin-top: 0;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 20px;
+  }
+  .projekt_mob_img {
+    width: 85%;
+    margin-left: 15%;
+    display: inline;
+  }
+
+  .portfolio_ui_text {
+    width: 100%;
+    padding-top: 0px;
+  }
+  .portfolio_ui_web .btn {
+    padding: 30px 40px;
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+  }
+  .projekt_web_img {
+    display: none;
+  }
+  .projekt_mob_img {
+    display: inline;
+    min-width: 700px;
+  }
+  
+  
+}
+@media only screen and (max-width: 1400px) and (min-width: 760px) {
+   .mockup_right {
+    width: 70%;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0px;
+  }
+  .mockup_right img {
+    width: 100%;
+  margin-top: 60px;
+  }
+  .portfolio_ui_web {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
+  .portfolio_ui_text {
+    width: 100%;
+    
+  }
+  
+  .portfolio_ui_web .btn {
+    padding: 20px 20px;
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+  }
+  .gallery {
+    
+    height: 150px;
+    
+  }
+  
+  .gallerymini {
+    
+    height: 200px;
+    
+  }
+}
+
+</style>

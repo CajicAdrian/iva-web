@@ -99,5 +99,83 @@ import content_img from '../asssets/images/contact_img.png';
     border-top: 1px solid #000000;
     border-right: 1px solid #000000;
   }
+
+  @media (max-width: 768px) {
+    /* Kontakt */
+  .layout_contact {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    gap: 0;
+  }
+  .layout_contact h3 {
+    font-size: 40px;
+  }
+  .layout_contact img {
+    display: none;
+  }
+
+  .layout_contact div {
+    width: 100%;
+  }
+
+  .mail {
+    height: fit-content;
+    padding: 30px 20px 0px 20px;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .send input {
+    font-size: 12px;
+    padding: 20px 20px;
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+    margin: 0;
+  }
+    
+}
+@media only screen and (max-width: 1400px) and (min-width: 1200px) {
+  .layout_contact img {
+   width: 48%;
+  }
+
+  .layout_contact div {
+    width: 48%;
+  }
+}
+@media only screen and (max-width: 1200px) and (min-width: 760px) {
+  .layout_contact img {
+    display: none;
+  }
+
+  .layout_contact div {
+    width: 88%;
+  }
+}
+@media only screen and (max-width: 1400px) and (min-width: 760px) {
+  .layout_contact h3 {
+    font-size: 40px;
+  }
+  .layout_contact p {
+    width: 90%;
+  }
+  
+  .mail {
+    height: fit-content;
+    padding: 30px 20px 0px 20px;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .send input {
+    font-size: 12px;
+    padding: 20px 20px;
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+    margin: 0;
+  }
+}
+
   
 </style>
