@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from "astro:assets";
+import Button from '../components/Button.astro';
 import content_img from '../asssets/images/contact_img.png';
 ---
 
@@ -18,9 +19,7 @@ import content_img from '../asssets/images/contact_img.png';
                     <input id="email" name="email" type="email" required>
                     <label for="poruka">Text:</label>
                     <textarea name="poruka" id="poruka" rows="10"></textarea>
-                    <section class="send">
-                        <input type="submit" value="Reach Out" onclick="sendMail(); reset(); return false;">
-                    </section>
+                    <Button id="send">Reach Out</Button>
                 </form>
             </div>
             <Image src={content_img} alt="Contact photo" title= "contact img"/>
@@ -78,7 +77,7 @@ import content_img from '../asssets/images/contact_img.png';
     border: 1px solid #000000;
     resize: none;
   }
-  .send input {
+  #send {
     width: fit-content;
     text-align: left;
     font-weight: 300;
@@ -93,6 +92,7 @@ import content_img from '../asssets/images/contact_img.png';
     border-top: 1px solid #fff;
     border-right: 1px solid #fff;
     margin-bottom: 0;
+    margin-top: 20px;
   }
   
   .send input:hover {

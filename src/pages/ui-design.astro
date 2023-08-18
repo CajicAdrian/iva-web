@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from "astro:assets";
+import Button from '../components/Button.astro';
 import jungle from "../asssets/images/ui_design/jungle.jpg"
 import leko from "../asssets/images/ui_design/leko.jpg"
 import intention from "../asssets/images/ui_design/intention_keeper.png"
@@ -14,17 +15,17 @@ import intention from "../asssets/images/ui_design/intention_keeper.png"
     </section>
     <section class="container layout_mockup">
       <Image src={jungle} alt="Jungle dance studio" class="color-change-image" title="jungle"/>
-      <a href="/jungle-portfolio" class="btn">READ MORE</a>
+      <a href="/jungle-portfolio"><Button id="btn">READ MORE</Button></a>
 
     </section>
     <section class="container layout_mockup">
       <Image src={leko} alt="Leko and partneri" class="color-change-image" title="leko"/>
-      <a href="/leko-i-partneri" class="btn">READ MORE</a>
+      <a href="/leko-i-partneri"><Button id="btn">READ MORE</Button></a>
 
     </section>
     <section class="container layout_mockup">
       <Image src={intention} alt="IntentionKeeper" class="color-change-image" title="intention keeper"/>
-      <a href="/intention-keeper" class="btn">READ MORE</a>
+      <a href="/intention-keeper"><Button id="btn">READ MORE</Button></a>
     </section>
 
   </main>
@@ -85,13 +86,13 @@ import intention from "../asssets/images/ui_design/intention_keeper.png"
 .layout_mockup a {
   width: 20%;
 }
-.layout_mockup .btn {
+.layout_mockup #btn {
   padding: 30px 40px;
   border-bottom: 1px solid #000000;
   border-right: 1px solid #000000;
   margin-top: auto;
 }
-.layout_mockup .btn:hover {
+.layout_mockup #btn:hover {
   border-top: 1px solid #000000;
   border-left: 1px solid #000000;
 }

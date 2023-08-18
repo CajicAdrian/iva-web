@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from "astro:assets";
+import Button from '../components/Button.astro';
 import jungle from "../asssets/images/ui_design/jungle.jpg"
 import home from "../asssets/images/projects/jungle/home.jpg"
 import onama from "../asssets/images/projects/jungle/about_us.jpg"
@@ -28,7 +29,7 @@ import kontakt from "../asssets/images/projects/jungle/contact.jpg"
                         talented colleague, Tee Huljek, who created a stunning logo that served as the inspiration for
                         this exquisite web design.</p>
                     <a href="https://www.figma.com/proto/XV01yFse3RNwkVUkXaLVcd/Jungle?page-id=0%3A1&type=design&node-id=2-4&viewport=464%2C438%2C0.31&scaling=min-zoom&starting-point-node-id=2%3A4"
-                        class="btn" target="_blank">figma prototype</a>
+                        target="_blank"><Button id="btn">figma prototype</Button></a>
                 </div>
             </section>
             <Image src={jungle} alt="Jungle dance studio" class="projekt_web_img" title="jungle" />
@@ -245,12 +246,12 @@ import kontakt from "../asssets/images/projects/jungle/contact.jpg"
   padding-top: 40px;
   padding-bottom: 60px;
 }
-.portfolio_ui_web .btn {
+.portfolio_ui_web #btn {
   padding: 30px 40px;
   border-bottom: 1px solid #000000;
   border-left: 1px solid #000000;
 }
-.portfolio_ui_web .btn:hover {
+.portfolio_ui_web #btn:hover {
   border-top: 1px solid #000000;
   border-right: 1px solid #000000;
 }

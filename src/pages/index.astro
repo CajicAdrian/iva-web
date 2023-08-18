@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from "astro:assets";
+import Button from '../components/Button.astro';
 import ivafoto from "../asssets/images/iva_foto.jpg"
 import ivanew from "../asssets/images/iva_new_mamber.jpg"
 import ivasome from "../asssets/images/iva_somebody.jpg"
@@ -23,7 +24,7 @@ import css from "../asssets/images/icons/css.png"
       <div class="name">
         <p>ui designer</p>
         <h1>Iva Valenčić</h1>
-        <a href="/ui-design/" class="btn">See the latest project</a>
+        <a href="/ui-design/"><Button id="btn">See the latest project</Button></a>
       </div>
 
       <Image
@@ -241,22 +242,12 @@ import css from "../asssets/images/icons/css.png"
 .layout_name_foto img:hover {
   filter: grayscale(0%);
 }
-.btn {
-  width: fit-content;
-  height: min-content;
-  text-align: center;
-  font-weight: 300;
-  font-size: 16px;
-  text-transform: uppercase;
-  color: #000000;
-  text-decoration: none;
-}
-.name .btn {
+#btn {
   padding: 30px 40px;
   border-bottom: 1px solid #000000;
   border-left: 1px solid #000000;
 }
-.name .btn:hover {
+#btn:hover {
   border-top: 1px solid #000000;
   border-right: 1px solid #000000;
 }
