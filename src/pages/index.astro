@@ -2,19 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from "astro:assets";
 import Button from '../components/Button.astro';
-import ivafoto from "../asssets/images/iva_foto.jpg"
-import ivanew from "../asssets/images/iva_new_mamber.jpg"
-import ivasome from "../asssets/images/iva_somebody.jpg"
+import ivafoto from "../assets/images/iva_foto.jpg"
+import ivanew from "../assets/images/iva_new_mamber.jpg"
+import ivasome from "../assets/images/iva_somebody.jpg"
 
-import leko from "../asssets/images/logo/Leko_partneri.svg"
-import intention from "../asssets/images/logo/IntentionKeeper.svg"
-import jungle from "../asssets/images/logo/jungle.svg"
-import figma from "../asssets/images/icons/figma.png"
-import photoshop from "../asssets/images/icons/ps.png"
-import indesign from "../asssets/images/icons/ai.png"
-import affinity from "../asssets/images/icons/affinity.png"
-import html from "../asssets/images/icons/html.png"
-import css from "../asssets/images/icons/css.png"
+import leko from "../assets/images/logo/Leko_partneri.svg"
+import intention from "../assets/images/logo/IntentionKeeper.svg"
+import jungle from "../assets/images/logo/jungle.svg"
+import figma from "../assets/images/icons/figma.png"
+import photoshop from "../assets/images/icons/ps.png"
+import indesign from "../assets/images/icons/ai.png"
+import affinity from "../assets/images/icons/affinity.png"
+import html from "../assets/images/icons/html.png"
+import css from "../assets/images/icons/css.png"
 
 ---
 
@@ -145,6 +145,7 @@ import css from "../asssets/images/icons/css.png"
         </p>
         <Image
           src={ivasome}
+          width={500}
           alt="Iva_foto"
           class="mob_img color-change-image"
           id=ivasome
@@ -246,6 +247,8 @@ import css from "../asssets/images/icons/css.png"
   padding: 30px 40px;
   border-bottom: 1px solid #000000;
   border-left: 1px solid #000000;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
 }
 #btn:hover {
   border-top: 1px solid #000000;
@@ -440,14 +443,18 @@ import css from "../asssets/images/icons/css.png"
   .color-change-image {
     filter: grayscale(100%);
   }
-  .btn {
+  #btn {
     font-size: 16px;
-  }
-  .name .btn {
     padding: 20px 20px;
     border-top: 1px solid #000000;
     border-right: 1px solid #000000;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
   }
+  #btn:hover {
+  border-top: 1px solid #000000;
+  border-right: 1px solid #000000;
+}
   h2 {
     font-size: 50px;
   }
@@ -559,10 +566,17 @@ import css from "../asssets/images/icons/css.png"
   .name h1 {
     font-size: 2.5rem;
   }
-  .name .btn {
+  #btn {
+    font-size: 15px;
     border-top: 1px solid #000000;
     border-right: 1px solid #000000;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
   }
+  #btn:hover {
+  border-top: 1px solid #000000;
+  border-right: 1px solid #000000;
+}
 
   .layout_new_member img {
     width: 70%;
@@ -585,7 +599,7 @@ import css from "../asssets/images/icons/css.png"
     height: 200px;
     padding: 40px 40px;
     border: 1px solid #000000;
-    width: calc(95% / 2);
+    width: calc(93% / 2);
     filter: grayscale(0%);
     filter: contrast(100%);
     filter: brightness(100%);
@@ -636,8 +650,8 @@ import css from "../asssets/images/icons/css.png"
   }
   #ivasome {
     display: inline;
-    min-height: 400px;
-    margin-left: 0;
+    margin-left: 8px;
+    padding: 0;
   }
   .web_img {
     display: none;

@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from "astro:assets";
 import Button from '../components/Button.astro';
-import content_img from '../asssets/images/contact_img.png';
+import content_img from '../assets/images/contact_img.png';
 ---
 
 <Layout title="Iva Valencic - Designer">
@@ -126,12 +126,14 @@ import content_img from '../asssets/images/contact_img.png';
     margin: 0;
   }
 
-  .send input {
+  #send {
     font-size: 12px;
-    padding: 20px 20px;
+    padding: 20px;
     border-top: 1px solid #000000;
     border-right: 1px solid #000000;
-    margin: 0;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+    margin: 15px 0;
   }
     
 }
@@ -168,12 +170,14 @@ import content_img from '../asssets/images/contact_img.png';
     margin: 0;
   }
 
-  .send input {
+  #send {
     font-size: 12px;
     padding: 20px 20px;
     border-top: 1px solid #000000;
     border-right: 1px solid #000000;
-    margin: 0;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+    margin: 20px 0;
   }
 }
 
