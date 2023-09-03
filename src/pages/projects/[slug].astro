@@ -1,10 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 import Image from "astro/components/Image.astro";
-import Button from "../components/Button.astro";
+import Button from "../../components/Button.astro";
 
 export async function getStaticPaths() {
-  const projects = await Astro.glob("../projects/*.md");
+  const projects = await Astro.glob("../../projects/*.md");
 
   return projects.map((project) => ({
     params: {
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
     },
   }));
 }
-const projects = await Astro.glob("../projects/*.md");
+const projects = await Astro.glob("../../projects/*.md");
 const { Content, frontmatter } = Astro.props.project;
 ---
 
@@ -49,44 +49,18 @@ const { Content, frontmatter } = Astro.props.project;
       <p>{frontmatter.description}</p>
     </section>
     <div class="container gallery web_img">
-      <Image
-        src={frontmatter.one.src}
-        alt={frontmatter.one.alt}
-        width={500}
-        height={500}
-      />
-      <Image
-        src={frontmatter.two.src}
-        alt={frontmatter.two.alt}
-        width={500}
-        height={500}
-      />
-      <Image
-        src={frontmatter.three.src}
-        alt={frontmatter.three.alt}
-        width={500}
-        height={500}
-      />
+      {
+        frontmatter.images.map((image) => (
+          <Image src={image.src} alt={image.alt} width={500} height={500} />
+        ))
+      }
     </div>
     <div class="container gallery web_img">
-      <Image
-        src={frontmatter.four.src}
-        alt={frontmatter.four.alt}
-        width={500}
-        height={500}
-      />
-      <Image
-        src={frontmatter.five.src}
-        alt={frontmatter.five.alt}
-        width={500}
-        height={500}
-      />
-      <Image
-        src={frontmatter.six.src}
-        alt={frontmatter.six.alt}
-        width={500}
-        height={500}
-      />
+      {
+        frontmatter.images2.map((image) => (
+          <Image src={image.src} alt={image.alt} width={500} height={500} />
+        ))
+      }
     </div>
   </main>
   <section class="Ostali_projekti">
