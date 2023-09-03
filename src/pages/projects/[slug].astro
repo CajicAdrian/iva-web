@@ -33,7 +33,7 @@ const { Content, frontmatter } = Astro.props.project;
         <div class="portfolio_ui_text">
           <Content />
           <a href={frontmatter.href.src} target="_blank"
-            ><Button id="btn">figma prototype</Button></a
+            ><Button id="project">figma prototype</Button></a
           >
         </div>
       </section>
@@ -116,15 +116,6 @@ const { Content, frontmatter } = Astro.props.project;
   .portfolio_ui_text p {
     padding-top: 40px;
     padding-bottom: 60px;
-  }
-  .portfolio_ui_web #btn {
-    padding: 30px 40px;
-    border-bottom: 1px solid #000000;
-    border-left: 1px solid #000000;
-  }
-  .portfolio_ui_web #btn:hover {
-    border-top: 1px solid #000000;
-    border-right: 1px solid #000000;
   }
   .gallery {
     overflow: hidden;
@@ -331,11 +322,6 @@ const { Content, frontmatter } = Astro.props.project;
       padding-top: 0px;
     }
 
-    .portfolio_ui_web .btn {
-      padding: 30px 40px;
-      border-top: 1px solid #000000;
-      border-right: 1px solid #000000;
-    }
     .projekt_mob_img {
       display: none;
     }
@@ -374,12 +360,6 @@ const { Content, frontmatter } = Astro.props.project;
     }
     .portfolio_ui_text {
       width: 100%;
-    }
-
-    .portfolio_ui_web .btn {
-      padding: 20px 20px;
-      border-top: 1px solid #000000;
-      border-right: 1px solid #000000;
     }
     .gallery {
       height: 150px;

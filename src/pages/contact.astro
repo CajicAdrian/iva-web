@@ -23,7 +23,7 @@ const key = import.meta.env.PUBLIC_EMAIL;
           <input id="email" name="email" type="email" required />
           <label for="poruka">Text:</label>
           <textarea name="poruka" id="poruka" rows="10"></textarea>
-          <Button id="send">Reach Out</Button>
+          <Button id="contact">Reach Out</Button>
         </form>
       </div>
       <Image src={content_img} alt="Contact photo" title="contact img" />
@@ -46,7 +46,6 @@ const key = import.meta.env.PUBLIC_EMAIL;
     padding-left: 30px;
     filter: grayscale(100%);
     margin-top: 30px;
-
     transition: all 0.5s linear;
   }
   .layout_contact img:hover {
@@ -103,16 +102,6 @@ const key = import.meta.env.PUBLIC_EMAIL;
       overflow: hidden;
       margin: 0;
     }
-
-    #send {
-      font-size: 12px;
-      padding: 20px;
-      border-top: 1px solid #000000;
-      border-right: 1px solid #000000;
-      border-top: 1px solid #fff;
-      border-right: 1px solid #fff;
-      margin: 15px 0;
-    }
   }
   @media only screen and (max-width: 1400px) and (min-width: 1200px) {
     .layout_contact img {
@@ -145,16 +134,6 @@ const key = import.meta.env.PUBLIC_EMAIL;
       padding: 30px 20px 0px 20px;
       overflow: hidden;
       margin: 0;
-    }
-
-    #send {
-      font-size: 12px;
-      padding: 20px 20px;
-      border-top: 1px solid #000000;
-      border-right: 1px solid #000000;
-      border-top: 1px solid #fff;
-      border-right: 1px solid #fff;
-      margin: 20px 0;
     }
   }
 </style>

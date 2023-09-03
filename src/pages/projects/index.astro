@@ -20,7 +20,7 @@ const projects = await Astro.glob("../../projects/*.md");
     <section class="container">
       {
         projects.map((project) => (
-          <>
+          <div class="card">
             <Image
               src={project.frontmatter.image.src}
               alt={project.frontmatter.image.alt}
@@ -28,9 +28,9 @@ const projects = await Astro.glob("../../projects/*.md");
               height={700}
             />
             <a href={`/projects/${project.frontmatter.slug}`}>
-              <Button id="btn">Read more</Button>
+              <Button id="projects">Read more</Button>
             </a>
-          </>
+          </div>
         ))
       }
     </section>
@@ -90,15 +90,10 @@ const projects = await Astro.glob("../../projects/*.md");
   a {
     height: fit-content;
     margin-top: 55%;
+    margin-left: 15px;
   }
-  #btn {
-    padding: 20px 30px;
-    border-bottom: 1px solid #000000;
-    border-right: 1px solid #000000;
-  }
-  #btn:hover {
-    border-top: 1px solid #000000;
-    border-left: 1px solid #000000;
+  .card {
+    display: flex;
   }
   @media (max-width: 768px) {
     .layout_ui {
@@ -125,15 +120,11 @@ const projects = await Astro.glob("../../projects/*.md");
       padding-bottom: 20px;
       filter: grayscale(0);
     }
-
-    a {
-      margin-top: 35%;
+    .card {
+      display: grid;
     }
-    #btn {
-      padding: 10px 10px;
-      border-top: 1px solid #000000;
-      border-left: 1px solid #000000;
-      transform: translateX(100%);
+    a {
+      margin: 0 0 15px 0;
     }
     .color-change-image {
       filter: grayscale(100%);
@@ -157,22 +148,13 @@ const projects = await Astro.glob("../../projects/*.md");
       width: 100%;
       padding: 20px 0;
     }
-
-    a {
-      font-size: 12px;
-      margin-top: 70%;
-    }
     img {
       width: 70%;
       height: 100%;
       margin-bottom: 10px;
     }
-    #btn {
-      border-top: 1px solid #000000;
-      border-right: 1px solid #000000;
-      border-top: 1px solid #fff;
-      border-left: 1px solid #fff;
-      padding: 20px;
+    a {
+      margin-top: 45%;
     }
     .color-change-image {
       filter: grayscale(100%);
