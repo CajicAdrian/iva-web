@@ -1,0 +1,22 @@
+---
+const {...rest} = Astro.props;
+---
+
+<button {...rest}>
+  <slot />
+</button>
+
+<style>
+button {
+  width: fit-content;
+  height: min-content;
+  text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #000000;
+  text-decoration: none;
+  border: none;
+  background-color: white;
+}
+</style>

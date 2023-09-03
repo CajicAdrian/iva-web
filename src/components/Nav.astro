@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import iva_logo from "../asssets/images/logo/iva_logo.svg"
+import iva_logo from "../assets/images/logo/iva_logo.svg"
 ---
 
 <nav class="navbar">
   <section class="container">
-    <a href="/ui-design/">Projects</a>
+    <a href="/projects/">Projects</a>
 
     <a href="/"
       ><Image src={iva_logo} class="logo" alt="Iva Valencic" title="iva_logo"/></a
@@ -21,6 +21,7 @@ import iva_logo from "../asssets/images/logo/iva_logo.svg"
   margin-top: 10px;
 }
 .logo {
+  width: fit-content;
   height: 75px;
   transition: all 0.7s linear;
 }
@@ -39,5 +40,15 @@ import iva_logo from "../asssets/images/logo/iva_logo.svg"
 .navbar a:hover {
   -webkit-text-stroke: 0.4px black;
   color: #fff;
+}
+
+@media (max-width: 768px) {
+  .navbar a {
+    font-size: 16px;
+    letter-spacing: 0.1em;
+  }
+  .logo {
+    height: 50px;
+  }
 }
 </style>

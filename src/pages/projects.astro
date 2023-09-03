@@ -1,0 +1,180 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import Button from "../components/Button.astro";
+
+const projects = await Astro.glob("../projects/*.md");
+---
+
+<Layout title="Iva Valencic - Designer">
+  <main>
+    <section class="container layout_ui">
+      <h1>Projects</h1>
+      <p>
+        Here is a selection of UI projects that showcase my personal style and
+        knowledge. This mix includes projects completed for clients as well as
+        projects created during my time in college.
+      </p>
+    </section>
+    <section class="container">
+      {
+        projects.map((project) => (
+          <>
+            <Image
+              src={project.frontmatter.image.src}
+              alt={project.frontmatter.image.alt}
+              width={800}
+              height={700}
+            />
+            <a href={`/${project.frontmatter.slug}`}>
+              <Button id="btn">Read more</Button>
+            </a>
+          </>
+        ))
+      }
+    </section>
+  </main>
+</Layout>
+<!-- <script>
+    if (window.matchMedia("(max-width: 1400px)").matches) {
+      const images = document.querySelectorAll(".color-change-image");
+
+      const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1// Adjust this value based on how much of the image needs to be visible to trigger the color change
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // If the image is in the viewport, remove the grayscale filter
+            entry.target.style.filter = "none";
+          } else {
+            // If the image is not in the viewport, apply the grayscale filter
+            entry.target.style.filter = "grayscale(100%)";
+          }
+        });
+      }, options);
+
+      // Start observing each image
+      images.forEach((image) => {
+        observer.observe(image);
+      });
+    }
+  </script> -->
+<style>
+  .layout_ui {
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+    margin: 50px auto;
+  }
+  h1 {
+    width: 60%;
+    margin: auto 0;
+  }
+  p {
+    width: 40%;
+    padding: 30px;
+  }
+
+  img {
+    padding-bottom: 10%;
+    filter: grayscale(100%);
+    transition: all 0.5s linear;
+  }
+  img:hover {
+    filter: grayscale(0%);
+  }
+  a {
+    height: fit-content;
+    margin-top: 55%;
+  }
+  #btn {
+    padding: 20px 30px;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+  }
+  #btn:hover {
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+  }
+  @media (max-width: 768px) {
+    .layout_ui {
+      border-bottom: 0px;
+      border-right: 0px;
+      margin: 10px auto;
+    }
+    h1 {
+      width: 100%;
+      border-bottom: 1px solid #000000;
+      border-right: 1px solid #000000;
+      padding-bottom: 10px;
+      padding-right: 20px;
+      font-size: 40px;
+    }
+    p {
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      padding-bottom: 20px;
+      filter: grayscale(0);
+    }
+
+    a {
+      margin-top: 35%;
+    }
+    #btn {
+      padding: 10px 10px;
+      border-top: 1px solid #000000;
+      border-left: 1px solid #000000;
+      transform: translateX(100%);
+    }
+    .color-change-image {
+      filter: grayscale(100%);
+    }
+  }
+  @media only screen and (max-width: 1400px) and (min-width: 760px) {
+    .layout_ui {
+      border-bottom: 0px;
+      border-right: 0px;
+      margin: 10px auto;
+    }
+    h1 {
+      width: 100%;
+      border-bottom: 1px solid #000000;
+      border-right: 1px solid #000000;
+      padding-bottom: 10px;
+      padding-right: 20px;
+      font-size: 50px;
+    }
+    p {
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    a {
+      font-size: 12px;
+      margin-top: 70%;
+    }
+    img {
+      width: 70%;
+      height: 100%;
+      margin-bottom: 10px;
+    }
+    #btn {
+      border-top: 1px solid #000000;
+      border-right: 1px solid #000000;
+      border-top: 1px solid #fff;
+      border-left: 1px solid #fff;
+      padding: 20px;
+    }
+    .color-change-image {
+      filter: grayscale(100%);
+    }
+  }
+</style>
