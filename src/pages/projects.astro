@@ -26,7 +26,7 @@ const projects = await Astro.glob("../projects/*.md");
               width={800}
               height={700}
             />
-            <a href={`/${project.frontmatter.slug}`} class="button">
+            <a href={`/${project.frontmatter.slug}`}>
               <Button id="btn">Read more</Button>
             </a>
           </>
