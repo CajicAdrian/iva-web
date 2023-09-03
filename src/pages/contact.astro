@@ -1,37 +1,40 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import Button from '../components/Button.astro';
-import content_img from '../assets/images/contact_img.png';
+import Button from "../components/Button.astro";
+import content_img from "../assets/images/contact_img.png";
+const key = import.meta.env.PUBLIC_EMAIL;
 ---
 
 <Layout title="Iva Valencic - Designer">
-    <main>
-
-        <section class="container layout_contact">
-            <h3 class="">Send me <br class="mob_img">a message</h3>
-            <p>I would love to hear from you! Use this form to send me an email and ask any questions you may have.</p>
-            <div>
-                <form class="mail">
-                    <label for="ime">Name and surname:</label>
-                    <input id="ime" name="ime" type="text" required>
-                    <label for="email">Email:</label>
-                    <input id="email" name="email" type="email" required>
-                    <label for="poruka">Text:</label>
-                    <textarea name="poruka" id="poruka" rows="10"></textarea>
-                    <Button id="send">Reach Out</Button>
-                </form>
-            </div>
-            <Image src={content_img} alt="Contact photo" title= "contact img"/>
-        </section>
-    </main>
+  <main>
+    <section class="container layout_contact">
+      <h3 class="">Send me <br class="mob_img" />a message</h3>
+      <p>
+        I would love to hear from you! Use this form to send me an email and ask
+        any questions you may have.
+      </p>
+      <div>
+        <form class="mail">
+          <input type="hidden" name="access_key" value={key} />
+          <label for="ime">Name and surname:</label>
+          <input id="ime" name="ime" type="text" required />
+          <label for="email">Email:</label>
+          <input id="email" name="email" type="email" required />
+          <label for="poruka">Text:</label>
+          <textarea name="poruka" id="poruka" rows="10"></textarea>
+          <Button id="send">Reach Out</Button>
+        </form>
+      </div>
+      <Image src={content_img} alt="Contact photo" title="contact img" />
+    </section>
+  </main>
 </Layout>
 <style>
-    .layout_contact {
+  .layout_contact {
     display: flex;
     flex-wrap: wrap;
     margin: 30px auto;
-    
   }
   .layout_contact h3 {
     width: 100%;
@@ -43,19 +46,18 @@ import content_img from '../assets/images/contact_img.png';
     padding-left: 30px;
     filter: grayscale(100%);
     margin-top: 30px;
-    
-  transition: all 0.5s linear;
+
+    transition: all 0.5s linear;
   }
   .layout_contact img:hover {
     filter: grayscale(0%);
-   
   }
   .layout_contact div {
     width: 50%;
     border: 1px solid #000000;
     margin-top: 30px;
   }
-  
+
   .mail {
     height: fit-content;
     padding: 50px 80px 0px 80px;
@@ -77,108 +79,82 @@ import content_img from '../assets/images/contact_img.png';
     border: 1px solid #000000;
     resize: none;
   }
-  #send {
-    width: fit-content;
-    text-align: left;
-    font-weight: 300;
-    font-size: 16px;
-    text-transform: uppercase;
-    color: #000000;
-    text-decoration: none;
-    padding: 30px 40px;
-    background-color: #fff;
-    border-bottom: 1px solid #000000;
-    border-left: 1px solid #000000;
-    border-top: 1px solid #fff;
-    border-right: 1px solid #fff;
-    margin-bottom: 0;
-    margin-top: 20px;
-  }
-  
-  .send input:hover {
-    border-top: 1px solid #000000;
-    border-right: 1px solid #000000;
-  }
-
   @media (max-width: 768px) {
-    /* Kontakt */
-  .layout_contact {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 30px auto;
-    gap: 0;
-  }
-  .layout_contact h3 {
-    font-size: 40px;
-  }
-  .layout_contact img {
-    display: none;
-  }
+    .layout_contact {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 30px auto;
+      gap: 0;
+    }
+    .layout_contact h3 {
+      font-size: 40px;
+    }
+    .layout_contact img {
+      display: none;
+    }
 
-  .layout_contact div {
-    width: 100%;
-  }
+    .layout_contact div {
+      width: 100%;
+    }
 
-  .mail {
-    height: fit-content;
-    padding: 30px 20px 0px 20px;
-    overflow: hidden;
-    margin: 0;
-  }
+    .mail {
+      height: fit-content;
+      padding: 30px 20px 0px 20px;
+      overflow: hidden;
+      margin: 0;
+    }
 
-  #send {
-    font-size: 12px;
-    padding: 20px;
-    border-top: 1px solid #000000;
-    border-right: 1px solid #000000;
-    border-top: 1px solid #fff;
-    border-right: 1px solid #fff;
-    margin: 15px 0;
+    #send {
+      font-size: 12px;
+      padding: 20px;
+      border-top: 1px solid #000000;
+      border-right: 1px solid #000000;
+      border-top: 1px solid #fff;
+      border-right: 1px solid #fff;
+      margin: 15px 0;
+    }
   }
-    
-}
-@media only screen and (max-width: 1400px) and (min-width: 1200px) {
-  .layout_contact img {
-   width: 48%;
-  }
+  @media only screen and (max-width: 1400px) and (min-width: 1200px) {
+    .layout_contact img {
+      width: 48%;
+    }
 
-  .layout_contact div {
-    width: 48%;
+    .layout_contact div {
+      width: 48%;
+    }
   }
-}
-@media only screen and (max-width: 1200px) and (min-width: 760px) {
-  .layout_contact img {
-    display: none;
-  }
+  @media only screen and (max-width: 1200px) and (min-width: 760px) {
+    .layout_contact img {
+      display: none;
+    }
 
-  .layout_contact div {
-    width: 88%;
+    .layout_contact div {
+      width: 88%;
+    }
   }
-}
-@media only screen and (max-width: 1400px) and (min-width: 760px) {
-  .layout_contact h3 {
-    font-size: 40px;
-  }
-  .layout_contact p {
-    width: 90%;
-  }
-  
-  .mail {
-    height: fit-content;
-    padding: 30px 20px 0px 20px;
-    overflow: hidden;
-    margin: 0;
-  }
+  @media only screen and (max-width: 1400px) and (min-width: 760px) {
+    .layout_contact h3 {
+      font-size: 40px;
+    }
+    .layout_contact p {
+      width: 90%;
+    }
 
-  #send {
-    font-size: 12px;
-    padding: 20px 20px;
-    border-top: 1px solid #000000;
-    border-right: 1px solid #000000;
-    border-top: 1px solid #fff;
-    border-right: 1px solid #fff;
-    margin: 20px 0;
-  }
-}
+    .mail {
+      height: fit-content;
+      padding: 30px 20px 0px 20px;
+      overflow: hidden;
+      margin: 0;
+    }
 
+    #send {
+      font-size: 12px;
+      padding: 20px 20px;
+      border-top: 1px solid #000000;
+      border-right: 1px solid #000000;
+      border-top: 1px solid #fff;
+      border-right: 1px solid #fff;
+      margin: 20px 0;
+    }
+  }
 </style>
