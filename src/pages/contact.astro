@@ -15,21 +15,75 @@ const key = import.meta.env.PUBLIC_EMAIL;
         any questions you may have.
       </p>
       <div>
-        <form class="mail">
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          id="form"
+          class="needs-validation mail"
+          novalidate
+        >
           <input type="hidden" name="access_key" value={key} />
           <label for="ime">Name and surname:</label>
-          <input id="ime" name="ime" type="text" required />
-          <label for="email">Email:</label>
-          <input id="email" name="email" type="email" required />
-          <label for="poruka">Text:</label>
-          <textarea name="poruka" id="poruka" rows="10"></textarea>
-          <Button id="contact">Reach Out</Button>
+          <input id="name" name="Name" type="text" required />
+          <label for="Email">Email:</label>
+          <input id="email" name="Email" type="email" required />
+          <label for="Message">Text:</label>
+          <textarea name="Message" id="message" rows="10"></textarea>
+          <Button type="submit" id="contact">Reach Out</Button>
+          <div id="result"></div>
         </form>
       </div>
       <Image src={content_img} alt="Contact photo" title="contact img" />
     </section>
   </main>
 </Layout>
+<script is:inline>
+  const form = document.getElementById("form");
+  const result = document.getElementById("result");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    form.classList.add("was-validated");
+    if (!form.checkValidity()) {
+      form.querySelectorAll(":invalid")[0].focus();
+      return;
+    }
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    result.innerHTML = "Sending...";
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    })
+      .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+          result.innerHTML = json.message;
+        } else {
+          console.log(response);
+          result.innerHTML = json.message;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        result.innerHTML = "Something went wrong!";
+      })
+      .then(function () {
+        form.reset();
+        form.classList.remove("was-validated");
+        setTimeout(() => {
+          result.style.display = "none";
+        }, 5000);
+      });
+  });
+</script>
 <style>
   .layout_contact {
     display: flex;
@@ -77,6 +131,9 @@ const key = import.meta.env.PUBLIC_EMAIL;
   .mail textarea {
     border: 1px solid #000000;
     resize: none;
+  }
+  #result {
+    border: none;
   }
   @media (max-width: 768px) {
     .layout_contact {
