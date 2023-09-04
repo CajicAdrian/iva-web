@@ -42,6 +42,8 @@ images2:
       alt: "Jungle Contact",
     },
   ]
+index:
+  { src: "../src/assets/images/logo/jungle.svg", alt: "Jungle", id: "jungle" }
 ---
 
 <h3 class="h3_full">Jungle</h3>

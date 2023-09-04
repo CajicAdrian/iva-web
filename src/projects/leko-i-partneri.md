@@ -41,6 +41,12 @@ images2:
       alt: "Leko Contact",
     },
   ]
+index:
+  {
+    src: "../src/assets/images/logo/Leko_partneri.svg",
+    alt: "Leko",
+    id: "leko",
+  }
 ---
 
 <h3 class="h3_full">Leko and partners</h3>

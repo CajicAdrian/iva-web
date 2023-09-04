@@ -40,6 +40,12 @@ images2:
       alt: "Intention Settings",
     },
   ]
+index:
+  {
+    src: "../src/assets/images/logo/IntentionKeeper.svg",
+    alt: "Intention Keeper",
+    id: "IntentionKeeper",
+  }
 ---
 
 <h3 class="h3_full">Intention Keeper</h3>

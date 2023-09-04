@@ -15,6 +15,8 @@ import indesign from "../assets/images/icons/ai.png";
 import affinity from "../assets/images/icons/affinity.png";
 import html from "../assets/images/icons/html.png";
 import css from "../assets/images/icons/css.png";
+
+const projects = await Astro.glob("../projects/*.md");
 ---
 
 <Layout title="Iva Valencic - Designer">
@@ -63,36 +65,49 @@ import css from "../assets/images/icons/css.png";
       </div>
     </section>
     <section class="wrapper">
-      <!-- <a class="left" onclick="left()">&#10094;</a> -->
+      <a class="left">&#10094;</a>
       <div class="carousel">
-        <a href="/leko-i-partneri"
-          ><Image src={leko} alt="Leko i prijatelji" id="leko" /></a
-        >
-        <a href="/intention-keeper"
-          ><Image
-            src={intention}
-            alt="IntentionKeeper"
-            id="IntentionKeeper"
-          /></a
-        >
-        <a href="/jungle-portfolio"
-          ><Image src={jungle} alt="Jungle dance studio" id="jungle" /></a
-        >
-        <a href="/leko-i-partneri"
-          ><Image src={leko} alt="Leko i prijatelji" id="leko" /></a
-        >
-        <ac href="/intention-keeper"
-          ><Image
-            src={intention}
-            alt="IntentionKeeper"
-            id="IntentionKeeper"
-          /></ac
-        >
-        <a href="/jungle-portfolio"
-          ><Image src={jungle} alt="Jungle dance studio" id="jungle" /></a
-        >
+        {
+          projects.map((project) => (
+            <a href={project.frontmatter.slug}>
+              <Image
+                src={project.frontmatter.index.src}
+                alt={project.frontmatter.index.alt}
+                id={project.frontmatter.index.id}
+                width={500}
+                height={500}
+              />
+            </a>
+          ))
+        }
+        {
+          projects.map((project) => (
+            <a href={project.frontmatter.slug}>
+              <Image
+                src={project.frontmatter.index.src}
+                alt={project.frontmatter.index.alt}
+                id={project.frontmatter.index.id}
+                width={500}
+                height={500}
+              />
+            </a>
+          ))
+        }
+        {
+          projects.map((project) => (
+            <a href={project.frontmatter.slug}>
+              <Image
+                src={project.frontmatter.index.src}
+                alt={project.frontmatter.index.alt}
+                id={project.frontmatter.index.id}
+                width={500}
+                height={500}
+              />
+            </a>
+          ))
+        }
       </div>
-      <!-- <a class="right" onclick="right()">&#10095;</a> -->
+      <a class="right">&#10095;</a>
     </section>
 
     <section class="icon">
@@ -150,47 +165,6 @@ import css from "../assets/images/icons/css.png";
     </section>
   </main>
 </Layout>
-
-<!-- <script>
-  const carousel = document.querySelector('.carousel')!;
-  const firstImg = carousel.querySelectorAll('img')[0];
-
-  let firstImgWidth = firstImg.clientWidth + 32; // getting firsth img width  and adding 32px (30m 2b) for the margin value
-
-  function left() {
-    carousel.scrollLeft -= firstImgWidth;
-  }
-  function right() {
-    carousel.scrollLeft += firstImgWidth;
-  }
-
-  if (window.matchMedia('(max-width: 1400px)').matches) {
-    const images = document.querySelectorAll('.color-change-image');
-
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 1, // Adjust this value based on how much of the image needs to be visible to trigger the color change
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // If the image is in the viewport, remove the grayscale filter
-          entry.target.style.filter = 'none';
-        } else {
-          // If the image is not in the viewport, apply the grayscale filter
-          entry.target.style.filter = 'grayscale(100%)';
-        }
-      });
-    }, options);
-
-    // Start observing each image
-    images.forEach((image) => {
-      observer.observe(image);
-    });
-  }
-</script> -->
 
 <style>
   .layout_name_foto {
@@ -274,15 +248,6 @@ import css from "../assets/images/icons/css.png";
     filter: grayscale(0%);
   }
 
-  #IntentionKeeper:hover {
-    background-color: #000000;
-  }
-  #leko:hover {
-    background-color: #666666;
-  }
-  #jungle:hover {
-    background-color: #8f918c;
-  }
   .icon {
     padding: 20px;
     margin-bottom: 30px;
@@ -336,25 +301,28 @@ import css from "../assets/images/icons/css.png";
     max-width: 100vw;
     display: flex;
   }
-  .wrapper .carousel {
+  .carousel {
     font-size: 0px;
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
+    position: relative;
     scroll-behavior: smooth;
   }
 
-  .carousel.dragging {
+  /* .carousel.dragging {
     cursor: grab;
     scroll-behavior: auto;
-  }
+  } */
 
   .carousel img {
     height: 350px;
     object-fit: scale-down;
     border: 1px solid #000000;
     margin: 0 15px;
-    width: calc(95% / 3);
+    width: calc((100% - 80px) / 3);
+    transform: translateX(-(calc((100% - 80px) / 3)));
+
     filter: grayscale(100%);
     filter: contrast(0%);
     filter: brightness(0%);
@@ -365,12 +333,21 @@ import css from "../assets/images/icons/css.png";
     filter: contrast(100%);
     filter: brightness(100%);
   }
+  #leko:hover {
+    background-color: #666666;
+  }
+  #IntentionKeeper:hover {
+    background-color: #000000;
+  }
+  #jungle:hover {
+    background-color: #8f918c;
+  }
 
   .left,
   .right {
     cursor: pointer;
     position: inherit;
-    width: auto;
+    width: 40px;
     height: 61px;
     padding: 16px;
     margin-top: 150px;
@@ -385,12 +362,6 @@ import css from "../assets/images/icons/css.png";
   .right {
     border-radius: 5px 0 0 5px;
     margin-left: 10px;
-  }
-
-  /* On hover, add a black background color with a little bit see-through */
-  .left:hover,
-  .right:hover {
-    background-color: rgba(0, 0, 0, 0.8);
   }
   .mob_img {
     display: none;
@@ -477,7 +448,6 @@ import css from "../assets/images/icons/css.png";
     .layout_new_member div {
       width: 100%;
     }
-    /* Slide */
     #IntentionKeeper {
       background-color: #000000;
     }
@@ -501,7 +471,6 @@ import css from "../assets/images/icons/css.png";
     .right {
       margin-top: 50px;
     }
-    /* Icons */
     .icon {
       padding: 30px;
       padding-top: 0;
@@ -516,7 +485,6 @@ import css from "../assets/images/icons/css.png";
       width: fit-content;
       height: 30px;
     }
-    /* Somebody */
     .layout_need_somebody {
       gap: 0;
     }
@@ -640,3 +608,44 @@ import css from "../assets/images/icons/css.png";
     }
   }
 </style>
+
+<!-- <script>
+  const carousel = document.querySelector('.carousel')!;
+  const firstImg = carousel.querySelectorAll('img')[0];
+
+  let firstImgWidth = firstImg.clientWidth + 32; // getting firsth img width  and adding 32px (30m 2b) for the margin value
+
+  function left() {
+    carousel.scrollLeft -= firstImgWidth;
+  }
+  function right() {
+    carousel.scrollLeft += firstImgWidth;
+  }
+
+  if (window.matchMedia('(max-width: 1400px)').matches) {
+    const images = document.querySelectorAll('.color-change-image');
+
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1, // Adjust this value based on how much of the image needs to be visible to trigger the color change
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // If the image is in the viewport, remove the grayscale filter
+          entry.target.style.filter = 'none';
+        } else {
+          // If the image is not in the viewport, apply the grayscale filter
+          entry.target.style.filter = 'grayscale(100%)';
+        }
+      });
+    }, options);
+
+    // Start observing each image
+    images.forEach((image) => {
+      observer.observe(image);
+    });
+  }
+</script> -->
