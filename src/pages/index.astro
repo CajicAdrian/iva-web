@@ -65,49 +65,51 @@ const projects = await Astro.glob("../projects/*.md");
       </div>
     </section>
     <section class="wrapper">
-      <a class="left">&#10094;</a>
       <div class="carousel">
-        {
-          projects.map((project) => (
-            <a href={project.frontmatter.slug}>
-              <Image
-                src={project.frontmatter.index.src}
-                alt={project.frontmatter.index.alt}
-                id={project.frontmatter.index.id}
-                width={500}
-                height={500}
-              />
-            </a>
-          ))
-        }
-        {
-          projects.map((project) => (
-            <a href={project.frontmatter.slug}>
-              <Image
-                src={project.frontmatter.index.src}
-                alt={project.frontmatter.index.alt}
-                id={project.frontmatter.index.id}
-                width={500}
-                height={500}
-              />
-            </a>
-          ))
-        }
-        {
-          projects.map((project) => (
-            <a href={project.frontmatter.slug}>
-              <Image
-                src={project.frontmatter.index.src}
-                alt={project.frontmatter.index.alt}
-                id={project.frontmatter.index.id}
-                width={500}
-                height={500}
-              />
-            </a>
-          ))
-        }
+        <Button id="left">&#10094;</Button>
+        <div class="projects">
+          {
+            projects.slice(projects.length - 1).map((project) => (
+              <a href={project.frontmatter.slug} class="project">
+                <Image
+                  src={project.frontmatter.index.src}
+                  alt={project.frontmatter.index.alt}
+                  id={project.frontmatter.index.id}
+                  width={500}
+                  height={500}
+                />
+              </a>
+            ))
+          }
+          {
+            projects.map((project) => (
+              <a href={project.frontmatter.slug} class="project">
+                <Image
+                  src={project.frontmatter.index.src}
+                  alt={project.frontmatter.index.alt}
+                  id={project.frontmatter.index.id}
+                  width={500}
+                  height={500}
+                />
+              </a>
+            ))
+          }
+          {
+            projects.slice(0, 1).map((project) => (
+              <a href={project.frontmatter.slug} class="project">
+                <Image
+                  src={project.frontmatter.index.src}
+                  alt={project.frontmatter.index.alt}
+                  id={project.frontmatter.index.id}
+                  width={500}
+                  height={500}
+                />
+              </a>
+            ))
+          }
+        </div>
+        <Button id="right">&#10095;</Button>
       </div>
-      <a class="right">&#10095;</a>
     </section>
 
     <section class="icon">
@@ -165,7 +167,40 @@ const projects = await Astro.glob("../projects/*.md");
     </section>
   </main>
 </Layout>
+<script>
+  const slider = document.querySelector(".projects");
+  const left = document.getElementById("left");
+  const right = document.getElementById("right");
 
+  let isMoving: boolean;
+  let curentIndex = 1;
+
+  function moveSlider() {
+    slider.style.transform = `translateX(-${curentIndex * 33}%)`;
+  }
+
+  function handleLeft(e) {
+    if (isMoving) {
+      return;
+    }
+    isMoving = true;
+    curentIndex--;
+    moveSlider();
+    isMoving = false;
+  }
+  function handleRight() {
+    if (isMoving) {
+      return;
+    }
+    isMoving = true;
+    curentIndex++;
+    moveSlider();
+    isMoving = false;
+  }
+
+  left?.addEventListener("click", handleLeft);
+  right?.addEventListener("click", handleRight);
+</script>
 <style>
   .layout_name_foto {
     display: flex;
@@ -299,15 +334,20 @@ const projects = await Astro.glob("../projects/*.md");
 
   .wrapper {
     max-width: 100vw;
-    display: flex;
+    margin: 0 auto;
   }
   .carousel {
-    font-size: 0px;
     cursor: pointer;
     white-space: nowrap;
-    overflow: hidden;
     position: relative;
-    scroll-behavior: smooth;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .projects {
+    width: calc(100% - 80px);
+    transform: translateX(-30%);
   }
 
   /* .carousel.dragging {
@@ -320,8 +360,6 @@ const projects = await Astro.glob("../projects/*.md");
     object-fit: scale-down;
     border: 1px solid #000000;
     margin: 0 15px;
-    width: calc((100% - 80px) / 3);
-    transform: translateX(-(calc((100% - 80px) / 3)));
 
     filter: grayscale(100%);
     filter: contrast(0%);
@@ -341,27 +379,6 @@ const projects = await Astro.glob("../projects/*.md");
   }
   #jungle:hover {
     background-color: #8f918c;
-  }
-
-  .left,
-  .right {
-    cursor: pointer;
-    position: inherit;
-    width: 40px;
-    height: 61px;
-    padding: 16px;
-    margin-top: 150px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 0 5px 5px 0;
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-
-  /* Position the "next button" to the right */
-  .right {
-    border-radius: 5px 0 0 5px;
-    margin-left: 10px;
   }
   .mob_img {
     display: none;
@@ -395,18 +412,6 @@ const projects = await Astro.glob("../projects/*.md");
 
     .color-change-image {
       filter: grayscale(100%);
-    }
-    #btn {
-      font-size: 16px;
-      padding: 20px 20px;
-      border-top: 1px solid #000000;
-      border-right: 1px solid #000000;
-      border-top: 1px solid #fff;
-      border-right: 1px solid #fff;
-    }
-    #btn:hover {
-      border-top: 1px solid #000000;
-      border-right: 1px solid #000000;
     }
     h2 {
       font-size: 50px;
@@ -467,10 +472,6 @@ const projects = await Astro.glob("../projects/*.md");
       filter: brightness(100%);
     }
 
-    .left,
-    .right {
-      margin-top: 50px;
-    }
     .icon {
       padding: 30px;
       padding-top: 0;
@@ -554,11 +555,6 @@ const projects = await Astro.glob("../projects/*.md");
       filter: contrast(100%);
       filter: brightness(100%);
     }
-
-    .left,
-    .right {
-      margin-top: 70px;
-    }
     .icon {
       padding: 10px;
       margin-top: 30px;
@@ -608,44 +604,3 @@ const projects = await Astro.glob("../projects/*.md");
     }
   }
 </style>
-
-<!-- <script>
-  const carousel = document.querySelector('.carousel')!;
-  const firstImg = carousel.querySelectorAll('img')[0];
-
-  let firstImgWidth = firstImg.clientWidth + 32; // getting firsth img width  and adding 32px (30m 2b) for the margin value
-
-  function left() {
-    carousel.scrollLeft -= firstImgWidth;
-  }
-  function right() {
-    carousel.scrollLeft += firstImgWidth;
-  }
-
-  if (window.matchMedia('(max-width: 1400px)').matches) {
-    const images = document.querySelectorAll('.color-change-image');
-
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 1, // Adjust this value based on how much of the image needs to be visible to trigger the color change
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // If the image is in the viewport, remove the grayscale filter
-          entry.target.style.filter = 'none';
-        } else {
-          // If the image is not in the viewport, apply the grayscale filter
-          entry.target.style.filter = 'grayscale(100%)';
-        }
-      });
-    }, options);
-
-    // Start observing each image
-    images.forEach((image) => {
-      observer.observe(image);
-    });
-  }
-</script> -->
