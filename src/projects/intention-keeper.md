@@ -2,7 +2,10 @@
 title: Intention Keeper
 slug: intention-keeper
 image:
-  { src: "../src/assets/images/ui_design/intention_keeper.png", alt: "jungle" }
+  {
+    src: "../src/assets/images/ui_design/intention_keeper.png",
+    alt: "intention",
+  }
 description: informacije o aplikaciji
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic dolorem labore aperiam itaque delectus nemo quibusdam ipsum reprehenderit est aliquid officiis numquam recusandae odit, perspiciatis ullam voluptates provident quos ab.
 href:
@@ -40,6 +43,41 @@ images2:
       alt: "Intention Settings",
     },
   ]
+
+images3:
+  [
+    {
+      src: "../src/assets/images/projects/intention-keeper/landing_page.jpg",
+      alt: "Intention Main",
+    },
+    {
+      src: "../src/assets/images/projects/intention-keeper/home.jpg",
+      alt: "Intention Home",
+    },
+    {
+      src: "../src/assets/images/projects/intention-keeper/specific_app.jpg",
+      alt: "Intention Specific",
+    },
+    {
+      src: "../src/assets/images/projects/intention-keeper/lock.jpg",
+      alt: "Intention Dance Lock",
+    },
+    {
+      src: "../src/assets/images/projects/intention-keeper/unlocked_apps.jpg",
+      alt: "Intention Unlock",
+    },
+    {
+      src: "../src/assets/images/projects/intention-keeper/settings.jpg",
+      alt: "Intention Settings",
+    },
+  ]
+
+index:
+  {
+    src: "../src/assets/images/logo/IntentionKeeper.svg",
+    alt: "Intention Keeper",
+    id: "IntentionKeeper",
+  }
 ---
 
 <h3 class="h3_full">Intention Keeper</h3>

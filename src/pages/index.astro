@@ -4,17 +4,14 @@ import { Image } from "astro:assets";
 import Button from "../components/Button.astro";
 import ivafoto from "../assets/images/iva_foto.jpg";
 import ivanew from "../assets/images/iva_new_mamber.jpg";
-import ivasome from "../assets/images/iva_somebody.jpg";
-
-import leko from "../assets/images/logo/Leko_partneri.svg";
-import intention from "../assets/images/logo/IntentionKeeper.svg";
-import jungle from "../assets/images/logo/jungle.svg";
 import figma from "../assets/images/icons/figma.png";
 import photoshop from "../assets/images/icons/ps.png";
 import indesign from "../assets/images/icons/ai.png";
 import affinity from "../assets/images/icons/affinity.png";
 import html from "../assets/images/icons/html.png";
 import css from "../assets/images/icons/css.png";
+
+const projects = await Astro.glob("../projects/*.md");
 ---
 
 <Layout title="Iva Valencic - Designer">
@@ -33,14 +30,28 @@ import css from "../assets/images/icons/css.png";
         title="iva foto"
       />
     </section>
+    <section class="carousel">
+      <Button id="left">&#10094;</Button>
+      <div class="projects">
+        {
+          projects.map((project) => (
+            <a href={`/projects/${project.frontmatter.slug}`} class="project">
+              <Image
+                src={project.frontmatter.index.src}
+                alt={project.frontmatter.index.alt}
+                id={project.frontmatter.index.id}
+                width={500}
+                height={500}
+              />
+            </a>
+          ))
+        }
+      </div>
+      <Button id="right">&#10095;</Button>
+    </section>
     <section class="container layout_new_member">
       <h4>Looking for a new member for your creative team?</h4>
-      <Image
-        src={ivanew}
-        alt="Iva Valencic"
-        class="web_img color-change-image"
-        title="iva new member"
-      />
+
       <div class="text_padding">
         <p>
           I am a Croatia-based designer. A graduate of the Zagreb School of Fine
@@ -50,49 +61,13 @@ import css from "../assets/images/icons/css.png";
           Lingua School to create one of their pages. I took part in the ICDC
           Challenge 2023 as a member of the Croatian team.
         </p>
-        <Image
-          src={ivanew}
-          alt="Iva Valencic"
-          class="mob_img color-change-image"
-        />
+
         <p>
           As a freelancer, I continue to work with smaller companies, but I
           would like to join a larger team of designers so that I may learn from
           more knowledgeble and skilled people and bring my ideas to the time.
         </p>
       </div>
-    </section>
-    <section class="wrapper">
-      <!-- <a class="left" onclick="left()">&#10094;</a> -->
-      <div class="carousel">
-        <a href="/leko-i-partneri"
-          ><Image src={leko} alt="Leko i prijatelji" id="leko" /></a
-        >
-        <a href="/intention-keeper"
-          ><Image
-            src={intention}
-            alt="IntentionKeeper"
-            id="IntentionKeeper"
-          /></a
-        >
-        <a href="/jungle-portfolio"
-          ><Image src={jungle} alt="Jungle dance studio" id="jungle" /></a
-        >
-        <a href="/leko-i-partneri"
-          ><Image src={leko} alt="Leko i prijatelji" id="leko" /></a
-        >
-        <ac href="/intention-keeper"
-          ><Image
-            src={intention}
-            alt="IntentionKeeper"
-            id="IntentionKeeper"
-          /></ac
-        >
-        <a href="/jungle-portfolio"
-          ><Image src={jungle} alt="Jungle dance studio" id="jungle" /></a
-        >
-      </div>
-      <!-- <a class="right" onclick="right()">&#10095;</a> -->
     </section>
 
     <section class="icon">
@@ -126,14 +101,6 @@ import css from "../assets/images/icons/css.png";
           knowledge. I work to make smaller brands find their customers and
           captivate them with their prestige.
         </p>
-        <Image
-          src={ivasome}
-          width={500}
-          alt="Iva_foto"
-          class="mob_img color-change-image"
-          id="ivasome"
-          title="iva somebody"
-        />
         <p>
           Elegance is felt in every click a customer makes before deciding to
           purchase goods or use service. My goal is for brands to find their
@@ -142,56 +109,67 @@ import css from "../assets/images/icons/css.png";
         </p>
       </div>
       <Image
-        src={ivasome}
-        alt="Iva_foto"
-        class="web_img color-change-image"
-        title="iva somebody"
+        src={ivanew}
+        alt="Iva Valencic"
+        class="color-change-image"
+        title="iva new member"
       />
     </section>
   </main>
 </Layout>
+<script>
+  let slider = document.querySelector(".projects");
+  const left = document.getElementById("left");
+  const right = document.getElementById("right");
+  const boxes = slider?.querySelectorAll("a");
+  let boxSize = 0;
 
-<!-- <script>
-  const carousel = document.querySelector('.carousel')!;
-  const firstImg = carousel.querySelectorAll('img')[0];
+  boxes?.forEach((box) => {
+    boxSize = box.offsetWidth;
+    const size = `${boxSize}px`;
+    const sizeInPx = parseFloat(size);
+    const sliderSize = sizeInPx * 3;
 
-  let firstImgWidth = firstImg.clientWidth + 32; // getting firsth img width  and adding 32px (30m 2b) for the margin value
+    slider.style.width = `${sliderSize}px`;
+  });
 
-  function left() {
-    carousel.scrollLeft -= firstImgWidth;
+  let isMoving: boolean;
+  let curentIndex = 0;
+  const totalIndex = 3;
+
+  function moveSlider() {
+    slider.style.transform = `translateX(-${curentIndex * boxSize}px)`;
   }
-  function right() {
-    carousel.scrollLeft += firstImgWidth;
+
+  function handleLeft() {
+    if (isMoving) {
+      return;
+    }
+    isMoving = true;
+    curentIndex--;
+    if (curentIndex < 0) {
+      curentIndex = totalIndex - 1;
+    }
+    moveSlider();
+    isMoving = false;
+  }
+  function handleRight() {
+    if (isMoving) {
+      return;
+    }
+    if (curentIndex >= totalIndex) {
+      console.log(curentIndex);
+      curentIndex = 0;
+    }
+    isMoving = true;
+    curentIndex++;
+    moveSlider();
+    isMoving = false;
   }
 
-  if (window.matchMedia('(max-width: 1400px)').matches) {
-    const images = document.querySelectorAll('.color-change-image');
-
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 1, // Adjust this value based on how much of the image needs to be visible to trigger the color change
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // If the image is in the viewport, remove the grayscale filter
-          entry.target.style.filter = 'none';
-        } else {
-          // If the image is not in the viewport, apply the grayscale filter
-          entry.target.style.filter = 'grayscale(100%)';
-        }
-      });
-    }, options);
-
-    // Start observing each image
-    images.forEach((image) => {
-      observer.observe(image);
-    });
-  }
-</script> -->
-
+  left?.addEventListener("click", handleLeft);
+  right?.addEventListener("click", handleRight);
+</script>
 <style>
   .layout_name_foto {
     display: flex;
@@ -250,19 +228,8 @@ import css from "../assets/images/icons/css.png";
     border-bottom: 1px solid #000000;
     padding: 10px;
   }
-  .layout_new_member img {
-    width: 50%;
-    height: fit-content;
-    position: relative;
-    padding-left: 30px;
-    padding-top: 40px;
-    padding-bottom: 20px;
-    object-fit: cover;
-    filter: grayscale(100%);
-    transition: all 0.5s linear;
-  }
   .layout_new_member div {
-    width: 45%;
+    width: 100%;
     margin-top: auto;
     padding-bottom: 20px;
     padding-top: 30px;
@@ -274,15 +241,6 @@ import css from "../assets/images/icons/css.png";
     filter: grayscale(0%);
   }
 
-  #IntentionKeeper:hover {
-    background-color: #000000;
-  }
-  #leko:hover {
-    background-color: #666666;
-  }
-  #jungle:hover {
-    background-color: #8f918c;
-  }
   .icon {
     padding: 20px;
     margin-bottom: 30px;
@@ -313,6 +271,7 @@ import css from "../assets/images/icons/css.png";
   }
   .layout_need_somebody img {
     width: 60%;
+    height: auto;
     position: relative;
     padding-left: 30px;
     padding-top: 40px;
@@ -331,66 +290,37 @@ import css from "../assets/images/icons/css.png";
   .layout_need_somebody img:hover {
     filter: grayscale(0%);
   }
-
-  .wrapper {
-    max-width: 100vw;
+  .carousel {
+    white-space: nowrap;
+    position: relative;
     display: flex;
   }
-  .wrapper .carousel {
-    font-size: 0px;
-    cursor: pointer;
-    white-space: nowrap;
-    overflow: hidden;
-    scroll-behavior: smooth;
-  }
 
-  .carousel.dragging {
-    cursor: grab;
-    scroll-behavior: auto;
+  .projects {
+    margin: 0;
+    cursor: pointer;
+    padding: 0 5vw;
   }
 
   .carousel img {
-    height: 350px;
+    width: calc(83vw / 3);
     object-fit: scale-down;
-    border: 1px solid #000000;
-    margin: 0 15px;
-    width: calc(95% / 3);
+    background-color: #474747;
+    margin: 0 1vw;
     filter: grayscale(100%);
-    filter: contrast(0%);
-    filter: brightness(0%);
   }
 
   .carousel img:hover {
     filter: grayscale(0%);
-    filter: contrast(100%);
-    filter: brightness(100%);
   }
-
-  .left,
-  .right {
-    cursor: pointer;
-    position: inherit;
-    width: auto;
-    height: 61px;
-    padding: 16px;
-    margin-top: 150px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 0 5px 5px 0;
-    background-color: rgba(0, 0, 0, 0.8);
+  #leko:hover {
+    background-color: #666666;
   }
-
-  /* Position the "next button" to the right */
-  .right {
-    border-radius: 5px 0 0 5px;
-    margin-left: 10px;
+  #IntentionKeeper:hover {
+    background-color: #000000;
   }
-
-  /* On hover, add a black background color with a little bit see-through */
-  .left:hover,
-  .right:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+  #jungle:hover {
+    background-color: #8f918c;
   }
   .mob_img {
     display: none;
@@ -424,18 +354,6 @@ import css from "../assets/images/icons/css.png";
 
     .color-change-image {
       filter: grayscale(100%);
-    }
-    #btn {
-      font-size: 16px;
-      padding: 20px 20px;
-      border-top: 1px solid #000000;
-      border-right: 1px solid #000000;
-      border-top: 1px solid #fff;
-      border-right: 1px solid #fff;
-    }
-    #btn:hover {
-      border-top: 1px solid #000000;
-      border-right: 1px solid #000000;
     }
     h2 {
       font-size: 50px;
@@ -477,7 +395,6 @@ import css from "../assets/images/icons/css.png";
     .layout_new_member div {
       width: 100%;
     }
-    /* Slide */
     #IntentionKeeper {
       background-color: #000000;
     }
@@ -497,11 +414,6 @@ import css from "../assets/images/icons/css.png";
       filter: brightness(100%);
     }
 
-    .left,
-    .right {
-      margin-top: 50px;
-    }
-    /* Icons */
     .icon {
       padding: 30px;
       padding-top: 0;
@@ -516,7 +428,6 @@ import css from "../assets/images/icons/css.png";
       width: fit-content;
       height: 30px;
     }
-    /* Somebody */
     .layout_need_somebody {
       gap: 0;
     }
@@ -585,11 +496,6 @@ import css from "../assets/images/icons/css.png";
       filter: grayscale(0%);
       filter: contrast(100%);
       filter: brightness(100%);
-    }
-
-    .left,
-    .right {
-      margin-top: 70px;
     }
     .icon {
       padding: 10px;
