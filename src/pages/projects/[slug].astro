@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Image from "astro/components/Image.astro";
 import Button from "../../components/Button.astro";
+import Modal from "../../components/Modal.astro";
 
 export async function getStaticPaths() {
   const projects = await Astro.glob("../../projects/*.md");
@@ -48,19 +49,138 @@ const { Content, frontmatter } = Astro.props.project;
     <section class="container">
       <p>{frontmatter.description}</p>
     </section>
+    <section class="desc">
+      <div class="container">
+        <div class="desc_box">
+          <h5>{frontmatter.box1h}</h5>
+          <p>{frontmatter.box1p}</p>
+        </div>
+        <div class="desc_box">
+          <h5>{frontmatter.box2h}</h5>
+          <p>{frontmatter.box2p}</p>
+        </div>
+        <div class="desc_box">
+          <h5>{frontmatter.box3h}</h5>
+          <p>{frontmatter.box3p}</p>
+        </div>
+      </div>
+    </section>
+    <section class="container"></section>
+    <section class="container">
+      <h4 class="title_box">sitemap</h4>
+    </section>
+    <section class="container">
+      <h4 class="title_box_right">wireframe</h4>
+    </section>
+    <section class="container">
+      <h4 class="title_box">typography and color</h4>
+    </section>
+    <section class="container">
+      <h4 class="title_box_right">final design:</h4>
+    </section>
     <div class="container gallery web_img">
       {
-        frontmatter.images.map((image) => (
-          <Image src={image.src} alt={image.alt} width={500} height={500} />
+        frontmatter.images.map((image, index) => (
+          <Image
+            src={image.src}
+            alt={image.alt}
+            class="modalbtn"
+            width={500}
+            height={500}
+            id={`${index}`}
+          />
         ))
       }
     </div>
     <div class="container gallery web_img">
       {
-        frontmatter.images2.map((image) => (
-          <Image src={image.src} alt={image.alt} width={500} height={500} />
+        frontmatter.images2.map((image, index) => (
+          <Image
+            src={image.src}
+            alt={image.alt}
+            class="modalbtn"
+            width={500}
+            height={500}
+            id={`${index}`}
+          />
         ))
       }
+    </div>
+    <div id="modal">
+      <Button id="close">&times;</Button>
+      <div class="modal-content">
+        <section class="wrapper">
+          <Button id="modal_left">&#10094;</Button>
+          <div class="carousel">
+            {
+              frontmatter.images3
+                .slice(frontmatter.images3.length - 1)
+                .map((image) => (
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={500}
+                    height={500}
+                    class="carousel_img"
+                  />
+                ))
+            }
+            {
+              frontmatter.images3.map((image) => (
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={500}
+                  height={500}
+                  class="carousel_img"
+                />
+              ))
+            }
+            {
+              frontmatter.images3
+                .slice(0, 1)
+                .map((image) => (
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={500}
+                    height={500}
+                    class="carousel_img"
+                  />
+                ))
+            }
+          </div>
+          <Button id="modal_right">&#10095;</Button>
+        </section>
+        <div class="container gallery web_img" id="galery2">
+          {
+            frontmatter.images.map((image, index) => (
+              <Image
+                src={image.src}
+                alt={image.alt}
+                class="modalgalery"
+                width={500}
+                height={500}
+                id={`${index}`}
+              />
+            ))
+          }
+        </div>
+        <div class="container gallery web_img" id="galery2">
+          {
+            frontmatter.images2.map((image, index) => (
+              <Image
+                src={image.src}
+                alt={image.alt}
+                class="modalgalery"
+                width={500}
+                height={500}
+                id={`${index}`}
+              />
+            ))
+          }
+        </div>
+      </div>
     </div>
   </main>
   <section class="Ostali_projekti">
@@ -71,6 +191,99 @@ const { Content, frontmatter } = Astro.props.project;
     }
   </section>
 </Layout>
+<script>
+  import type { ViewTransitions } from "astro:transitions";
+
+  const modal = document.getElementById("modal");
+  const modalbtn = document.querySelectorAll(".modalbtn");
+  const modalgalery = document.querySelectorAll(".modalgalery");
+  const closebtn = document.getElementById("close");
+  const right = document.getElementById("modal_right");
+  const left = document.getElementById("modal_left");
+  const carousel = document.querySelector(".carousel");
+
+  let isMoving: boolean;
+  let curentIndex = 1;
+  const totalIndex = 6;
+
+  function openModal(index) {
+    modal.style.visibility = "visible";
+    curentIndex = index + 1;
+    moveSlider();
+  }
+
+  modalbtn?.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      openModal(index);
+    });
+  });
+
+  modalgalery.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      curentIndex = index + 1;
+      moveSlider();
+    });
+  });
+
+  function closeModal() {
+    modal.style.visibility = "hidden";
+  }
+
+  closebtn?.addEventListener("click", closeModal);
+
+  function backgroundClick(e) {
+    if (e.target == modal) {
+      modal.style.visibility = "hidden";
+    }
+  }
+
+  window.addEventListener("click", backgroundClick);
+
+  function moveSlider() {
+    const images = document.querySelectorAll(".carousel_img");
+    const img = images[curentIndex];
+    const currentHeight = img.offsetHeight;
+    const imgWidth = img.clientWidth;
+    console.log(imgWidth);
+
+    const carouselWidth = carousel?.clientWidth;
+    console.log(carouselWidth);
+
+    if (curentIndex >= 0 && curentIndex < images.length) {
+      carousel.style.maxHeight = `${currentHeight}px`;
+    }
+
+    carousel.style.transform = `translateX(-${curentIndex * carouselWidth}px)`;
+  }
+
+  function handleLeft() {
+    if (isMoving) {
+      return;
+    }
+    isMoving = true;
+    curentIndex--;
+    if (curentIndex < 0) {
+      curentIndex = totalIndex - 1;
+    }
+    moveSlider();
+    isMoving = false;
+  }
+  function handleRight() {
+    if (isMoving) {
+      return;
+    }
+    if (curentIndex >= totalIndex) {
+      curentIndex = 0;
+    }
+    isMoving = true;
+    curentIndex++;
+    moveSlider();
+    isMoving = false;
+  }
+
+  left?.addEventListener("click", handleLeft);
+  right?.addEventListener("click", handleRight);
+</script>
 <style>
   .Ostali_projekti {
     width: 70%;
@@ -117,6 +330,34 @@ const { Content, frontmatter } = Astro.props.project;
     padding-top: 40px;
     padding-bottom: 60px;
   }
+  .desc {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: 100px 0;
+  }
+  .desc_box {
+    width: 25%;
+    margin: 30px;
+    padding: 20px 10px;
+  }
+  .title_box {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    width: 100%;
+    padding: 10px;
+  }
+  .title_box_right {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    width: 100%;
+    padding: 10px;
+  }
+  .images {
+    width: 90%;
+    height: fit-content;
+    margin: 50px;
+  }
+
   .gallery {
     overflow: hidden;
     height: 300px;
@@ -125,6 +366,9 @@ const { Content, frontmatter } = Astro.props.project;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+  }
+  .desc_box h5 {
+    margin-bottom: 10px;
   }
   .gallery img {
     width: 33.333333%;
@@ -158,126 +402,50 @@ const { Content, frontmatter } = Astro.props.project;
   .gallerymini img:hover {
     padding: 0;
   }
-
-  .row > .column {
-    padding: 0 8px;
-  }
-
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  .column {
-    float: left;
-    width: 25%;
-  }
-
   /* The Modal (background) */
-  .modal {
-    display: none;
+  #modal {
+    visibility: hidden;
+    display: flex;
+    flex-wrap: wrap;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: black;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  #modal_overlay {
+    z-index: -1;
   }
 
   /* Modal Content */
   .modal-content {
     position: relative;
-    background-color: #fefefe;
     margin: auto;
     padding: 0;
     width: 90%;
   }
-
-  /* The Close Button */
-  .close {
-    color: white;
-    position: fixed;
-    top: 10px;
-    right: 40px;
-    font-size: 35px;
-    font-weight: bold;
-  }
-
-  .close:hover,
-  .close:focus {
-    color: #999;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .mySlides {
-    display: none;
-  }
-
-  body.modal-open {
+  .wrapper {
+    max-width: 100vw;
+    margin: 0 auto;
     overflow: hidden;
   }
-
-  /* Next & previous buttons */
-  .prev,
-  .next {
+  .carousel {
+    width: 100%;
     cursor: pointer;
-    position: fixed;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -50px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    -webkit-user-select: none;
+    white-space: nowrap;
+    position: relative;
+    flex-direction: row;
+    transform: translateX(-100%);
+    margin-top: 20px;
+    display: flex;
   }
-
-  /* Position the "next button" to the right */
-  .next {
-    margin-right: 17px;
-    right: 6.5%;
-    border-radius: 3px 0 0 3px;
-  }
-  .prev {
-    left: 6.5%;
-  }
-
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover,
-  .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-
-  img {
-    margin-bottom: -4px;
-  }
-
-  .caption-container {
-    text-align: center;
-    background-color: black;
-    padding: 2px 16px;
-    color: white;
-  }
-
-  .demo {
-    opacity: 0.6;
-  }
-
-  .active,
-  .demo:hover {
-    opacity: 1;
-  }
-
-  img.hover-shadow {
-    transition: 0.3s;
+  .carousel_img {
+    width: 1440px;
+    height: fit-content;
   }
 
   .hover-shadow:hover {
@@ -287,9 +455,6 @@ const { Content, frontmatter } = Astro.props.project;
     display: none;
   }
   .projekt_mob_img {
-    display: none;
-  }
-  .wrapp_mob {
     display: none;
   }
   @media (max-width: 768px) {
@@ -325,9 +490,7 @@ const { Content, frontmatter } = Astro.props.project;
     .projekt_mob_img {
       display: none;
     }
-    .wrapp_mob {
-      display: none;
-    }
+
     .web_img_main {
       display: none;
     }
@@ -340,6 +503,9 @@ const { Content, frontmatter } = Astro.props.project;
     .projekt_mob_img {
       display: inline;
       min-width: 700px;
+    }
+    .carousel_img {
+      margin: 0 5px;
     }
   }
   @media only screen and (max-width: 1400px) and (min-width: 760px) {
@@ -367,6 +533,24 @@ const { Content, frontmatter } = Astro.props.project;
 
     .gallerymini {
       height: 200px;
+    }
+    .carousel_img {
+      margin: 0;
+    }
+  }
+  @media only screen and (min-width: 1400px) and (max-width: 1900px) {
+    .carousel_img {
+      margin: 0 3vw;
+    }
+  }
+  @media only screen and (min-width: 1900px) and (max-width: 2500px) {
+    .carousel_img {
+      margin: 0 8.8vw;
+    }
+  }
+  @media only screen and (min-width: 2500px) {
+    .carousel_img {
+      margin: 0 18.3vw;
     }
   }
 </style>

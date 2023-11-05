@@ -1,6 +1,17 @@
 ---
 interface Props {
-  id?: "contact" | "projects" | "project" | "left" | "right" | string;
+  id?:
+    | "contact"
+    | "prev"
+    | "next"
+    | "projects"
+    | "project"
+    | "left"
+    | "right"
+    | "close"
+    | "modal_left"
+    | "modal_right"
+    | string;
   type?: "submit" | string;
 }
 
@@ -22,11 +33,11 @@ const { id } = Astro.props;
     text-transform: uppercase;
     color: #000000;
     text-decoration: none;
-    border-bottom: 1px solid #000000;
-    border-left: 1px solid #000000;
-    border-top: 1px solid #fff;
-    border-right: 1px solid #fff;
-    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    border-left: 1px solid rgba(0, 0, 0, 1);
+    border-top: 1px solid rgba(0, 0, 0, 0);
+    border-right: 1px solid rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
   }
 
   button:hover {
@@ -47,23 +58,82 @@ const { id } = Astro.props;
     margin-top: 20px;
   }
   #left,
-  #right {
+  #right,
+  #modal_left,
+  #modal_right {
     cursor: pointer;
-    position: inherit;
-    width: 40px;
-    height: 61px;
+    position: absolute;
+    width: 2vw;
+    height: 5.5vh;
     padding: 16px;
-    margin-top: 150px;
     color: white;
     font-weight: bold;
     font-size: 20px;
     border-radius: 0 5px 5px 0;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 1;
+    border: 0px;
+    top: 40%;
   }
-  #right {
+  #right,
+  #modal_right {
     border-radius: 5px 0 0 5px;
-    margin-left: 10px;
+    right: 3vw;
+  }
+  #left,
+  #modal_left {
+    left: 3vw;
+  }
+  #modal_left,
+  #modal_right {
+    position: fixed;
+    top: 30vh;
+  }
+
+  #close {
+    color: white;
+    position: fixed;
+    top: 10px;
+    right: 40px;
+    font-size: 35px;
+    font-weight: bold;
+    border: 0px;
+  }
+
+  #close:hover,
+  #close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #prev,
+  #next {
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  #next {
+    margin-right: 17px;
+    right: 6.5%;
+    border-radius: 3px 0 0 3px;
+  }
+  #prev {
+    left: 6.5%;
+  }
+  #prev:hover,
+  #next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
   }
   @media (max-width: 768px) {
     #contact {

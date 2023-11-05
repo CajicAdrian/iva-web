@@ -1,0 +1,257 @@
+---
+import Image from "astro/components/Image.astro";
+export async function getStaticPaths() {
+  const projects = await Astro.glob("../../projects/*.md");
+
+  return projects.map((project) => ({
+    params: {
+      slug: project.frontmatter.slug,
+    },
+    props: {
+      project,
+    },
+  }));
+}
+const { frontmatter } = Astro.props.project;
+---
+
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <div class="mySlides">
+      <Image src={home} alt="Jungle Home" style="width:100%" title="home" />
+    </div>
+
+    <div class="mySlides">
+      <Image
+        src={onama}
+        alt="Jungle About us"
+        style="width:100%"
+        title="onama"
+      />
+    </div>
+
+    <div class="mySlides">
+      <Image
+        src={tecajevi}
+        alt="Jungle Zumba"
+        style="width:100%"
+        title="tecajvi"
+      />
+    </div>
+
+    <div class="mySlides">
+      <Image
+        src={termini}
+        alt="Jungle Dance dates"
+        style="width:100%"
+        title="termini"
+      />
+    </div>
+    <div class="mySlides">
+      <Image
+        src={upis}
+        alt="Jungle Enrollment form"
+        style="width:100%"
+        title="upis"
+      />
+    </div>
+    <div class="mySlides">
+      <Image
+        src={kontakt}
+        alt="Jungle Contact"
+        style="width:100%"
+        title="kontakt"
+      />
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <div class="gallerymini">
+      {
+        frontmatter.images.map((image) => (
+          <Image src={image.src} alt={image.alt} width={500} height={500} />
+        ))
+      }
+      {
+        frontmatter.images2.map((image) => (
+          <Image src={image.src} alt={image.alt} width={500} height={500} />
+        ))
+      }
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides((slideIndex += n));
+    }
+
+    function currentSlide(n) {
+      showSlides((slideIndex = n));
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      var captionText = document.getElementById("caption");
+      if (n > slides.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = slides.length;
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+      document.body.classList.add("modal-open"); // Add the class 'modal-open' to the body
+    }
+
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+      document.body.classList.remove("modal-open"); // Remove the class 'modal-open' from the body
+    }
+    const app = document.querySelector(".app");
+    firstImg = app.querySelectorAll("img")[0];
+
+    let firstImgWidth = firstImg.clientWidth + 32; // getting firsth img width  and adding 32px (30m 2b) for the margin value
+
+    function left() {
+      app.scrollLeft -= firstImgWidth;
+    }
+    function right() {
+      app.scrollLeft += firstImgWidth;
+    }
+  </script>
+  <style>
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: black;
+    }
+
+    /* Modal Content */
+    .modal-content {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      padding: 0;
+      width: 90%;
+    }
+
+    /* The Close Button */
+    .close {
+      color: white;
+      position: fixed;
+      top: 10px;
+      right: 40px;
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #999;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: fixed;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      margin-right: 17px;
+      right: 6.5%;
+      border-radius: 3px 0 0 3px;
+    }
+    .prev {
+      left: 6.5%;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .gallerymini {
+      overflow: hidden;
+      height: 300px;
+      margin-bottom: 30px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background-color: #000000;
+    }
+
+    .gallerymini img {
+      width: 33.333333%;
+      padding: 10px;
+      height: fit-content;
+      transition: all 0.3s linear;
+    }
+
+    .gallerymini img:hover {
+      padding: 0;
+    }
+  </style>
+</div>

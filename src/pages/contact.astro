@@ -3,6 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Button from "../components/Button.astro";
 import content_img from "../assets/images/contact_img.png";
+
+import bcard from "../assets/images/Vizitka.png";
+import bcardback from "../assets/images/Vizitka hover.png";
 const key = import.meta.env.PUBLIC_EMAIL;
 ---
 
@@ -33,7 +36,13 @@ const key = import.meta.env.PUBLIC_EMAIL;
           <div id="result"></div>
         </form>
       </div>
-      <Image src={content_img} alt="Contact photo" title="contact img" />
+      <Image src={bcard} alt="Iva Valencic" id="bcard" title="business card" />
+      <Image
+        src={bcardback}
+        alt="Iva Valencic"
+        id="bcardback"
+        title="business card back"
+      />
     </section>
   </main>
 </Layout>
@@ -83,8 +92,26 @@ const key = import.meta.env.PUBLIC_EMAIL;
         }, 5000);
       });
   });
+  let bcard = document.getElementById("bcard");
+  let bcardback = document.getElementById("bcardback");
+
+  bcard.addEventListener("mouseenter", () => {
+    bcard.style.display = "none";
+    bcardback.style.display = "block";
+  });
+
+  bcardback.addEventListener("mouseleave", () => {
+    bcard.style.display = "block";
+    bcardback.style.display = "none";
+  });
 </script>
 <style>
+  #bcard {
+    display: block;
+  }
+  #bcardback {
+    display: none;
+  }
   .layout_contact {
     display: flex;
     flex-wrap: wrap;
@@ -95,31 +122,29 @@ const key = import.meta.env.PUBLIC_EMAIL;
     margin-bottom: 10px;
   }
   .layout_contact img {
-    width: 50%;
-    position: relative;
-    padding-left: 30px;
-    filter: grayscale(100%);
+    width: fit-content;
+    height: 900px;
     margin-top: 30px;
-    transition: all 0.5s linear;
   }
-  .layout_contact img:hover {
-    filter: grayscale(0%);
+  .layout_contact p {
+    width: 100%;
   }
   .layout_contact div {
-    width: 50%;
+    width: 40%;
+
     border: 1px solid #000000;
     margin-top: 30px;
   }
 
   .mail {
-    height: fit-content;
-    padding: 50px 80px 0px 80px;
+    height: 900px;
+    padding: 80px 80px 30px 80px;
   }
   .mail input,
   .mail textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     margin-top: 10px;
   }
   .mail input {

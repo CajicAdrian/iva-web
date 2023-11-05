@@ -4,11 +4,6 @@ import { Image } from "astro:assets";
 import Button from "../components/Button.astro";
 import ivafoto from "../assets/images/iva_foto.jpg";
 import ivanew from "../assets/images/iva_new_mamber.jpg";
-import ivasome from "../assets/images/iva_somebody.jpg";
-
-import leko from "../assets/images/logo/Leko_partneri.svg";
-import intention from "../assets/images/logo/IntentionKeeper.svg";
-import jungle from "../assets/images/logo/jungle.svg";
 import figma from "../assets/images/icons/figma.png";
 import photoshop from "../assets/images/icons/ps.png";
 import indesign from "../assets/images/icons/ai.png";
@@ -35,14 +30,28 @@ const projects = await Astro.glob("../projects/*.md");
         title="iva foto"
       />
     </section>
+    <section class="carousel">
+      <Button id="left">&#10094;</Button>
+      <div class="projects">
+        {
+          projects.map((project) => (
+            <a href={`/projects/${project.frontmatter.slug}`} class="project">
+              <Image
+                src={project.frontmatter.index.src}
+                alt={project.frontmatter.index.alt}
+                id={project.frontmatter.index.id}
+                width={500}
+                height={500}
+              />
+            </a>
+          ))
+        }
+      </div>
+      <Button id="right">&#10095;</Button>
+    </section>
     <section class="container layout_new_member">
       <h4>Looking for a new member for your creative team?</h4>
-      <Image
-        src={ivanew}
-        alt="Iva Valencic"
-        class="web_img color-change-image"
-        title="iva new member"
-      />
+
       <div class="text_padding">
         <p>
           I am a Croatia-based designer. A graduate of the Zagreb School of Fine
@@ -52,63 +61,12 @@ const projects = await Astro.glob("../projects/*.md");
           Lingua School to create one of their pages. I took part in the ICDC
           Challenge 2023 as a member of the Croatian team.
         </p>
-        <Image
-          src={ivanew}
-          alt="Iva Valencic"
-          class="mob_img color-change-image"
-        />
+
         <p>
           As a freelancer, I continue to work with smaller companies, but I
           would like to join a larger team of designers so that I may learn from
           more knowledgeble and skilled people and bring my ideas to the time.
         </p>
-      </div>
-    </section>
-    <section class="wrapper">
-      <div class="carousel">
-        <Button id="left">&#10094;</Button>
-        <div class="projects">
-          {
-            projects.slice(projects.length - 1).map((project) => (
-              <a href={project.frontmatter.slug} class="project">
-                <Image
-                  src={project.frontmatter.index.src}
-                  alt={project.frontmatter.index.alt}
-                  id={project.frontmatter.index.id}
-                  width={500}
-                  height={500}
-                />
-              </a>
-            ))
-          }
-          {
-            projects.map((project) => (
-              <a href={project.frontmatter.slug} class="project">
-                <Image
-                  src={project.frontmatter.index.src}
-                  alt={project.frontmatter.index.alt}
-                  id={project.frontmatter.index.id}
-                  width={500}
-                  height={500}
-                />
-              </a>
-            ))
-          }
-          {
-            projects.slice(0, 1).map((project) => (
-              <a href={project.frontmatter.slug} class="project">
-                <Image
-                  src={project.frontmatter.index.src}
-                  alt={project.frontmatter.index.alt}
-                  id={project.frontmatter.index.id}
-                  width={500}
-                  height={500}
-                />
-              </a>
-            ))
-          }
-        </div>
-        <Button id="right">&#10095;</Button>
       </div>
     </section>
 
@@ -143,14 +101,6 @@ const projects = await Astro.glob("../projects/*.md");
           knowledge. I work to make smaller brands find their customers and
           captivate them with their prestige.
         </p>
-        <Image
-          src={ivasome}
-          width={500}
-          alt="Iva_foto"
-          class="mob_img color-change-image"
-          id="ivasome"
-          title="iva somebody"
-        />
         <p>
           Elegance is felt in every click a customer makes before deciding to
           purchase goods or use service. My goal is for brands to find their
@@ -159,38 +109,57 @@ const projects = await Astro.glob("../projects/*.md");
         </p>
       </div>
       <Image
-        src={ivasome}
-        alt="Iva_foto"
-        class="web_img color-change-image"
-        title="iva somebody"
+        src={ivanew}
+        alt="Iva Valencic"
+        class="color-change-image"
+        title="iva new member"
       />
     </section>
   </main>
 </Layout>
 <script>
-  const slider = document.querySelector(".projects");
+  let slider = document.querySelector(".projects");
   const left = document.getElementById("left");
   const right = document.getElementById("right");
+  const boxes = slider?.querySelectorAll("a");
+  let boxSize = 0;
+
+  boxes?.forEach((box) => {
+    boxSize = box.offsetWidth;
+    const size = `${boxSize}px`;
+    const sizeInPx = parseFloat(size);
+    const sliderSize = sizeInPx * 3;
+
+    slider.style.width = `${sliderSize}px`;
+  });
 
   let isMoving: boolean;
-  let curentIndex = 1;
+  let curentIndex = 0;
+  const totalIndex = 3;
 
   function moveSlider() {
-    slider.style.transform = `translateX(-${curentIndex * 33}%)`;
+    slider.style.transform = `translateX(-${curentIndex * boxSize}px)`;
   }
 
-  function handleLeft(e) {
+  function handleLeft() {
     if (isMoving) {
       return;
     }
     isMoving = true;
     curentIndex--;
+    if (curentIndex < 0) {
+      curentIndex = totalIndex - 1;
+    }
     moveSlider();
     isMoving = false;
   }
   function handleRight() {
     if (isMoving) {
       return;
+    }
+    if (curentIndex >= totalIndex) {
+      console.log(curentIndex);
+      curentIndex = 0;
     }
     isMoving = true;
     curentIndex++;
@@ -259,19 +228,8 @@ const projects = await Astro.glob("../projects/*.md");
     border-bottom: 1px solid #000000;
     padding: 10px;
   }
-  .layout_new_member img {
-    width: 50%;
-    height: fit-content;
-    position: relative;
-    padding-left: 30px;
-    padding-top: 40px;
-    padding-bottom: 20px;
-    object-fit: cover;
-    filter: grayscale(100%);
-    transition: all 0.5s linear;
-  }
   .layout_new_member div {
-    width: 45%;
+    width: 100%;
     margin-top: auto;
     padding-bottom: 20px;
     padding-top: 30px;
@@ -313,6 +271,7 @@ const projects = await Astro.glob("../projects/*.md");
   }
   .layout_need_somebody img {
     width: 60%;
+    height: auto;
     position: relative;
     padding-left: 30px;
     padding-top: 40px;
@@ -331,45 +290,28 @@ const projects = await Astro.glob("../projects/*.md");
   .layout_need_somebody img:hover {
     filter: grayscale(0%);
   }
-
-  .wrapper {
-    max-width: 100vw;
-    margin: 0 auto;
-  }
   .carousel {
-    cursor: pointer;
     white-space: nowrap;
     position: relative;
     display: flex;
-    overflow: hidden;
-    width: 100%;
   }
 
   .projects {
-    width: calc(100% - 80px);
-    transform: translateX(-30%);
+    margin: 0;
+    cursor: pointer;
+    padding: 0 5vw;
   }
 
-  /* .carousel.dragging {
-    cursor: grab;
-    scroll-behavior: auto;
-  } */
-
   .carousel img {
-    height: 350px;
+    width: calc(83vw / 3);
     object-fit: scale-down;
-    border: 1px solid #000000;
-    margin: 0 15px;
-
+    background-color: #474747;
+    margin: 0 1vw;
     filter: grayscale(100%);
-    filter: contrast(0%);
-    filter: brightness(0%);
   }
 
   .carousel img:hover {
     filter: grayscale(0%);
-    filter: contrast(100%);
-    filter: brightness(100%);
   }
   #leko:hover {
     background-color: #666666;
