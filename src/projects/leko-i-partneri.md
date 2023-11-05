@@ -73,7 +73,29 @@ index:
     alt: "Leko",
     id: "leko",
   }
+mockup:
+  {
+    src: "../src/assets/images/projects/jungle/mockup.png",
+    alt: "Jungle Mockup",
+  }
+sitemap:
+  {
+    src: "../src/assets/images/projects/jungle/sitemap.png",
+    alt: "Jungle Sitemap",
+  }
+wireframe:
+  {
+    src: "../src/assets/images/projects/jungle/wireframe.png",
+    alt: "Jungle Wirefame",
+  }
+typo:
+  {
+    src: "../src/assets/images/projects/jungle/style_guide.png",
+    alt: "Jungle Style Guide",
+  }
 ---
+
+![just-the-basics](../assets/images/ui_design/leko.jpg)
 
 <h3 class="h3_full">Leko and partners</h3>
 <h3>Law firm</h3>
