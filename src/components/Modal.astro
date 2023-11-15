@@ -1,5 +1,5 @@
 ---
-import Image from "astro/components/Image.astro";
+import { Image } from "astro:assets";
 export async function getStaticPaths() {
   const projects = await Astro.glob("../../projects/*.md");
 
