@@ -10,12 +10,8 @@ export async function getStaticPaths() {
   const projects = await getCollection("projects");
 
   return projects.map((project) => ({
-    params: {
-      slug: project.slug,
-    },
-    props: {
-      project,
-    },
+    params: { slug: project.slug },
+    props: { project },
   }));
 }
 
@@ -56,9 +52,9 @@ const {
           <h1>{texttitle}</h1>
           <h2>{textsubtitle}</h2>
           <p>{textparagraph}</p>
-          <!-- <a href={href.src} target="_blank"
+          <a href={href} target="_blank"
             ><Button id="project">figma prototype</Button></a
-          > -->
+          >
         </div>
       </section>
       <Image
