@@ -21,12 +21,7 @@ const projects = await Astro.glob("../../content/projects/*.md");
       {
         projects.map((project) => (
           <div class="card">
-            <Image
-              src={project.frontmatter.image}
-              alt={project.frontmatter.image.title}
-              width={800}
-              height={700}
-            />
+            
             <a href={`/projects/${project.frontmatter.slug}`}>
               <Button id="projects">Read more</Button>
             </a>
