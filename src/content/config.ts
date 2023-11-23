@@ -10,7 +10,7 @@ export const collections = {
             textparagraph: z.string(),
             image: image(),
             description: z.string(),
-            href: z.string(),
+            href: z.object({}),
             box1h: z.string(),
             box1p: z.string(),
             box2h: z.string(),
