@@ -23,23 +23,23 @@ console.log(" ~ projects:", projects );
       {
         projects.map((project) => (
           <div class="card">
+            <Image
+              src={project.data.image}
+              alt={project.data.title}
+              width={800}
+              height={700}
+            />
             <a href={`/projects/${project.slug}`}>
               <Button id="projects">Read more</Button>
-              </a>
-              </div>
-              ))
-            }
+            </a>
+          </div>
+        ))
+      }
     </section>
   </main>
 </Layout>
 <!-- <script>
   
-  <Image
-    src={project.frontmatter.image.src}
-    alt={project.frontmatter.image.title}
-    width={800}
-    height={700}
-  />
 
 
 
