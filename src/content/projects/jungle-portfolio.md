@@ -9,7 +9,7 @@ textparagraph:
   movement through an elegant and classic site. I had the pleasure of collaborating with my
   talented colleague, Tee Huljek, who created a stunning logo that served as the inspiration for
   this exquisite web design.
-image: "../src/assets/images/ui_design/jungle.jpg"
+image: "/src/assets/images/ui_design/jungle.jpg"
 description:
   Drawing inspiration from the logo redesign, I sought to create a visually immersive experience that
   seamlessly combines the raw energy of the jungle with the refined elegance of classical dances. To
