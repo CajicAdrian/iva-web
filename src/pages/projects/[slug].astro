@@ -3,21 +3,42 @@ import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Button from "../../components/Button.astro";
 import Modal from "../../components/Modal.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-  const projects = await Astro.glob("../../content/projects/*.md");
+  const projects = await getCollection("projects");
 
   return projects.map((project) => ({
     params: {
-      slug: project.frontmatter.slug,
+      slug: project.slug,
     },
     props: {
       project,
     },
   }));
 }
-const projects = await Astro.glob("../../content/projects/*.md");
-const { Content, frontmatter } = Astro.props.project;
+
+type Props = {
+  project: CollectionEntry<"projects">;
+};
+const projects = await getCollection("projects");
+const { project } = Astro.props;
+const {
+  title,
+  texttitle,
+  textsubtitle,
+  textparagraph,
+  image,
+  description,
+  href,
+  box1h,
+  box1p,
+  box2h,
+  box2p,
+  box3h,
+  box3p,
+} = project.data;
 ---
 
 <Layout title="Iva Valencic - Designer">
@@ -25,326 +46,326 @@ const { Content, frontmatter } = Astro.props.project;
     <section class="Ostali_projekti">
       {
         projects.map((project) => (
-          <a href={project.frontmatter.slug}>{project.frontmatter.title}</a>
+          <a href={project.slug}>{project.data.title}</a>
         ))
       }
     </section>
     <div class="mockup_right">
       <section class="portfolio_ui_web">
         <div class="portfolio_ui_text">
-          <h1>{frontmatter.texttitle}</h1>
-          <h2>{frontmatter.textsubtitle}</h2>
-          <p>{frontmatter.textparagraph}</p>
-          <a href={frontmatter.href.src} target="_blank"
+          <h1>{texttitle}</h1>
+          <h2>{textsubtitle}</h2>
+          <p>{textparagraph}</p>
+          <!-- <a href={href.src} target="_blank"
             ><Button id="project">figma prototype</Button></a
-          >
+          > -->
         </div>
       </section>
       <Image
-        src={frontmatter.image}
-        alt={frontmatter.title}
+        src={image}
+        alt={title}
         width={600}
         height={600}
         class="projekt_web_img"
       />
     </div>
     <section class="container">
-      <p>{frontmatter.description}</p>
+      <p>{description}</p>
     </section>
     <section class="desc">
       <div class="container">
         <div class="desc_box">
-          <h5>{frontmatter.box1h}</h5>
-          <p>{frontmatter.box1p}</p>
+          <h5>{box1h}</h5>
+          <p>{box1p}</p>
         </div>
         <div class="desc_box">
-          <h5>{frontmatter.box2h}</h5>
-          <p>{frontmatter.box2p}</p>
+          <h5>{box2h}</h5>
+          <p>{box2p}</p>
         </div>
         <div class="desc_box">
-          <h5>{frontmatter.box3h}</h5>
-          <p>{frontmatter.box3p}</p>
+          <h5>{box3h}</h5>
+          <p>{box3p}</p>
         </div>
       </div>
     </section>
     <section class="Ostali_projekti">
       {
         projects.map((project) => (
-          <a href={project.frontmatter.slug}>{project.frontmatter.title}</a>
+          <a href={project.slug}>{project.data.title}</a>
         ))
       }
     </section>
   </main>
+</Layout>
+<style>
+  .Ostali_projekti {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .Ostali_projekti a {
+    padding: 3px 2px;
+    margin: 0 8px;
+    color: #5b5b5b;
+    text-decoration: none;
+    font-size: 12px;
+  }
+  .Ostali_projekti a:hover {
+    border-bottom: 0.5px solid #000000;
+  }
 
-  <style>
+  .mockup_right {
+    width: 96%;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 14%;
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+  .mockup_right img {
+    object-fit: scale-down;
+    overflow: hidden;
+  }
+  .portfolio_ui_web {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    width: 70%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .portfolio_ui_text {
+    width: 70%;
+    text-align: left;
+    padding-top: 30px;
+  }
+  .portfolio_ui_text p {
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+  .desc {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: 100px 0;
+  }
+  .desc_box {
+    width: 25%;
+    margin: 30px;
+    padding: 20px 10px;
+  }
+  .title_box {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    width: 100%;
+    padding: 10px;
+  }
+  .title_box_right {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    width: 100%;
+    padding: 10px;
+  }
+  .images {
+    width: 90%;
+    height: fit-content;
+    margin: 50px;
+  }
+
+  .gallery {
+    overflow: hidden;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .desc_box h5 {
+    margin-bottom: 10px;
+  }
+  .gallery img {
+    width: 33.333333%;
+    padding: 10px;
+    height: fit-content;
+    transition: all 0.3s linear;
+  }
+  .gallery img:hover {
+    padding: 0;
+  }
+
+  .gallerymini {
+    overflow: hidden;
+    height: 300px;
+    margin-bottom: 30px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #000000;
+  }
+
+  .gallerymini img {
+    width: 33.333333%;
+    padding: 10px;
+    height: fit-content;
+    transition: all 0.3s linear;
+  }
+
+  .gallerymini img:hover {
+    padding: 0;
+  }
+  /* The Modal (background) */
+  #modal {
+    visibility: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  #modal_overlay {
+    z-index: -1;
+  }
+
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+  }
+  .wrapper {
+    max-width: 100vw;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .carousel {
+    width: 100%;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+    flex-direction: row;
+    transform: translateX(-100%);
+    margin-top: 20px;
+    display: flex;
+  }
+  .carousel_img {
+    width: 1440px;
+    height: fit-content;
+  }
+
+  .hover-shadow:hover {
+    box-shadow:
+      0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .mob_img {
+    display: none;
+  }
+  .projekt_mob_img {
+    display: none;
+  }
+  @media (max-width: 768px) {
     .Ostali_projekti {
       width: 70%;
       margin: 0 auto;
     }
     .Ostali_projekti a {
-      padding: 3px 2px;
-      margin: 0 8px;
-      color: #5b5b5b;
-      text-decoration: none;
+      margin: 0 5px;
       font-size: 12px;
-    }
-    .Ostali_projekti a:hover {
-      border-bottom: 0.5px solid #000000;
     }
 
     .mockup_right {
-      width: 96%;
-      display: flex;
-      flex-wrap: nowrap;
-      margin-left: 14%;
-      padding-left: 30px;
-      padding-top: 30px;
+      width: 100%;
+
+      margin-left: 0;
+      margin-top: 0;
+      padding-left: 0px;
+      padding-top: 0px;
       padding-bottom: 20px;
     }
-    .mockup_right img {
-      object-fit: scale-down;
-      overflow: hidden;
+    .projekt_mob_img {
+      width: 85%;
+      margin-left: 15%;
+      display: inline;
     }
-    .portfolio_ui_web {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 30px auto;
-      width: 70%;
-      flex-direction: row;
-      justify-content: space-between;
-    }
+
     .portfolio_ui_text {
-      width: 70%;
-      text-align: left;
-      padding-top: 30px;
-    }
-    .portfolio_ui_text p {
-      padding-top: 40px;
-      padding-bottom: 60px;
-    }
-    .desc {
-      border-top: 1px solid black;
-      border-bottom: 1px solid black;
-      margin: 100px 0;
-    }
-    .desc_box {
-      width: 25%;
-      margin: 30px;
-      padding: 20px 10px;
-    }
-    .title_box {
-      border-bottom: 1px solid black;
-      border-left: 1px solid black;
       width: 100%;
-      padding: 10px;
-    }
-    .title_box_right {
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
-      width: 100%;
-      padding: 10px;
-    }
-    .images {
-      width: 90%;
-      height: fit-content;
-      margin: 50px;
+      padding-top: 0px;
     }
 
-    .gallery {
-      overflow: hidden;
-      height: 300px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    .desc_box h5 {
-      margin-bottom: 10px;
-    }
-    .gallery img {
-      width: 33.333333%;
-      padding: 10px;
-      height: fit-content;
-      transition: all 0.3s linear;
-    }
-    .gallery img:hover {
-      padding: 0;
-    }
-
-    .gallerymini {
-      overflow: hidden;
-      height: 300px;
-      margin-bottom: 30px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      background-color: #000000;
-    }
-
-    .gallerymini img {
-      width: 33.333333%;
-      padding: 10px;
-      height: fit-content;
-      transition: all 0.3s linear;
-    }
-
-    .gallerymini img:hover {
-      padding: 0;
-    }
-    /* The Modal (background) */
-    #modal {
-      visibility: hidden;
-      display: flex;
-      flex-wrap: wrap;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      padding: 50px;
-      background-color: rgba(0, 0, 0, 0.9);
-    }
-    #modal_overlay {
-      z-index: -1;
-    }
-
-    /* Modal Content */
-    .modal-content {
-      position: relative;
-      margin: auto;
-      padding: 0;
-      width: 90%;
-    }
-    .wrapper {
-      max-width: 100vw;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-    .carousel {
-      width: 100%;
-      cursor: pointer;
-      white-space: nowrap;
-      position: relative;
-      flex-direction: row;
-      transform: translateX(-100%);
-      margin-top: 20px;
-      display: flex;
-    }
-    .carousel_img {
-      width: 1440px;
-      height: fit-content;
-    }
-
-    .hover-shadow:hover {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-    .mob_img {
-      display: none;
-    }
     .projekt_mob_img {
       display: none;
     }
-    @media (max-width: 768px) {
-      .Ostali_projekti {
-        width: 70%;
-        margin: 0 auto;
-      }
-      .Ostali_projekti a {
-        margin: 0 5px;
-        font-size: 12px;
-      }
 
-      .mockup_right {
-        width: 100%;
-
-        margin-left: 0;
-        margin-top: 0;
-        padding-left: 0px;
-        padding-top: 0px;
-        padding-bottom: 20px;
-      }
-      .projekt_mob_img {
-        width: 85%;
-        margin-left: 15%;
-        display: inline;
-      }
-
-      .portfolio_ui_text {
-        width: 100%;
-        padding-top: 0px;
-      }
-
-      .projekt_mob_img {
-        display: none;
-      }
-
-      .web_img_main {
-        display: none;
-      }
-      .mob_img {
-        display: inline;
-      }
-      .projekt_web_img {
-        display: none;
-      }
-      .projekt_mob_img {
-        display: inline;
-        min-width: 700px;
-      }
-      .carousel_img {
-        margin: 0 5px;
-      }
+    .web_img_main {
+      display: none;
     }
-    @media only screen and (max-width: 1400px) and (min-width: 760px) {
-      .mockup_right {
-        width: 70%;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        padding: 0px;
-      }
-      .mockup_right img {
-        width: 100%;
-        margin-top: 60px;
-      }
-      .portfolio_ui_web {
-        margin: 0;
-        width: 100%;
-        padding: 0;
-      }
-      .portfolio_ui_text {
-        width: 100%;
-      }
-      .gallery {
-        height: 150px;
-      }
+    .mob_img {
+      display: inline;
+    }
+    .projekt_web_img {
+      display: none;
+    }
+    .projekt_mob_img {
+      display: inline;
+      min-width: 700px;
+    }
+    .carousel_img {
+      margin: 0 5px;
+    }
+  }
+  @media only screen and (max-width: 1400px) and (min-width: 760px) {
+    .mockup_right {
+      width: 70%;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      padding: 0px;
+    }
+    .mockup_right img {
+      width: 100%;
+      margin-top: 60px;
+    }
+    .portfolio_ui_web {
+      margin: 0;
+      width: 100%;
+      padding: 0;
+    }
+    .portfolio_ui_text {
+      width: 100%;
+    }
+    .gallery {
+      height: 150px;
+    }
 
-      .gallerymini {
-        height: 200px;
-      }
-      .carousel_img {
-        margin: 0;
-      }
+    .gallerymini {
+      height: 200px;
     }
-    @media only screen and (min-width: 1400px) and (max-width: 1900px) {
-      .carousel_img {
-        margin: 0 3vw;
-      }
+    .carousel_img {
+      margin: 0;
     }
-    @media only screen and (min-width: 1900px) and (max-width: 2500px) {
-      .carousel_img {
-        margin: 0 8.8vw;
-      }
+  }
+  @media only screen and (min-width: 1400px) and (max-width: 1900px) {
+    .carousel_img {
+      margin: 0 3vw;
     }
-    @media only screen and (min-width: 2500px) {
-      .carousel_img {
-        margin: 0 18.3vw;
-      }
+  }
+  @media only screen and (min-width: 1900px) and (max-width: 2500px) {
+    .carousel_img {
+      margin: 0 8.8vw;
     }
-  </style>
-</Layout>
+  }
+  @media only screen and (min-width: 2500px) {
+    .carousel_img {
+      margin: 0 18.3vw;
+    }
+  }
+</style>
