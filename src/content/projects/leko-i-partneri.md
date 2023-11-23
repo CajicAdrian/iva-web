@@ -1,6 +1,6 @@
 ---
 title: Leko i Partneri
-slug: leko-i-partneri
+
 texttitle: Leko and partners
 textsubtitle: Law firm
 textparagraph: Leko & Partners is a prestigious law firm with over 30 years of experience in providing exceptional legal consulting services. As a web designer, I had the privilege of creating a visually captivating online presence that truly reflects their status as a premium service.

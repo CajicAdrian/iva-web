@@ -1,6 +1,5 @@
 ---
 title: Jungle Portfolio
-slug: jungle-portfolio
 texttitle: Jungle
 textsubtitle: Dance studio
 textparagraph:

@@ -2,8 +2,10 @@
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Button from "../../components/Button.astro";
+import { getCollection } from "astro:content";
 
-const projects = await Astro.glob("../../content/projects/*.md");
+const projects = await getCollection("projects");
+console.log(" ~ projects:", projects );
 ---
 
 <Layout title="Iva Valencic - Designer">
@@ -21,18 +23,27 @@ const projects = await Astro.glob("../../content/projects/*.md");
       {
         projects.map((project) => (
           <div class="card">
-            
-            <a href={`/projects/${project.frontmatter.slug}`}>
+            <a href={`/projects/${project.slug}`}>
               <Button id="projects">Read more</Button>
-            </a>
-          </div>
-        ))
-      }
+              </a>
+              </div>
+              ))
+            }
     </section>
   </main>
 </Layout>
 <!-- <script>
-    if (window.matchMedia("(max-width: 1400px)").matches) {
+  
+  <Image
+    src={project.frontmatter.image.src}
+    alt={project.frontmatter.image.title}
+    width={800}
+    height={700}
+  />
+
+
+
+  if (window.matchMedia("(max-width: 1400px)").matches) {
       const images = document.querySelectorAll(".color-change-image");
 
       const options = {
