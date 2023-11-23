@@ -17,13 +17,13 @@ const projects = await Astro.glob("../../content/projects/*.md");
       </p>
     </section>
 
-    <!-- <section class="container">
+    <section class="container">
       {
         projects.map((project) => (
           <div class="card">
             <Image
-              src={project.frontmatter.image.src}
-              alt={project.frontmatter.image.alt}
+              src={project.frontmatter.image}
+              alt={project.frontmatter.image.title}
               width={800}
               height={700}
             />
@@ -33,7 +33,7 @@ const projects = await Astro.glob("../../content/projects/*.md");
           </div>
         ))
       }
-    </section> -->
+    </section>
   </main>
 </Layout>
 <!-- <script>
