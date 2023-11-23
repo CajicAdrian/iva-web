@@ -10,6 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.9.6"
+    "astro": "^3.5.4",
+    "typescript": "^5.2.2",
+    "zod": "^3.22.4"
   }
 }

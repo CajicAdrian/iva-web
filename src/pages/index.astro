@@ -11,7 +11,7 @@ import affinity from "../assets/images/icons/affinity.png";
 import html from "../assets/images/icons/html.png";
 import css from "../assets/images/icons/css.png";
 
-const projects = await Astro.glob("../projects/*.md");
+const projects = await Astro.glob("../content/projects/*.md");
 ---
 
 <Layout title="Iva Valencic - Designer">
@@ -30,7 +30,7 @@ const projects = await Astro.glob("../projects/*.md");
         title="iva foto"
       />
     </section>
-    <section class="carousel">
+    <!-- <section class="carousel">
       <Button id="left">&#10094;</Button>
       <div class="projects">
         {
@@ -48,7 +48,7 @@ const projects = await Astro.glob("../projects/*.md");
         }
       </div>
       <Button id="right">&#10095;</Button>
-    </section>
+    </section> -->
     <section class="container layout_new_member">
       <h4>Looking for a new member for your creative team?</h4>
 
@@ -84,7 +84,7 @@ const projects = await Astro.glob("../projects/*.md");
 
     <section class="container layout_need_somebody">
       <h4>
-        Need somebody to help you create your
+        Need somebody to help you create
         <br class="web_br" /> interesting and challenging designs?
       </h4>
       <div class="text_padding">

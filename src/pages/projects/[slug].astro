@@ -1,23 +1,40 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Image from "astro/components/Image.astro";
+import { Image } from "astro:assets";
 import Button from "../../components/Button.astro";
 import Modal from "../../components/Modal.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-  const projects = await Astro.glob("../../projects/*.md");
+  const projects = await getCollection("projects");
 
   return projects.map((project) => ({
-    params: {
-      slug: project.frontmatter.slug,
-    },
-    props: {
-      project,
-    },
+    params: { slug: project.slug },
+    props: { project },
   }));
 }
-const projects = await Astro.glob("../../projects/*.md");
-const { Content, frontmatter } = Astro.props.project;
+
+type Props = {
+  project: CollectionEntry<"projects">;
+};
+const projects = await getCollection("projects");
+const { project } = Astro.props;
+const {
+  title,
+  texttitle,
+  textsubtitle,
+  textparagraph,
+  image,
+  description,
+  href,
+  box1h,
+  box1p,
+  box2h,
+  box2p,
+  box3h,
+  box3p,
+} = project.data;
 ---
 
 <Layout title="Iva Valencic - Designer">
@@ -25,265 +42,57 @@ const { Content, frontmatter } = Astro.props.project;
     <section class="Ostali_projekti">
       {
         projects.map((project) => (
-          <a href={project.frontmatter.slug}>{project.frontmatter.title}</a>
+          <a href={project.slug}>{project.data.title}</a>
         ))
       }
     </section>
     <div class="mockup_right">
       <section class="portfolio_ui_web">
         <div class="portfolio_ui_text">
-          <Content />
-          <a href={frontmatter.href.src} target="_blank"
+          <h1>{texttitle}</h1>
+          <h2>{textsubtitle}</h2>
+          <p>{textparagraph}</p>
+          <a href={href} target="_blank"
             ><Button id="project">figma prototype</Button></a
           >
         </div>
       </section>
       <Image
-        src={frontmatter.image.src}
-        alt={frontmatter.image.alt}
+        src={image}
+        alt={title}
         width={600}
         height={600}
         class="projekt_web_img"
       />
     </div>
     <section class="container">
-      <p>{frontmatter.description}</p>
+      <p>{description}</p>
     </section>
     <section class="desc">
       <div class="container">
         <div class="desc_box">
-          <h5>{frontmatter.box1h}</h5>
-          <p>{frontmatter.box1p}</p>
+          <h5>{box1h}</h5>
+          <p>{box1p}</p>
         </div>
         <div class="desc_box">
-          <h5>{frontmatter.box2h}</h5>
-          <p>{frontmatter.box2p}</p>
+          <h5>{box2h}</h5>
+          <p>{box2p}</p>
         </div>
         <div class="desc_box">
-          <h5>{frontmatter.box3h}</h5>
-          <p>{frontmatter.box3p}</p>
+          <h5>{box3h}</h5>
+          <p>{box3p}</p>
         </div>
       </div>
     </section>
-    <section class="container"></section>
-    <section class="container">
-      <h4 class="title_box">sitemap</h4>
-    </section>
-    <section class="container">
-      <h4 class="title_box_right">wireframe</h4>
-    </section>
-    <section class="container">
-      <h4 class="title_box">typography and color</h4>
-    </section>
-    <section class="container">
-      <h4 class="title_box_right">final design:</h4>
-    </section>
-    <div class="container gallery web_img">
+    <section class="Ostali_projekti">
       {
-        frontmatter.images.map((image, index) => (
-          <Image
-            src={image.src}
-            alt={image.alt}
-            class="modalbtn"
-            width={500}
-            height={500}
-            id={`${index}`}
-          />
+        projects.map((project) => (
+          <a href={project.slug}>{project.data.title}</a>
         ))
       }
-    </div>
-    <div class="container gallery web_img">
-      {
-        frontmatter.images2.map((image, index) => (
-          <Image
-            src={image.src}
-            alt={image.alt}
-            class="modalbtn"
-            width={500}
-            height={500}
-            id={`${index}`}
-          />
-        ))
-      }
-    </div>
-    <div id="modal">
-      <Button id="close">&times;</Button>
-      <div class="modal-content">
-        <section class="wrapper">
-          <Button id="modal_left">&#10094;</Button>
-          <div class="carousel">
-            {
-              frontmatter.images3
-                .slice(frontmatter.images3.length - 1)
-                .map((image) => (
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={500}
-                    height={500}
-                    class="carousel_img"
-                  />
-                ))
-            }
-            {
-              frontmatter.images3.map((image) => (
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={500}
-                  height={500}
-                  class="carousel_img"
-                />
-              ))
-            }
-            {
-              frontmatter.images3
-                .slice(0, 1)
-                .map((image) => (
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={500}
-                    height={500}
-                    class="carousel_img"
-                  />
-                ))
-            }
-          </div>
-          <Button id="modal_right">&#10095;</Button>
-        </section>
-        <div class="container gallery web_img" id="galery2">
-          {
-            frontmatter.images.map((image, index) => (
-              <Image
-                src={image.src}
-                alt={image.alt}
-                class="modalgalery"
-                width={500}
-                height={500}
-                id={`${index}`}
-              />
-            ))
-          }
-        </div>
-        <div class="container gallery web_img" id="galery2">
-          {
-            frontmatter.images2.map((image, index) => (
-              <Image
-                src={image.src}
-                alt={image.alt}
-                class="modalgalery"
-                width={500}
-                height={500}
-                id={`${index}`}
-              />
-            ))
-          }
-        </div>
-      </div>
-    </div>
+    </section>
   </main>
-  <section class="Ostali_projekti">
-    {
-      projects.map((project) => (
-        <a href={project.frontmatter.slug}>{project.frontmatter.title}</a>
-      ))
-    }
-  </section>
 </Layout>
-<script>
-  import type { ViewTransitions } from "astro:transitions";
-
-  const modal = document.getElementById("modal");
-  const modalbtn = document.querySelectorAll(".modalbtn");
-  const modalgalery = document.querySelectorAll(".modalgalery");
-  const closebtn = document.getElementById("close");
-  const right = document.getElementById("modal_right");
-  const left = document.getElementById("modal_left");
-  const carousel = document.querySelector(".carousel");
-
-  let isMoving: boolean;
-  let curentIndex = 1;
-  const totalIndex = 6;
-
-  function openModal(index) {
-    modal.style.visibility = "visible";
-    curentIndex = index + 1;
-    moveSlider();
-  }
-
-  modalbtn?.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-      openModal(index);
-    });
-  });
-
-  modalgalery.forEach((img, index) => {
-    img.addEventListener("click", () => {
-      curentIndex = index + 1;
-      moveSlider();
-    });
-  });
-
-  function closeModal() {
-    modal.style.visibility = "hidden";
-  }
-
-  closebtn?.addEventListener("click", closeModal);
-
-  function backgroundClick(e) {
-    if (e.target == modal) {
-      modal.style.visibility = "hidden";
-    }
-  }
-
-  window.addEventListener("click", backgroundClick);
-
-  function moveSlider() {
-    const images = document.querySelectorAll(".carousel_img");
-    const img = images[curentIndex];
-    const currentHeight = img.offsetHeight;
-    const imgWidth = img.clientWidth;
-    console.log(imgWidth);
-
-    const carouselWidth = carousel?.clientWidth;
-    console.log(carouselWidth);
-
-    if (curentIndex >= 0 && curentIndex < images.length) {
-      carousel.style.maxHeight = `${currentHeight}px`;
-    }
-
-    carousel.style.transform = `translateX(-${curentIndex * carouselWidth}px)`;
-  }
-
-  function handleLeft() {
-    if (isMoving) {
-      return;
-    }
-    isMoving = true;
-    curentIndex--;
-    if (curentIndex < 0) {
-      curentIndex = totalIndex - 1;
-    }
-    moveSlider();
-    isMoving = false;
-  }
-  function handleRight() {
-    if (isMoving) {
-      return;
-    }
-    if (curentIndex >= totalIndex) {
-      curentIndex = 0;
-    }
-    isMoving = true;
-    curentIndex++;
-    moveSlider();
-    isMoving = false;
-  }
-
-  left?.addEventListener("click", handleLeft);
-  right?.addEventListener("click", handleRight);
-</script>
 <style>
   .Ostali_projekti {
     width: 70%;
@@ -449,7 +258,9 @@ const { Content, frontmatter } = Astro.props.project;
   }
 
   .hover-shadow:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow:
+      0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   .mob_img {
     display: none;
