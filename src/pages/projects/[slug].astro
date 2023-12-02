@@ -68,8 +68,8 @@ const {
         </div>
       </section>
       <Image
-        src={image}
-        alt={title}
+        src={image.src}
+        alt={image.alt}
         width={600}
         height={600}
         class="projekt_web_img"
@@ -96,13 +96,33 @@ const {
     </section>
     <section class="container">
       <div class="content">
-        <Image src={contentimage} alt={title} width={500} height={500} />
+        <Image
+          src={contentimage.src}
+          alt={contentimage.alt}
+          width={500}
+          height={500}
+        />
         <h4 class="content_left">{content1h}</h4>
-        <Image src={content1image} alt={content1h} width={500} height={500} />
+        <Image
+          src={content1image.src}
+          alt={content1image.alt}
+          width={500}
+          height={500}
+        />
         <h4 class="content_right">{content2h}</h4>
-        <Image src={content2image} alt={content2h} width={500} height={500} />
+        <Image
+          src={content2image.src}
+          alt={content2image.alt}
+          width={500}
+          height={500}
+        />
         <h4 class="content_left">{content3h}</h4>
-        <Image src={content3image} alt={content3h} width={500} height={500} />
+        <Image
+          src={content3image.src}
+          alt={content3image.alt}
+          width={500}
+          height={500}
+        />
         <h4 class="content_right">{content4h}</h4>
       </div>
       <div class="container gallery web_img">

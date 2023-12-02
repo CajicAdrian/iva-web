@@ -8,7 +8,8 @@ textparagraph:
   movement through an elegant and classic site. I had the pleasure of collaborating with my
   talented colleague, Tee Huljek, who created a stunning logo that served as the inspiration for
   this exquisite web design.
-image: "/src/assets/images/ui_design/jungle.jpg"
+image:
+  { src: "/src/assets/images/ui_design/jungle.jpg", alt: Jungle Dance Studio }
 description:
   Drawing inspiration from the logo redesign, I sought to create a visually immersive experience that
   seamlessly combines the raw energy of the jungle with the refined elegance of classical dances. To
@@ -23,13 +24,20 @@ box2h: FASTER REGISTRATION
 box2p: A place where users can effortlessly provide all the necessary information without the need for calls or in-person visits.
 box3h: SCHEDULE OF SESSIONS
 box3p: All trainings and appointments are recorded in one place. Users can effortlessly combine their schedules and stay updated with any changes.
-contentimage: "/src/assets/images/projects/jungle/mockup.png"
+contentimage:
+  { src: "/src/assets/images/projects/jungle/mockup.png", alt: mockup }
 content1h: SITEMAP
-content1image: "/src/assets/images/projects/jungle/sitemap.png"
+content1image:
+  { src: "/src/assets/images/projects/jungle/sitemap.png", alt: sitemap }
 content2h: MOOD BOARD AND KEYWORDS
-content2image: "/src/assets/images/projects/jungle/mood_board.png"
+content2image:
+  { src: "/src/assets/images/projects/jungle/mood_board.png", alt: mood board }
 content3h: COLOR PALETE
-content3image: "/src/assets/images/projects/jungle/color_palete.png"
+content3image:
+  {
+    src: "/src/assets/images/projects/jungle/color_palete.png",
+    alt: color palete,
+  }
 content4h: FINAL DESIGN
 images:
   [

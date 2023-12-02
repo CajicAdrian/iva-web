@@ -1,10 +1,9 @@
 ---
 title: Leko i Partneri
-
 texttitle: Leko and partners
 textsubtitle: Law firm
 textparagraph: Leko & Partners is a prestigious law firm with over 30 years of experience in providing exceptional legal consulting services. As a web designer, I had the privilege of creating a visually captivating online presence that truly reflects their status as a premium service.
-image: "/src/assets/images/ui_design/leko.jpg"
+image: { src: "/src/assets/images/ui_design/leko.jpg", alt: Leko i Partneri }
 description:
   To ensure that the website perfectly aligns with Leko & Partners' vision, I incorporated their new brand
   colors, exuding elegance and professionalism throughout every page. Through careful collaboration and understanding
@@ -20,13 +19,20 @@ box2h: ACCESS TO INFORMATION
 box2p: We restructured the content layout, ensuring that all vital information are just a click away. Users can now access detailed, up-to-date information effortlessly.
 box3h: LEGAL INSIGHTS
 box3p: Introducing interactive features for legal updates and insights, allowing users to engage with informative content seamlessly.
-contentimage: "/src/assets/images/projects/jungle/mockup.png"
+contentimage:
+  { src: "/src/assets/images/projects/jungle/mockup.png", alt: mockup }
 content1h: SITEMAP
-content1image: "/src/assets/images/projects/jungle/sitemap.png"
+content1image:
+  { src: "/src/assets/images/projects/jungle/sitemap.png", alt: sitemap }
 content2h: MOOD BOARD AND KEYWORDS
-content2image: "/src/assets/images/projects/jungle/sitemap.png"
+content2image:
+  { src: "/src/assets/images/projects/jungle/mood_board.png", alt: mood board }
 content3h: COLOR PALETE
-content3image: "/src/assets/images/projects/jungle/sitemap.png"
+content3image:
+  {
+    src: "/src/assets/images/projects/jungle/color_palete.png",
+    alt: color palete,
+  }
 content4h: FINAL DESIGN
 images:
   [

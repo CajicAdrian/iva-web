@@ -8,7 +8,10 @@ export const collections = {
             texttitle: z.string(),
             textsubtitle: z.string(),
             textparagraph: z.string(),
-            image: image(),
+            image: z.object({
+                src: image(),
+                alt: z.string(),
+              }),
             description: z.string(),
             href: z.string(),
             box1h: z.string(),
@@ -17,13 +20,25 @@ export const collections = {
             box2p: z.string(),
             box3h: z.string(),
             box3p: z.string(),
-            contentimage: image(),
+            contentimage: z.object({
+                src: image(),
+                alt: z.string(),
+              }),
             content1h: z.string(),
-            content1image: image(),
+            content1image: z.object({
+                src: image(),
+                alt: z.string(),
+              }),
             content2h: z.string(),
-            content2image: image(),
+            content2image: z.object({
+                src: image(),
+                alt: z.string(),
+              }),
             content3h: z.string(),
-            content3image: image(),
+            content3image: z.object({
+                src: image(),
+                alt: z.string(),
+              }),
             content4h: z.string(),
             images: z.array(z.object({
                 src: image(),
