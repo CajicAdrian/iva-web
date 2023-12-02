@@ -28,8 +28,8 @@ const projects = await getCollection("projects");
         projects.map((project) => (
           <div class="card">
             <Image
-              src={project.data.image}
-              alt={project.data.title}
+              src={project.data.image.src}
+              alt={project.data.image.alt}
               width={800}
               height={700}
             />
