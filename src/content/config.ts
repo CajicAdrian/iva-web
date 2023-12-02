@@ -26,13 +26,13 @@ export const collections = {
             content3image: image(),
             content4h: z.string(),
             images: z.array(z.object({
-                src: z.string(),
+                src: image(),
                 alt: z.string(),
-              }),),
+              })),
             images2: z.array(z.object({
-                src: z.string(),
+                src: image(),
                 alt: z.string(),
-              }),),
+              })),
         }),
     }),
 };
