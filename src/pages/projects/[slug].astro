@@ -34,10 +34,20 @@ const {
   box2p,
   box3h,
   box3p,
+  contentimage,
+  content1h,
+  content1image,
+  content2h,
+  content2image,
+  content3h,
+  content3image,
+  content4h,
+  images,
+  images2,
 } = project.data;
 ---
 
-<Layout title="Iva Valencic - Designer">
+<Layout title={title}>
   <main>
     <section class="Ostali_projekti">
       {
@@ -82,6 +92,46 @@ const {
           <h5>{box3h}</h5>
           <p>{box3p}</p>
         </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="content">
+        <Image src={contentimage} alt={title} width={500} height={500} />
+        <h4 class="content_left">{content1h}</h4>
+        <Image src={content1image} alt={content1h} width={500} height={500} />
+        <h4 class="content_right">{content2h}</h4>
+        <Image src={content2image} alt={content2h} width={500} height={500} />
+        <h4 class="content_left">{content3h}</h4>
+        <Image src={content3image} alt={content3h} width={500} height={500} />
+        <h4 class="content_right">{content4h}</h4>
+      </div>
+      <div class="container gallery web_img">
+        {
+          images.map((image, index) => (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              class="modalbtn"
+              width={500}
+              height={500}
+              id={`${index}`}
+            />
+          ))
+        }
+      </div>
+      <div class="container gallery web_img">
+        {
+          images2.map((image, index) => (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              class="modalbtn"
+              width={500}
+              height={500}
+              id={`${index}`}
+            />
+          ))
+        }
       </div>
     </section>
     <section class="Ostali_projekti">
@@ -148,6 +198,32 @@ const {
     width: 25%;
     margin: 30px;
     padding: 20px 10px;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .content img {
+    width: 100%;
+    height: auto;
+    margin: 40px 0;
+  }
+
+  .content_left {
+    width: 100%;
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    padding: 10px;
+    margin: 40px 0;
+  }
+
+  .content_right {
+    width: 100%;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    padding: 10px;
+    margin: 40px 0;
   }
   .title_box {
     border-bottom: 1px solid black;

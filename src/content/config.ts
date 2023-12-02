@@ -17,6 +17,22 @@ export const collections = {
             box2p: z.string(),
             box3h: z.string(),
             box3p: z.string(),
+            contentimage: image(),
+            content1h: z.string(),
+            content1image: image(),
+            content2h: z.string(),
+            content2image: image(),
+            content3h: z.string(),
+            content3image: image(),
+            content4h: z.string(),
+            images: z.array(z.object({
+                src: z.string(),
+                alt: z.string(),
+              }),),
+            images2: z.array(z.object({
+                src: z.string(),
+                alt: z.string(),
+              }),),
         }),
     }),
 };

@@ -20,4 +20,27 @@ box2h: ACCESS TO INFORMATION
 box2p: We restructured the content layout, ensuring that all vital information are just a click away. Users can now access detailed, up-to-date information effortlessly.
 box3h: LEGAL INSIGHTS
 box3p: Introducing interactive features for legal updates and insights, allowing users to engage with informative content seamlessly.
+contentimage: "/src/assets/images/projects/jungle/mockup.png"
+content1h: SITEMAP
+content1image: "/src/assets/images/projects/jungle/sitemap.png"
+content2h: MOOD BOARD AND KEYWORDS
+content2image: "/src/assets/images/projects/jungle/sitemap.png"
+content3h: COLOR PALETE
+content3image: "/src/assets/images/projects/jungle/sitemap.png"
+content4h: FINAL DESIGN
+images:
+  [
+    { src: "/src/assets/images/projects/jungle/home.jpg", alt: home },
+    { src: "/src/assets/images/projects/jungle/about_us.jpg", alt: about us },
+    { src: "/src/assets/images/projects/jungle/zumba.jpg", alt: zumba },
+  ]
+images2:
+  [
+    { src: "/src/assets/images/projects/jungle/dates.jpg", alt: dates },
+    {
+      src: "/src/assets/images/projects/jungle/enrollment_form.jpg",
+      alt: enrollment form,
+    },
+    { src: "/src/assets/images/projects/jungle/contact.jpg", alt: contact },
+  ]
 ---

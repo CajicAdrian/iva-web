@@ -1,5 +1,5 @@
 ---
-title: Jungle Portfolio
+title: Jungle Dance Studio
 texttitle: Jungle
 textsubtitle: Dance studio
 textparagraph:
@@ -23,4 +23,27 @@ box2h: FASTER REGISTRATION
 box2p: A place where users can effortlessly provide all the necessary information without the need for calls or in-person visits.
 box3h: SCHEDULE OF SESSIONS
 box3p: All trainings and appointments are recorded in one place. Users can effortlessly combine their schedules and stay updated with any changes.
+contentimage: "/src/assets/images/projects/jungle/mockup.png"
+content1h: SITEMAP
+content1image: "/src/assets/images/projects/jungle/sitemap.png"
+content2h: MOOD BOARD AND KEYWORDS
+content2image: "/src/assets/images/projects/jungle/mood_board.png"
+content3h: COLOR PALETE
+content3image: "/src/assets/images/projects/jungle/color_palete.png"
+content4h: FINAL DESIGN
+images:
+  [
+    { src: "/src/assets/images/projects/jungle/home.jpg", alt: home },
+    { src: "/src/assets/images/projects/jungle/about_us.jpg", alt: about us },
+    { src: "/src/assets/images/projects/jungle/zumba.jpg", alt: zumba },
+  ]
+images2:
+  [
+    { src: "/src/assets/images/projects/jungle/dates.jpg", alt: dates },
+    {
+      src: "/src/assets/images/projects/jungle/enrollment_form.jpg",
+      alt: enrollment form,
+    },
+    { src: "/src/assets/images/projects/jungle/contact.jpg", alt: contact },
+  ]
 ---
