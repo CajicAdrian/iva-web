@@ -54,4 +54,16 @@ images2:
     },
     { src: "/src/assets/images/projects/jungle/contact.jpg", alt: contact },
   ]
+images3:
+  [
+    { src: "/src/assets/images/projects/jungle/home.jpg", alt: home },
+    { src: "/src/assets/images/projects/jungle/about_us.jpg", alt: about us },
+    { src: "/src/assets/images/projects/jungle/zumba.jpg", alt: zumba },
+    { src: "/src/assets/images/projects/jungle/dates.jpg", alt: dates },
+    {
+      src: "/src/assets/images/projects/jungle/enrollment_form.jpg",
+      alt: enrollment form,
+    },
+    { src: "/src/assets/images/projects/jungle/contact.jpg", alt: contact },
+  ]
 ---

@@ -48,6 +48,10 @@ export const collections = {
                 src: image(),
                 alt: z.string(),
               })),
+            images3: z.array(z.object({
+                src: image(),
+                alt: z.string(),
+              })),
         }),
     }),
 };

@@ -44,6 +44,7 @@ const {
   content4h,
   images,
   images2,
+  images3,
 } = project.data;
 ---
 
@@ -154,15 +155,155 @@ const {
         }
       </div>
     </section>
-    <section class="Ostali_projekti">
-      {
-        projects.map((project) => (
-          <a href={project.slug}>{project.data.title}</a>
-        ))
-      }
-    </section>
   </main>
+  <div id="modal">
+    <Button id="close">&times;</Button>
+    <div class="modal-content">
+      <section class="wrapper">
+        <Button id="modal_left">&#10094;</Button>
+        <div class="carousel">
+          {
+            images3.map((image, index) => (
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={500}
+                height={500}
+                class="carousel_img"
+                id={`${index}`}
+              />
+            ))
+          }
+        </div>
+        <Button id="modal_right">&#10095;</Button>
+      </section>
+      <div class="container gallery web_img" id="galery2">
+        {
+          images.map((image, index) => (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              class="modalgalery"
+              width={500}
+              height={500}
+              id={`${index}`}
+            />
+          ))
+        }
+      </div>
+      <div class="container gallery web_img" id="galery2">
+        {
+          images2.map((image, index) => (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              class="modalgalery"
+              width={500}
+              height={500}
+              id={`${index}`}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <section class="Ostali_projekti">
+    {projects.map((project) => <a href={project.slug}>{project.data.title}</a>)}
+  </section>
 </Layout>
+<script>
+  import type { ViewTransitions } from "astro:transitions";
+
+  const modal = document.getElementById("modal");
+  const modalbtn = document.querySelectorAll(".modalbtn");
+  const modalgalery = document.querySelectorAll(".modalgalery");
+  const closebtn = document.getElementById("close");
+  const right = document.getElementById("modal_right");
+  const left = document.getElementById("modal_left");
+  const carousel = document.querySelector(".carousel");
+
+  let isMoving: boolean;
+  let curentIndex = 1;
+  const totalIndex = 6;
+
+  function openModal(index) {
+    modal.style.visibility = "visible";
+    curentIndex = index + 1;
+    moveSlider();
+  }
+
+  modalbtn?.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      openModal(index);
+    });
+  });
+
+  modalgalery.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      curentIndex = index + 1;
+      moveSlider();
+    });
+  });
+
+  function closeModal() {
+    modal.style.visibility = "hidden";
+  }
+
+  closebtn?.addEventListener("click", closeModal);
+
+  function backgroundClick(e) {
+    if (e.target == modal) {
+      modal.style.visibility = "hidden";
+    }
+  }
+
+  window.addEventListener("click", backgroundClick);
+
+  function moveSlider() {
+    const images = document.querySelectorAll(".carousel_img");
+    const img = images[curentIndex];
+    const currentHeight = img.offsetHeight;
+    const imgWidth = img.clientWidth;
+    console.log(imgWidth);
+
+    const carouselWidth = carousel?.clientWidth;
+    console.log(carouselWidth);
+
+    if (curentIndex >= 0 && curentIndex < images.length) {
+      carousel.style.maxHeight = `${currentHeight}px`;
+    }
+
+    carousel.style.transform = `translateX(-${curentIndex * carouselWidth}px)`;
+  }
+
+  function handleLeft() {
+    if (isMoving) {
+      return;
+    }
+    isMoving = true;
+    curentIndex--;
+    if (curentIndex < 0) {
+      curentIndex = totalIndex - 1;
+    }
+    moveSlider();
+    isMoving = false;
+  }
+  function handleRight() {
+    if (isMoving) {
+      return;
+    }
+    if (curentIndex >= totalIndex) {
+      curentIndex = 0;
+    }
+    isMoving = true;
+    curentIndex++;
+    moveSlider();
+    isMoving = false;
+  }
+
+  left?.addEventListener("click", handleLeft);
+  right?.addEventListener("click", handleRight);
+</script>
 <style>
   .Ostali_projekti {
     width: 70%;
