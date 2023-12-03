@@ -40,17 +40,29 @@ images:
   ]
 images2:
   [
-    { src: "/src/assets/images/projects/chaya/phone_1.png", alt: home },
-    { src: "/src/assets/images/projects/chaya/phone_2.png", alt: projects },
-    { src: "/src/assets/images/projects/chaya/phone_3.png", alt: contact },
+    { src: "/src/assets/images/projects/chaya/phone_1.png", alt: mobile home },
+    {
+      src: "/src/assets/images/projects/chaya/phone_2.png",
+      alt: mobile projects,
+    },
+    {
+      src: "/src/assets/images/projects/chaya/phone_3.png",
+      alt: mobile contact,
+    },
   ]
 images3:
   [
     { src: "/src/assets/images/projects/chaya/home_1.png", alt: home },
     { src: "/src/assets/images/projects/chaya/home_2.png", alt: projects },
     { src: "/src/assets/images/projects/chaya/home_3.png", alt: contact },
-    { src: "/src/assets/images/projects/chaya/phone_1.png", alt: home },
-    { src: "/src/assets/images/projects/chaya/phone_2.png", alt: projects },
-    { src: "/src/assets/images/projects/chaya/phone_3.png", alt: contact },
+    { src: "/src/assets/images/projects/chaya/phone_1.png", alt: mobile home },
+    {
+      src: "/src/assets/images/projects/chaya/phone_2.png",
+      alt: mobile projects,
+    },
+    {
+      src: "/src/assets/images/projects/chaya/phone_3.png",
+      alt: mobile contact,
+    },
   ]
 ---
