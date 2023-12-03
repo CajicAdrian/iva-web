@@ -32,29 +32,35 @@ content3image:
 content4h: FINAL DESIGN
 images:
   [
-    { src: "/src/assets/images/projects/jungle/home.jpg", alt: home },
-    { src: "/src/assets/images/projects/jungle/about_us.jpg", alt: about us },
-    { src: "/src/assets/images/projects/jungle/zumba.jpg", alt: zumba },
+    { src: "/src/assets/images/projects/chaya/home.png", alt: home },
+    { src: "/src/assets/images/projects/chaya/projects.png", alt: projects },
+    { src: "/src/assets/images/projects/chaya/contact.png", alt: contact },
   ]
 images2:
   [
-    { src: "/src/assets/images/projects/jungle/dates.jpg", alt: dates },
+    { src: "/src/assets/images/projects/jungle/home_mob.png", alt: home mob },
     {
-      src: "/src/assets/images/projects/jungle/enrollment_form.jpg",
-      alt: enrollment form,
+      src: "/src/assets/images/projects/chaya/projects_mob.png",
+      alt: projects mob,
     },
-    { src: "/src/assets/images/projects/jungle/contact.jpg", alt: contact },
+    {
+      src: "/src/assets/images/projects/chaya/contact_mob.png",
+      alt: contact mob,
+    },
   ]
 images3:
   [
-    { src: "/src/assets/images/projects/jungle/home.jpg", alt: home },
-    { src: "/src/assets/images/projects/jungle/about_us.jpg", alt: about us },
-    { src: "/src/assets/images/projects/jungle/zumba.jpg", alt: zumba },
-    { src: "/src/assets/images/projects/jungle/dates.jpg", alt: dates },
+    { src: "/src/assets/images/projects/chaya/home.png", alt: home },
+    { src: "/src/assets/images/projects/chaya/projects.png", alt: projects },
+    { src: "/src/assets/images/projects/chaya/contact.png", alt: contact },
+    { src: "/src/assets/images/projects/jungle/home_mob.png", alt: home mob },
     {
-      src: "/src/assets/images/projects/jungle/enrollment_form.jpg",
-      alt: enrollment form,
+      src: "/src/assets/images/projects/chaya/projects_mob.png",
+      alt: projects mob,
     },
-    { src: "/src/assets/images/projects/jungle/contact.jpg", alt: contact },
+    {
+      src: "/src/assets/images/projects/chaya/contact_mob.png",
+      alt: contact mob,
+    },
   ]
 ---
