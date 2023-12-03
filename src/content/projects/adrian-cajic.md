@@ -38,7 +38,7 @@ images:
   ]
 images2:
   [
-    { src: "/src/assets/images/projects/jungle/home2.png", alt: home mob },
+    { src: "/src/assets/images/projects/chaya/home2.png", alt: home mob },
     {
       src: "/src/assets/images/projects/chaya/projects_mob.png",
       alt: projects mob,
@@ -53,7 +53,7 @@ images3:
     { src: "/src/assets/images/projects/chaya/home.png", alt: home },
     { src: "/src/assets/images/projects/chaya/projects.png", alt: projects },
     { src: "/src/assets/images/projects/chaya/contact.png", alt: contact },
-    { src: "/src/assets/images/projects/jungle/home2.png", alt: home mob },
+    { src: "/src/assets/images/projects/chaya/home2.png", alt: home mob },
     {
       src: "/src/assets/images/projects/chaya/projects_mob.png",
       alt: projects mob,
