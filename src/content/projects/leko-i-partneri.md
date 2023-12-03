@@ -14,45 +14,39 @@ box2p: We restructured the content layout, ensuring that all vital information a
 box3h: LEGAL INSIGHTS
 box3p: Introducing interactive features for legal updates and insights, allowing users to engage with informative content seamlessly.
 contentimage:
-  { src: "/src/assets/images/projects/jungle/mockup.png", alt: mockup }
+  { src: "/src/assets/images/projects/leko/mockup.png", alt: mockup }
 content1h: SITEMAP
 content1image:
-  { src: "/src/assets/images/projects/jungle/sitemap.png", alt: sitemap }
-content2h: MOOD BOARD AND KEYWORDS
+  { src: "/src/assets/images/projects/leko/sitemap.png", alt: sitemap }
+content2h: COLOR PALETE
 content2image:
-  { src: "/src/assets/images/projects/jungle/mood_board.png", alt: mood board }
-content3h: COLOR PALETE
-content3image:
   {
-    src: "/src/assets/images/projects/jungle/color_palete.png",
+    src: "/src/assets/images/projects/leko/color_palete.png",
     alt: color palete,
   }
+content3h: MOBILE VERSION
+content3image:
+  { src: "/src/assets/images/projects/leko/mobile.png", alt: mobile }
 content4h: FINAL DESIGN
 images:
   [
-    { src: "/src/assets/images/projects/jungle/home.jpg", alt: home },
-    { src: "/src/assets/images/projects/jungle/about_us.jpg", alt: about us },
-    { src: "/src/assets/images/projects/jungle/zumba.jpg", alt: zumba },
+    { src: "/src/assets/images/projects/leko/home.jpg", alt: home },
+    { src: "/src/assets/images/projects/leko/about_us.jpg", alt: about us },
+    { src: "/src/assets/images/projects/leko/our_team.jpg", alt: our team },
   ]
 images2:
   [
-    { src: "/src/assets/images/projects/jungle/dates.jpg", alt: dates },
-    {
-      src: "/src/assets/images/projects/jungle/enrollment_form.jpg",
-      alt: enrollment form,
-    },
-    { src: "/src/assets/images/projects/jungle/contact.jpg", alt: contact },
+    { src: "/src/assets/images/projects/leko/team_person.jpg", alt: team },
+    { src: "/src/assets/images/projects/leko/services.jpg", alt: services },
+    { src: "/src/assets/images/projects/leko/contact.jpg", alt: contact },
   ]
 images3:
   [
-    { src: "/src/assets/images/projects/jungle/home.jpg", alt: home },
-    { src: "/src/assets/images/projects/jungle/about_us.jpg", alt: about us },
-    { src: "/src/assets/images/projects/jungle/zumba.jpg", alt: zumba },
-    { src: "/src/assets/images/projects/jungle/dates.jpg", alt: dates },
-    {
-      src: "/src/assets/images/projects/jungle/enrollment_form.jpg",
-      alt: enrollment form,
-    },
-    { src: "/src/assets/images/projects/jungle/contact.jpg", alt: contact },
+    { src: "/src/assets/images/projects/leko/home.jpg", alt: home },
+    { src: "/src/assets/images/projects/leko/about_us.jpg", alt: about us },
+    { src: "/src/assets/images/projects/leko/our_team.jpg", alt: our team },
+    { src: "/src/assets/images/projects/leko/team_person.jpg", alt: team },
+    { src: "/src/assets/images/projects/leko/services.jpg", alt: services },
+    { src: "/src/assets/images/projects/leko/contact.jpg", alt: contact },
   ]
 ---
