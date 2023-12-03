@@ -36,7 +36,7 @@ const { project } = Astro.props;
       <div class="name">
         <p>ui designer</p>
         <h1>Iva Valenčić</h1>
-        <a href="/ui-design/"><Button>See the latest project</Button></a>
+        <a href="/projects/"><Button>See the latest project</Button></a>
       </div>
 
       <Image
@@ -150,7 +150,7 @@ const { project } = Astro.props;
 
   let isMoving: boolean;
   let curentIndex = 0;
-  const totalIndex = 3;
+  const totalIndex = boxes.length;
 
   function moveSlider() {
     slider.style.transform = `translateX(-${curentIndex * boxSize}px)`;
@@ -163,7 +163,7 @@ const { project } = Astro.props;
     isMoving = true;
     curentIndex--;
     if (curentIndex < 0) {
-      curentIndex = totalIndex - 1;
+      curentIndex = totalIndex - 3;
     }
     moveSlider();
     isMoving = false;
@@ -172,9 +172,9 @@ const { project } = Astro.props;
     if (isMoving) {
       return;
     }
-    if (curentIndex >= totalIndex) {
+    if (curentIndex >= totalIndex - 3) {
       console.log(curentIndex);
-      curentIndex = 0;
+      curentIndex = -1;
     }
     isMoving = true;
     curentIndex++;
