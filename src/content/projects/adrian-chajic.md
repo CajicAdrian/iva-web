@@ -1,10 +1,10 @@
 ---
-title: Adrian Cajic
-texttitle: Adrian Cajic
+title: Adrian Chajic
+texttitle: Adrian Chajic
 textsubtitle: Frontend developer
 textparagraph: Adrian Čajić is a dedicated frontend developer with a passion for crafting seamless and visually appealing web experiences. I had the honor of curating an impressive online portfolio that showcases his expertise and innovation in the world of web development. Through careful design and attention to detail, the portfolio reflects Adrian's commitment to delivering top-notch frontend solutions.
 image:
-  { src: "/src/assets/images/ui_design/adrian_cajic.png", alt: Adrian Cajic }
+  { src: "/src/assets/images/ui_design/adrian_cajic.png", alt: Adrian Chajic }
 href: https://www.figma.com/proto/XV01yFse3RNwkVUkXaLVcd/Jungle?page-id=0%3A1&type=designode-id=2-4&viewport=464%2C438%2C0.31&scaling=min-zoom&starting-point-node-id=2%3A4"
 box1h: Swift Showcases
 box1p: Each project unfolds seamlessly, leaving a lasting impression and showcasing his talent from the very first click.
