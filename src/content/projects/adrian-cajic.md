@@ -5,9 +5,7 @@ textsubtitle: Frontend developer
 textparagraph: Adrian Čajić is a dedicated frontend developer with a passion for crafting seamless and visually appealing web experiences. I had the honor of curating an impressive online portfolio that showcases his expertise and innovation in the world of web development. Through careful design and attention to detail, the portfolio reflects Adrian's commitment to delivering top-notch frontend solutions.
 image:
   { src: "/src/assets/images/ui_design/adrian_cajic.png", alt: Adrian Cajic }
-
 href: https://www.figma.com/proto/XV01yFse3RNwkVUkXaLVcd/Jungle?page-id=0%3A1&type=designode-id=2-4&viewport=464%2C438%2C0.31&scaling=min-zoom&starting-point-node-id=2%3A4"
-
 box1h: Swift Showcases
 box1p: Each project unfolds seamlessly, leaving a lasting impression and showcasing his talent from the very first click.
 box2h: Fast Connection
@@ -34,35 +32,29 @@ content3image:
 content4h: FINAL DESIGN
 images:
   [
-    { src: "/src/assets/images/projects/chaya/home_1.png", alt: home },
-    { src: "/src/assets/images/projects/chaya/home_2.png", alt: projects },
-    { src: "/src/assets/images/projects/chaya/home_3.png", alt: contact },
+    { src: "/src/assets/images/projects/jungle/home.jpg", alt: home },
+    { src: "/src/assets/images/projects/jungle/about_us.jpg", alt: about us },
+    { src: "/src/assets/images/projects/jungle/zumba.jpg", alt: zumba },
   ]
 images2:
   [
-    { src: "/src/assets/images/projects/chaya/phone_1.png", alt: mobile home },
+    { src: "/src/assets/images/projects/jungle/dates.jpg", alt: dates },
     {
-      src: "/src/assets/images/projects/chaya/phone_2.png",
-      alt: mobile projects,
+      src: "/src/assets/images/projects/jungle/enrollment_form.jpg",
+      alt: enrollment form,
     },
-    {
-      src: "/src/assets/images/projects/chaya/phone_3.png",
-      alt: mobile contact,
-    },
+    { src: "/src/assets/images/projects/jungle/contact.jpg", alt: contact },
   ]
 images3:
   [
-    { src: "/src/assets/images/projects/chaya/home_1.png", alt: home },
-    { src: "/src/assets/images/projects/chaya/home_2.png", alt: projects },
-    { src: "/src/assets/images/projects/chaya/home_3.png", alt: contact },
-    { src: "/src/assets/images/projects/chaya/phone_1.png", alt: mobile home },
+    { src: "/src/assets/images/projects/jungle/home.jpg", alt: home },
+    { src: "/src/assets/images/projects/jungle/about_us.jpg", alt: about us },
+    { src: "/src/assets/images/projects/jungle/zumba.jpg", alt: zumba },
+    { src: "/src/assets/images/projects/jungle/dates.jpg", alt: dates },
     {
-      src: "/src/assets/images/projects/chaya/phone_2.png",
-      alt: mobile projects,
+      src: "/src/assets/images/projects/jungle/enrollment_form.jpg",
+      alt: enrollment form,
     },
-    {
-      src: "/src/assets/images/projects/chaya/phone_3.png",
-      alt: mobile contact,
-    },
+    { src: "/src/assets/images/projects/jungle/contact.jpg", alt: contact },
   ]
 ---
