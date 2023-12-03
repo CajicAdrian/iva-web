@@ -60,4 +60,5 @@ images3:
     },
     { src: "/src/assets/images/projects/jungle/contact.jpg", alt: contact },
   ]
+logo: { src: "/src/assets/images/logo/jungle.svg", alt: Jungle logo }
 ---

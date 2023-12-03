@@ -49,4 +49,9 @@ images3:
     { src: "/src/assets/images/projects/leko/services.jpg", alt: services },
     { src: "/src/assets/images/projects/leko/contact.jpg", alt: contact },
   ]
+logo:
+  {
+    src: "/src/assets/images/logo/Leko_partneri.svg",
+    alt: Leko i Partneri logo,
+  }
 ---

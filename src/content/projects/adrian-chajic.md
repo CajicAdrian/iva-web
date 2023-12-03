@@ -63,4 +63,6 @@ images3:
       alt: contact mob,
     },
   ]
+logo:
+  { src: "/src/assets/images/logo/adrian_logo.png", alt: Adrian Chajic logo }
 ---

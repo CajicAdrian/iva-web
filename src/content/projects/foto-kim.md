@@ -55,4 +55,5 @@ images3:
     },
     { src: "/src/assets/images/projects/foto-kim/contact.png", alt: contact },
   ]
+logo: { src: "/src/assets/images/logo/foto_KiM.png", alt: foto KiM logo }
 ---

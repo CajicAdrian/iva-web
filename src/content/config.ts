@@ -51,6 +51,10 @@ export const collections = {
                 src: image(),
                 alt: z.string(),
               })),
+            logo:  z.object({
+              src: image(),
+              alt: z.string(),
+            }),
         }),
     }),
 };
