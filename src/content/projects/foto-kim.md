@@ -36,7 +36,10 @@ images:
   ]
 images2:
   [
-    { src: "/src/assets/images/projects/foto-kim/photoshoot.png", alt: dates },
+    {
+      src: "/src/assets/images/projects/foto-kim/photoshoot.png",
+      alt: photoshoot,
+    },
     {
       src: "/src/assets/images/projects/foto-kim/enrollment_form.png",
       alt: enrollment form,
@@ -48,7 +51,10 @@ images3:
     { src: "/src/assets/images/projects/foto-kim/home.png", alt: home },
     { src: "/src/assets/images/projects/foto-kim/about_us.png", alt: about us },
     { src: "/src/assets/images/projects/foto-kim/galery.png", alt: zumba },
-    { src: "/src/assets/images/projects/foto-kim/photoshoot.png", alt: dates },
+    {
+      src: "/src/assets/images/projects/foto-kim/photoshoot.png",
+      alt: photoshoot,
+    },
     {
       src: "/src/assets/images/projects/foto-kim/enrollment_form.png",
       alt: enrollment form,
