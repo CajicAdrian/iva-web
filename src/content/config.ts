@@ -12,7 +12,6 @@ export const collections = {
                 src: image(),
                 alt: z.string(),
               }),
-            description: z.string(),
             href: z.string(),
             box1h: z.string(),
             box1p: z.string(),

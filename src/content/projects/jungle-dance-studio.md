@@ -10,12 +10,6 @@ textparagraph:
   this exquisite web design.
 image:
   { src: "/src/assets/images/ui_design/jungle.jpg", alt: Jungle Dance Studio }
-description:
-  Drawing inspiration from the logo redesign, I sought to create a visually immersive experience that
-  seamlessly combines the raw energy of the jungle with the refined elegance of classical dances. To
-  achieve this, I embraced a palette of earthy and natural muted colors, invoking a sense of connectivity
-  and harmony with the natural world. To capture the essence of classical dances, I incorporated design
-  elements that exude sophistication and grace.
 href: https://www.figma.com/proto/XV01yFse3RNwkVUkXaLVcd/Jungle?page-id=0%3A1&type=designode-id=2-4&viewport=464%2C438%2C0.31&scaling=min-zoom&starting-point-node-id=2%3A4"
 
 box1h: EASIER TO NAVIGATE
