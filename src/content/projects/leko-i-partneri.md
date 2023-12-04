@@ -53,5 +53,6 @@ logo:
   {
     src: "/src/assets/images/logo/Leko_partneri.svg",
     alt: Leko i Partneri logo,
+    id: leko,
   }
 ---

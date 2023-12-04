@@ -217,14 +217,15 @@ const {
   const right = document.getElementById("modal_right");
   const left = document.getElementById("modal_left");
   const carousel = document.querySelector(".carousel");
+  const images = document.querySelectorAll(".carousel_img");
+  const totalIndex = images.length;
 
   let isMoving: boolean;
-  let curentIndex = 1;
-  const totalIndex = 6;
+  let curentIndex = 0;
 
   function openModal(index) {
     modal.style.visibility = "visible";
-    curentIndex = index + 1;
+    curentIndex = index;
     moveSlider();
   }
 
@@ -236,7 +237,9 @@ const {
 
   modalgalery.forEach((img, index) => {
     img.addEventListener("click", () => {
-      curentIndex = index + 1;
+      curentIndex = index;
+      console.log(curentIndex);
+
       moveSlider();
     });
   });
@@ -256,8 +259,16 @@ const {
   window.addEventListener("click", backgroundClick);
 
   function moveSlider() {
-    const images = document.querySelectorAll(".carousel_img");
     const img = images[curentIndex];
+    for (let i = 1; i < totalIndex; i++) {
+      if (curentIndex === i) {
+        images[i].style.display = "block";
+        console.log(curentIndex);
+      } else {
+        images[i].style.display = "none";
+        console.log(curentIndex);
+      }
+    }
     const currentHeight = img.offsetHeight;
     const imgWidth = img.clientWidth;
     console.log(imgWidth);
@@ -269,7 +280,7 @@ const {
       carousel.style.maxHeight = `${currentHeight}px`;
     }
 
-    carousel.style.transform = `translateX(-${curentIndex * carouselWidth}px)`;
+    // carousel.style.transform = `translateX(-${curentIndex * carouselWidth}px)`;
   }
 
   function handleLeft() {
@@ -278,8 +289,8 @@ const {
     }
     isMoving = true;
     curentIndex--;
-    if (curentIndex < 0) {
-      curentIndex = totalIndex - 1;
+    if (curentIndex < 1) {
+      curentIndex = totalIndex;
     }
     moveSlider();
     isMoving = false;
@@ -288,8 +299,8 @@ const {
     if (isMoving) {
       return;
     }
-    if (curentIndex >= totalIndex) {
-      curentIndex = 0;
+    if (curentIndex > totalIndex) {
+      curentIndex = 1;
     }
     isMoving = true;
     curentIndex++;

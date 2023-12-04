@@ -57,6 +57,7 @@ const { project } = Astro.props;
                 alt={project.data.logo.alt}
                 width={500}
                 height={500}
+                id={project.data.logo.id}
               />
             </a>
           ))
@@ -329,13 +330,14 @@ const { project } = Astro.props;
     filter: grayscale(0%);
   }
   #leko:hover {
-    background-color: #666666;
+    background-color: #f5f5dc;
   }
-  #IntentionKeeper:hover {
-    background-color: #000000;
+  #kim:hover {
+    background-color: #f5f5dc;
   }
+
   #jungle:hover {
-    background-color: #8f918c;
+    background-color: #006400;
   }
   .mob_img {
     display: none;

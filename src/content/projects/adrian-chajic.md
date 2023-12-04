@@ -64,5 +64,9 @@ images3:
     },
   ]
 logo:
-  { src: "/src/assets/images/logo/adrian_logo.png", alt: Adrian Chajic logo }
+  {
+    src: "/src/assets/images/logo/adrian_logo.png",
+    alt: Adrian Chajic logo,
+    id: chaya,
+  }
 ---
