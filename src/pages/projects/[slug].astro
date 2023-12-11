@@ -221,7 +221,7 @@ const {
   const totalIndex = images.length;
 
   let isMoving: boolean;
-  let curentIndex = 0;
+  let curentIndex = 1;
 
   function openModal(index) {
     modal.style.visibility = "visible";
@@ -259,28 +259,13 @@ const {
   window.addEventListener("click", backgroundClick);
 
   function moveSlider() {
-    const img = images[curentIndex];
     for (let i = 0; i < totalIndex; i++) {
       if (curentIndex === i) {
         images[i].style.display = "block";
-        console.log(curentIndex);
       } else {
         images[i].style.display = "none";
-        console.log(curentIndex);
       }
     }
-    const currentHeight = img.offsetHeight;
-    const imgWidth = img.clientWidth;
-    console.log(imgWidth);
-
-    const carouselWidth = carousel?.clientWidth;
-    console.log(carouselWidth);
-
-    if (curentIndex >= 0 && curentIndex < images.length) {
-      carousel.style.maxHeight = `${currentHeight}px`;
-    }
-
-    // carousel.style.transform = `translateX(-${curentIndex * carouselWidth}px)`;
   }
 
   function handleLeft() {
@@ -289,8 +274,8 @@ const {
     }
     isMoving = true;
     curentIndex--;
-    if (curentIndex < 1) {
-      curentIndex = totalIndex;
+    if (curentIndex < 0) {
+      curentIndex = totalIndex - 1;
     }
     moveSlider();
     isMoving = false;
@@ -299,11 +284,11 @@ const {
     if (isMoving) {
       return;
     }
-    if (curentIndex > totalIndex) {
-      curentIndex = 0;
-    }
     isMoving = true;
     curentIndex++;
+    if (curentIndex >= totalIndex) {
+      curentIndex = 0;
+    }
     moveSlider();
     isMoving = false;
   }

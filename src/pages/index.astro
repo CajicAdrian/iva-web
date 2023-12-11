@@ -134,27 +134,26 @@ const { project } = Astro.props;
   </main>
 </Layout>
 <script>
-  let slider = document.querySelector(".projects");
   const left = document.getElementById("left");
   const right = document.getElementById("right");
-  const boxes = slider?.querySelectorAll("a");
-  let boxSize = 0;
-
-  boxes?.forEach((box) => {
-    boxSize = box.offsetWidth;
-    const size = `${boxSize}px`;
-    const sizeInPx = parseFloat(size);
-    const sliderSize = sizeInPx * 3;
-
-    slider.style.width = `${sliderSize}px`;
-  });
+  const boxes = document.querySelectorAll(".project");
 
   let isMoving: boolean;
+  isMoving = false;
   let curentIndex = 0;
   const totalIndex = boxes.length;
+  console.log(totalIndex);
+
+  moveSlider();
 
   function moveSlider() {
-    slider.style.transform = `translateX(-${curentIndex * boxSize}px)`;
+    for (let i = 0; i < totalIndex; i++) {
+      if (i >= curentIndex && i < curentIndex + 3) {
+        boxes[i].style.display = "block";
+      } else {
+        boxes[i].style.display = "none";
+      }
+    }
   }
 
   function handleLeft() {
@@ -173,12 +172,11 @@ const { project } = Astro.props;
     if (isMoving) {
       return;
     }
-    if (curentIndex >= totalIndex - 3) {
-      console.log(curentIndex);
-      curentIndex = -1;
-    }
     isMoving = true;
     curentIndex++;
+    if (curentIndex > totalIndex - 3) {
+      curentIndex = 0;
+    }
     moveSlider();
     isMoving = false;
   }
@@ -316,6 +314,7 @@ const { project } = Astro.props;
     margin: 0;
     cursor: pointer;
     padding: 0 5vw;
+    display: flex;
   }
 
   .carousel img {
@@ -425,7 +424,6 @@ const { project } = Astro.props;
       height: 150px;
       padding: 10px 20px;
       border: 1px solid #000000;
-      width: calc(95% / 1);
       filter: grayscale(0%);
       filter: contrast(100%);
       filter: brightness(100%);
@@ -509,7 +507,6 @@ const { project } = Astro.props;
       height: 200px;
       padding: 40px 40px;
       border: 1px solid #000000;
-      width: calc(93% / 2);
       filter: grayscale(0%);
       filter: contrast(100%);
       filter: brightness(100%);

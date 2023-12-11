@@ -17,7 +17,7 @@ const key = import.meta.env.PUBLIC_EMAIL;
         I would love to hear from you! Use this form to send me an email and ask
         any questions you may have.
       </p>
-      <div>
+      <div class="form">
         <form
           action="https://api.web3forms.com/submit"
           method="POST"
@@ -36,14 +36,20 @@ const key = import.meta.env.PUBLIC_EMAIL;
           <div id="result"></div>
         </form>
       </div>
-
-      <Image src={bcard} alt="Iva Valencic" id="bcard" title="business card" />
-      <Image
-        src={bcardback}
-        alt="Iva Valencic"
-        id="bcardback"
-        title="business card back"
-      />
+      <div class="contact_img">
+        <Image
+          src={bcard}
+          alt="Iva Valencic"
+          id="bcard"
+          title="business card"
+        />
+        <Image
+          src={bcardback}
+          alt="Iva Valencic"
+          id="bcardback"
+          title="business card back"
+        />
+      </div>
     </section>
   </main>
 </Layout>
@@ -109,9 +115,11 @@ const key = import.meta.env.PUBLIC_EMAIL;
 <style>
   #bcard {
     display: block;
+    width: 100%;
   }
   #bcardback {
     display: none;
+    width: 100%;
   }
 
   .layout_contact {
@@ -133,11 +141,15 @@ const key = import.meta.env.PUBLIC_EMAIL;
   }
   .layout_contact div {
     width: 45%;
-
-    border: 1px solid #000000;
     margin-top: 30px;
   }
+  .form {
+    border: 1px solid #000000;
+  }
 
+  .contact_img {
+    border: none;
+  }
   .mail {
     height: 800px;
     padding: 80px 80px 30px 80px;
@@ -189,23 +201,19 @@ const key = import.meta.env.PUBLIC_EMAIL;
       overflow: hidden;
       margin: 0;
     }
-  }
-  @media only screen and (max-width: 1200px) and (min-width: 768px) {
-    .layout_contact img {
-      width: 100%;
+    .contact_img {
       display: none;
     }
-
+  }
+  @media only screen and (max-width: 1200px) and (min-width: 768px) {
     .layout_contact div {
       width: 100%;
     }
+    .contact_img {
+      display: none;
+    }
   }
   @media only screen and (max-width: 1440px) and (min-width: 1200px) {
-    .layout_contact img {
-      width: 45%;
-      height: 650px;
-    }
-
     .layout_contact div {
       width: 45%;
     }
