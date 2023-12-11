@@ -271,8 +271,8 @@ const {
     }
     isMoving = true;
     curentIndex--;
-    if (curentIndex < 1) {
-      curentIndex = totalIndex;
+    if (curentIndex < 0) {
+      curentIndex = totalIndex - 1;
     }
     moveSlider();
     isMoving = false;
