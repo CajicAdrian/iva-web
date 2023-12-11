@@ -208,15 +208,12 @@ const {
   </section>
 </Layout>
 <script>
-  import type { ViewTransitions } from "astro:transitions";
-
   const modal = document.getElementById("modal");
   const modalbtn = document.querySelectorAll(".modalbtn");
   const modalgalery = document.querySelectorAll(".modalgalery");
   const closebtn = document.getElementById("close");
   const right = document.getElementById("modal_right");
   const left = document.getElementById("modal_left");
-  const carousel = document.querySelector(".carousel");
   const images = document.querySelectorAll(".carousel_img");
   const totalIndex = images.length;
 
@@ -501,8 +498,14 @@ const {
       display: inline;
       min-width: 700px;
     }
+    .gallery {
+      height: 100px;
+    }
+    .desc_box {
+      width: auto;
+    }
   }
-  @media only screen and (max-width: 1400px) and (min-width: 760px) {
+  @media only screen and (max-width: 1440px) and (min-width: 760px) {
     .mockup_right {
       width: 70%;
       flex-wrap: wrap;
@@ -527,6 +530,14 @@ const {
 
     .gallerymini {
       height: 200px;
+    }
+    .desc_box {
+      width: auto;
+    }
+  }
+  @media only screen and (max-width: 1700px) and (min-width: 1440px) {
+    .gallery {
+      height: 150px;
     }
   }
 </style>
