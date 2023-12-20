@@ -70,8 +70,8 @@ const {
       <Image
         src={image.src}
         alt={image.alt}
-        width={600}
-        height={600}
+        width={700}
+        height={700}
         class="projekt_web_img"
       />
     </div>
@@ -295,8 +295,10 @@ const {
 </script>
 <style>
   h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  h2 {
+    line-height: 50px;
   }
   .Ostali_projekti {
     width: 70%;
@@ -324,7 +326,6 @@ const {
   }
   .mockup_right img {
     object-fit: scale-down;
-    overflow: hidden;
   }
   .portfolio_ui_web {
     display: flex;
@@ -456,6 +457,10 @@ const {
     display: none;
   }
   @media (max-width: 768px) {
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
     .Ostali_projekti {
       width: 70%;
       margin: 0 auto;
@@ -510,6 +515,11 @@ const {
     }
   }
   @media only screen and (max-width: 1440px) and (min-width: 760px) {
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
     .mockup_right {
       width: 70%;
       flex-wrap: wrap;

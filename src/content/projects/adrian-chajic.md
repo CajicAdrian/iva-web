@@ -17,7 +17,7 @@ contentimage:
 content1h: SITEMAP
 content1image:
   { src: "/src/assets/images/projects/chaya/sitemap.png", alt: sitemap }
-content2h: MOOD BOARD AND KEYWORDS
+content2h: BUTTONS AND NEUROPHISM
 content2image:
   {
     src: "/src/assets/images/projects/chaya/buttons.png",
