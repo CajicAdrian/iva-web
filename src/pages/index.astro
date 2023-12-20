@@ -11,7 +11,23 @@ import affinity from "../assets/images/icons/affinity.png";
 import html from "../assets/images/icons/html.png";
 import css from "../assets/images/icons/css.png";
 
-const projects = await Astro.glob("../content/projects/*.md");
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+type Props = {
+  project: CollectionEntry<"projects">;
+};
+const projects = await getCollection("projects");
+const { project } = Astro.props;
 ---
 
 <Layout title="Iva Valencic - Designer">
@@ -20,7 +36,7 @@ const projects = await Astro.glob("../content/projects/*.md");
       <div class="name">
         <p>ui designer</p>
         <h1>Iva Valenčić</h1>
-        <a href="/ui-design/"><Button>See the latest project</Button></a>
+        <a href="/projects/"><Button>See the latest project</Button></a>
       </div>
 
       <Image
@@ -30,25 +46,25 @@ const projects = await Astro.glob("../content/projects/*.md");
         title="iva foto"
       />
     </section>
-    <!-- <section class="carousel">
+    <section class="carousel">
       <Button id="left">&#10094;</Button>
       <div class="projects">
         {
-          projects.map((project) => (
-            <a href={`/projects/${project.frontmatter.slug}`} class="project">
+          projects.map((project, index) => (
+            <a href={`/projects/${project.slug}`} class="project">
               <Image
-                src={project.frontmatter.index.src}
-                alt={project.frontmatter.index.alt}
-                id={project.frontmatter.index.id}
+                src={project.data.logo.src}
+                alt={project.data.logo.alt}
                 width={500}
                 height={500}
+                id={project.data.logo.id}
               />
             </a>
           ))
         }
       </div>
       <Button id="right">&#10095;</Button>
-    </section> -->
+    </section>
     <section class="container layout_new_member">
       <h4>Looking for a new member for your creative team?</h4>
 
@@ -118,27 +134,26 @@ const projects = await Astro.glob("../content/projects/*.md");
   </main>
 </Layout>
 <script>
-  let slider = document.querySelector(".projects");
   const left = document.getElementById("left");
   const right = document.getElementById("right");
-  const boxes = slider?.querySelectorAll("a");
-  let boxSize = 0;
-
-  boxes?.forEach((box) => {
-    boxSize = box.offsetWidth;
-    const size = `${boxSize}px`;
-    const sizeInPx = parseFloat(size);
-    const sliderSize = sizeInPx * 3;
-
-    slider.style.width = `${sliderSize}px`;
-  });
+  const boxes = document.querySelectorAll(".project");
 
   let isMoving: boolean;
+  isMoving = false;
   let curentIndex = 0;
-  const totalIndex = 3;
+  const totalIndex = boxes.length;
+  console.log(totalIndex);
+
+  moveSlider();
 
   function moveSlider() {
-    slider.style.transform = `translateX(-${curentIndex * boxSize}px)`;
+    for (let i = 0; i < totalIndex; i++) {
+      if (i >= curentIndex && i < curentIndex + 3) {
+        boxes[i].style.display = "block";
+      } else {
+        boxes[i].style.display = "none";
+      }
+    }
   }
 
   function handleLeft() {
@@ -148,7 +163,7 @@ const projects = await Astro.glob("../content/projects/*.md");
     isMoving = true;
     curentIndex--;
     if (curentIndex < 0) {
-      curentIndex = totalIndex - 1;
+      curentIndex = totalIndex - 3;
     }
     moveSlider();
     isMoving = false;
@@ -157,12 +172,11 @@ const projects = await Astro.glob("../content/projects/*.md");
     if (isMoving) {
       return;
     }
-    if (curentIndex >= totalIndex) {
-      console.log(curentIndex);
-      curentIndex = 0;
-    }
     isMoving = true;
     curentIndex++;
+    if (curentIndex > totalIndex - 3) {
+      curentIndex = 0;
+    }
     moveSlider();
     isMoving = false;
   }
@@ -300,6 +314,7 @@ const projects = await Astro.glob("../content/projects/*.md");
     margin: 0;
     cursor: pointer;
     padding: 0 5vw;
+    display: flex;
   }
 
   .carousel img {
@@ -314,11 +329,12 @@ const projects = await Astro.glob("../content/projects/*.md");
     filter: grayscale(0%);
   }
   #leko:hover {
-    background-color: #666666;
+    background-color: #e4e4e4;
   }
-  #IntentionKeeper:hover {
-    background-color: #000000;
+  #kim:hover {
+    background-color: #f8f2ec;
   }
+
   #jungle:hover {
     background-color: #8f918c;
   }
@@ -333,6 +349,9 @@ const projects = await Astro.glob("../content/projects/*.md");
   }
 
   @media (max-width: 768px) {
+    .projects {
+      margin: 4px;
+    }
     .name {
       width: 100%;
       padding-top: 0;
@@ -395,12 +414,14 @@ const projects = await Astro.glob("../content/projects/*.md");
     .layout_new_member div {
       width: 100%;
     }
-    #IntentionKeeper {
-      background-color: #000000;
-    }
+
     #leko {
-      background-color: #666666;
+      background-color: #e4e4e4;
     }
+    #kim {
+      background-color: #f8f2ec;
+    }
+
     #jungle {
       background-color: #8f918c;
     }
@@ -408,7 +429,6 @@ const projects = await Astro.glob("../content/projects/*.md");
       height: 150px;
       padding: 10px 20px;
       border: 1px solid #000000;
-      width: calc(95% / 1);
       filter: grayscale(0%);
       filter: contrast(100%);
       filter: brightness(100%);
@@ -443,7 +463,10 @@ const projects = await Astro.glob("../content/projects/*.md");
       width: 100%;
     }
   }
-  @media only screen and (max-width: 1400px) and (min-width: 768px) {
+  @media only screen and (max-width: 1440px) and (min-width: 768px) {
+    .projects {
+      margin: 5px;
+    }
     .name h1 {
       font-size: 50px;
       margin-bottom: 70px;
@@ -479,12 +502,13 @@ const projects = await Astro.glob("../content/projects/*.md");
     .layout_new_member div {
       width: 100%;
     }
-    #IntentionKeeper {
-      background-color: #000000;
-    }
     #leko {
-      background-color: #666666;
+      background-color: #e4e4e4;
     }
+    #kim {
+      background-color: #f8f2ec;
+    }
+
     #jungle {
       background-color: #8f918c;
     }
@@ -492,7 +516,6 @@ const projects = await Astro.glob("../content/projects/*.md");
       height: 200px;
       padding: 40px 40px;
       border: 1px solid #000000;
-      width: calc(93% / 2);
       filter: grayscale(0%);
       filter: contrast(100%);
       filter: brightness(100%);

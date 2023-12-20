@@ -64,8 +64,8 @@ const { id } = Astro.props;
     cursor: pointer;
     position: absolute;
     width: 2vw;
-    height: 5.5vh;
-    padding: 16px;
+    height: 6vh;
+    padding: 0px 12px;
     color: white;
     font-weight: bold;
     font-size: 20px;
@@ -148,11 +148,13 @@ const { id } = Astro.props;
       border-left: 1px solid #000000;
     }
     #left,
-    #right {
-      margin-top: 50px;
+    #right,
+    #modal_left,
+    #modal_right {
+      width: 3vw;
     }
   }
-  @media only screen and (max-width: 1400px) and (min-width: 760px) {
+  @media only screen and (max-width: 1440px) and (min-width: 760px) {
     #contact {
       font-size: 12px;
       padding: 20px;
@@ -162,9 +164,12 @@ const { id } = Astro.props;
       font-size: 12px;
       padding: 15px 20px;
     }
+
     #left,
-    #right {
-      margin-top: 70px;
+    #right,
+    #modal_left,
+    #modal_right {
+      width: 2.5vw;
     }
   }
 </style>

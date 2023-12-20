@@ -17,7 +17,7 @@ const key = import.meta.env.PUBLIC_EMAIL;
         I would love to hear from you! Use this form to send me an email and ask
         any questions you may have.
       </p>
-      <div>
+      <div class="form">
         <form
           action="https://api.web3forms.com/submit"
           method="POST"
@@ -36,13 +36,20 @@ const key = import.meta.env.PUBLIC_EMAIL;
           <div id="result"></div>
         </form>
       </div>
-      <Image src={bcard} alt="Iva Valencic" id="bcard" title="business card" />
-      <Image
-        src={bcardback}
-        alt="Iva Valencic"
-        id="bcardback"
-        title="business card back"
-      />
+      <div class="contact_img">
+        <Image
+          src={bcard}
+          alt="Iva Valencic"
+          id="bcard"
+          title="business card"
+        />
+        <Image
+          src={bcardback}
+          alt="Iva Valencic"
+          id="bcardback"
+          title="business card back"
+        />
+      </div>
     </section>
   </main>
 </Layout>
@@ -108,10 +115,13 @@ const key = import.meta.env.PUBLIC_EMAIL;
 <style>
   #bcard {
     display: block;
+    width: 100%;
   }
   #bcardback {
     display: none;
+    width: 100%;
   }
+
   .layout_contact {
     display: flex;
     flex-wrap: wrap;
@@ -122,22 +132,26 @@ const key = import.meta.env.PUBLIC_EMAIL;
     margin-bottom: 10px;
   }
   .layout_contact img {
-    width: fit-content;
-    height: 900px;
+    width: 45%;
+    height: 800px;
     margin-top: 30px;
   }
   .layout_contact p {
     width: 100%;
   }
   .layout_contact div {
-    width: 40%;
-
-    border: 1px solid #000000;
+    width: 45%;
     margin-top: 30px;
   }
+  .form {
+    border: 1px solid #000000;
+  }
 
+  .contact_img {
+    border: none;
+  }
   .mail {
-    height: 900px;
+    height: 800px;
     padding: 80px 80px 30px 80px;
   }
   .mail input,
@@ -146,6 +160,7 @@ const key = import.meta.env.PUBLIC_EMAIL;
     padding: 10px;
     margin-bottom: 40px;
     margin-top: 10px;
+    background-color: #fbfaf8;
   }
   .mail input {
     border-top: 1px solid #000000;
@@ -167,10 +182,9 @@ const key = import.meta.env.PUBLIC_EMAIL;
       margin: 30px auto;
       gap: 0;
     }
-    .layout_contact h3 {
-      font-size: 40px;
-    }
     .layout_contact img {
+      width: 100%;
+      height: fit-content;
       display: none;
     }
 
@@ -184,26 +198,24 @@ const key = import.meta.env.PUBLIC_EMAIL;
       overflow: hidden;
       margin: 0;
     }
-  }
-  @media only screen and (max-width: 1400px) and (min-width: 1200px) {
-    .layout_contact img {
-      width: 48%;
-    }
-
-    .layout_contact div {
-      width: 48%;
-    }
-  }
-  @media only screen and (max-width: 1200px) and (min-width: 760px) {
-    .layout_contact img {
+    .contact_img {
       display: none;
     }
-
+  }
+  @media only screen and (max-width: 1200px) and (min-width: 768px) {
     .layout_contact div {
-      width: 88%;
+      width: 100%;
+    }
+    .contact_img {
+      display: none;
     }
   }
-  @media only screen and (max-width: 1400px) and (min-width: 760px) {
+  @media only screen and (max-width: 1440px) and (min-width: 1200px) {
+    .layout_contact div {
+      width: 45%;
+    }
+  }
+  @media only screen and (max-width: 1440px) and (min-width: 760px) {
     .layout_contact h3 {
       font-size: 40px;
     }

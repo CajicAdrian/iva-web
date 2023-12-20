@@ -28,8 +28,8 @@ const projects = await getCollection("projects");
         projects.map((project) => (
           <div class="card">
             <Image
-              src={project.data.image}
-              alt={project.data.title}
+              src={project.data.image.src}
+              alt={project.data.image.alt}
               width={800}
               height={700}
             />
@@ -117,7 +117,7 @@ const projects = await getCollection("projects");
       border-right: 1px solid #000000;
       padding-bottom: 10px;
       padding-right: 20px;
-      font-size: 40px;
+      font-size: 38px;
     }
     p {
       width: 100%;
@@ -152,7 +152,7 @@ const projects = await getCollection("projects");
       border-right: 1px solid #000000;
       padding-bottom: 10px;
       padding-right: 20px;
-      font-size: 50px;
+      font-size: 40px;
     }
     p {
       width: 100%;

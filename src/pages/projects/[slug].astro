@@ -26,7 +26,6 @@ const {
   textsubtitle,
   textparagraph,
   image,
-  description,
   href,
   box1h,
   box1p,
@@ -34,10 +33,21 @@ const {
   box2p,
   box3h,
   box3p,
+  contentimage,
+  content1h,
+  content1image,
+  content2h,
+  content2image,
+  content3h,
+  content3image,
+  content4h,
+  images,
+  images2,
+  images3,
 } = project.data;
 ---
 
-<Layout title="Iva Valencic - Designer">
+<Layout title={title}>
   <main>
     <section class="Ostali_projekti">
       {
@@ -58,16 +68,13 @@ const {
         </div>
       </section>
       <Image
-        src={image}
-        alt={title}
-        width={600}
-        height={600}
+        src={image.src}
+        alt={image.alt}
+        width={700}
+        height={700}
         class="projekt_web_img"
       />
     </div>
-    <section class="container">
-      <p>{description}</p>
-    </section>
     <section class="desc">
       <div class="container">
         <div class="desc_box">
@@ -84,16 +91,215 @@ const {
         </div>
       </div>
     </section>
-    <section class="Ostali_projekti">
-      {
-        projects.map((project) => (
-          <a href={project.slug}>{project.data.title}</a>
-        ))
-      }
+    <section class="container">
+      <div class="content">
+        <Image
+          src={contentimage.src}
+          alt={contentimage.alt}
+          width={500}
+          height={500}
+        />
+        <h4 class="title_box">{content1h}</h4>
+        <Image
+          src={content1image.src}
+          alt={content1image.alt}
+          width={500}
+          height={500}
+        />
+        <h4 class="title_box_right">{content2h}</h4>
+        <Image
+          src={content2image.src}
+          alt={content2image.alt}
+          width={500}
+          height={500}
+        />
+        <h4 class="title_box">{content3h}</h4>
+        <Image
+          src={content3image.src}
+          alt={content3image.alt}
+          width={500}
+          height={500}
+        />
+        <h4 class="title_box_right">{content4h}</h4>
+      </div>
+      <div class="container gallery web_img">
+        {
+          images.map((image, index) => (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              class="modalbtn"
+              width={500}
+              height={500}
+              id={`${index}`}
+            />
+          ))
+        }
+      </div>
+      <div class="container gallery web_img">
+        {
+          images2.map((image, index) => (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              class="modalbtn"
+              width={500}
+              height={500}
+              id={`${index}`}
+            />
+          ))
+        }
+      </div>
     </section>
   </main>
+  <div id="modal">
+    <Button id="close">&times;</Button>
+    <div class="modal-content">
+      <section class="wrapper">
+        <Button id="modal_left">&#10094;</Button>
+        <div class="carousel">
+          {
+            images3.map((image, index) => (
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={500}
+                height={500}
+                class="carousel_img"
+                id={`${index}`}
+              />
+            ))
+          }
+        </div>
+        <Button id="modal_right">&#10095;</Button>
+      </section>
+      <div class="container gallery web_img">
+        {
+          images.map((image, index) => (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              class="modalgalery"
+              width={500}
+              height={500}
+              id={`${index}`}
+            />
+          ))
+        }
+      </div>
+      <div class="container gallery web_img">
+        {
+          images2.map((image, index) => (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              class="modalgalery"
+              width={500}
+              height={500}
+              id={`${index}`}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <section class="Ostali_projekti">
+    {projects.map((project) => <a href={project.slug}>{project.data.title}</a>)}
+  </section>
 </Layout>
+<script>
+  const modal = document.getElementById("modal");
+  const modalbtn = document.querySelectorAll(".modalbtn");
+  const modalgalery = document.querySelectorAll(".modalgalery");
+  const closebtn = document.getElementById("close");
+  const right = document.getElementById("modal_right");
+  const left = document.getElementById("modal_left");
+  const images = document.querySelectorAll(".carousel_img");
+  const totalIndex = images.length;
+
+  let isMoving: boolean;
+  let curentIndex = 1;
+
+  function openModal(index) {
+    modal.style.visibility = "visible";
+    curentIndex = index;
+    moveSlider();
+  }
+
+  modalbtn?.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      openModal(index);
+    });
+  });
+
+  modalgalery.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      curentIndex = index;
+      console.log(curentIndex);
+
+      moveSlider();
+    });
+  });
+
+  function closeModal() {
+    modal.style.visibility = "hidden";
+  }
+
+  closebtn?.addEventListener("click", closeModal);
+
+  function backgroundClick(e) {
+    if (e.target == modal) {
+      modal.style.visibility = "hidden";
+    }
+  }
+
+  window.addEventListener("click", backgroundClick);
+
+  function moveSlider() {
+    for (let i = 0; i < totalIndex; i++) {
+      if (curentIndex === i) {
+        images[i].style.display = "block";
+      } else {
+        images[i].style.display = "none";
+      }
+    }
+  }
+
+  function handleLeft() {
+    if (isMoving) {
+      return;
+    }
+    isMoving = true;
+    curentIndex--;
+    if (curentIndex < 0) {
+      curentIndex = totalIndex - 1;
+    }
+    moveSlider();
+    isMoving = false;
+  }
+  function handleRight() {
+    if (isMoving) {
+      return;
+    }
+    isMoving = true;
+    curentIndex++;
+    if (curentIndex >= totalIndex) {
+      curentIndex = 0;
+    }
+    moveSlider();
+    isMoving = false;
+  }
+
+  left?.addEventListener("click", handleLeft);
+  right?.addEventListener("click", handleRight);
+</script>
 <style>
+  h1 {
+    margin-bottom: 15px;
+  }
+  h2 {
+    line-height: 50px;
+  }
   .Ostali_projekti {
     width: 70%;
     margin: 0 auto;
@@ -120,7 +326,6 @@ const {
   }
   .mockup_right img {
     object-fit: scale-down;
-    overflow: hidden;
   }
   .portfolio_ui_web {
     display: flex;
@@ -149,22 +354,29 @@ const {
     margin: 30px;
     padding: 20px 10px;
   }
+
+  .content {
+    width: 100%;
+  }
+
+  .content img {
+    width: 100%;
+    height: auto;
+    margin: 40px 0;
+  }
   .title_box {
     border-bottom: 1px solid black;
     border-left: 1px solid black;
     width: 100%;
     padding: 10px;
+    margin: 40px 0;
   }
   .title_box_right {
     border-bottom: 1px solid black;
     border-right: 1px solid black;
     width: 100%;
+    margin: 40px 0;
     padding: 10px;
-  }
-  .images {
-    width: 90%;
-    height: fit-content;
-    margin: 50px;
   }
 
   .gallery {
@@ -186,29 +398,6 @@ const {
     transition: all 0.3s linear;
   }
   .gallery img:hover {
-    padding: 0;
-  }
-
-  .gallerymini {
-    overflow: hidden;
-    height: 300px;
-    margin-bottom: 30px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    background-color: #000000;
-  }
-
-  .gallerymini img {
-    width: 33.333333%;
-    padding: 10px;
-    height: fit-content;
-    transition: all 0.3s linear;
-  }
-
-  .gallerymini img:hover {
     padding: 0;
   }
   /* The Modal (background) */
@@ -248,12 +437,11 @@ const {
     white-space: nowrap;
     position: relative;
     flex-direction: row;
-    transform: translateX(-100%);
     margin-top: 20px;
     display: flex;
   }
   .carousel_img {
-    width: 1440px;
+    width: 100%;
     height: fit-content;
   }
 
@@ -269,6 +457,10 @@ const {
     display: none;
   }
   @media (max-width: 768px) {
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
     .Ostali_projekti {
       width: 70%;
       margin: 0 auto;
@@ -315,11 +507,19 @@ const {
       display: inline;
       min-width: 700px;
     }
-    .carousel_img {
-      margin: 0 5px;
+    .gallery {
+      height: 100px;
+    }
+    .desc_box {
+      width: auto;
     }
   }
-  @media only screen and (max-width: 1400px) and (min-width: 760px) {
+  @media only screen and (max-width: 1440px) and (min-width: 760px) {
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
     .mockup_right {
       width: 70%;
       flex-wrap: wrap;
@@ -345,23 +545,13 @@ const {
     .gallerymini {
       height: 200px;
     }
-    .carousel_img {
-      margin: 0;
+    .desc_box {
+      width: auto;
     }
   }
-  @media only screen and (min-width: 1400px) and (max-width: 1900px) {
-    .carousel_img {
-      margin: 0 3vw;
-    }
-  }
-  @media only screen and (min-width: 1900px) and (max-width: 2500px) {
-    .carousel_img {
-      margin: 0 8.8vw;
-    }
-  }
-  @media only screen and (min-width: 2500px) {
-    .carousel_img {
-      margin: 0 18.3vw;
+  @media only screen and (max-width: 1700px) and (min-width: 1440px) {
+    .gallery {
+      height: 150px;
     }
   }
 </style>
