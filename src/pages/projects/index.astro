@@ -25,11 +25,13 @@ const projects = await getCollection("projects");
 
     <section class="container">
       {
-        projects.map((project) => (
+        projects.map((project, index) => (
           <div class="card">
             <Image
               src={project.data.image.src}
               alt={project.data.image.alt}
+              id={`${index}`}
+              class="projects"
               width={800}
               height={700}
             />
@@ -42,6 +44,20 @@ const projects = await getCollection("projects");
     </section>
   </main>
 </Layout>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".projects");
+
+    if (window.innerWidth <= 768) {
+      images.forEach((image, index) => {
+        image.style.animation = "graying linear both";
+        image.style.animationTimeline = "scroll()";
+        image.style.animationRange = "entry 50% contain 50%";
+        image.style.animationDelay = `${index * 1}s`;
+      });
+    }
+  });
+</script>
 <!-- <script>
   
 
@@ -140,7 +156,7 @@ const projects = await getCollection("projects");
       filter: grayscale(100%);
     }
   }
-  @media only screen and (max-width: 1400px) and (min-width: 760px) {
+  @media only screen and (max-width: 1400px) and (min-width: 769px) {
     .layout_ui {
       border-bottom: 0px;
       border-right: 0px;

@@ -153,4 +153,16 @@ const { title } = Astro.props;
       font-size: 15px;
     }
   }
+
+  @keyframes graying {
+    from {
+      filter: grayscale(100%);
+    }
+    to {
+      filter: grayscale(0%);
+    }
+    0% {
+      filter: grayscale(100%);
+    }
+  }
 </style>
