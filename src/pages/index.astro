@@ -27,7 +27,6 @@ type Props = {
   project: CollectionEntry<"projects">;
 };
 const projects = await getCollection("projects");
-const { project } = Astro.props;
 ---
 
 <Layout title="Iva Valencic - Designer">
@@ -39,12 +38,7 @@ const { project } = Astro.props;
         <a href="/projects/"><Button>See the latest project</Button></a>
       </div>
 
-      <Image
-        src={ivafoto}
-        alt="Iva Valencic"
-        class="color-change-image"
-        title="iva foto"
-      />
+      <Image src={ivafoto} alt="Iva Valencic" class="hero" title="iva foto" />
     </section>
     <section class="carousel">
       <Button id="left">&#10094;</Button>
@@ -124,12 +118,7 @@ const { project } = Astro.props;
           the new way to solve their problems.
         </p>
       </div>
-      <Image
-        src={ivanew}
-        alt="Iva Valencic"
-        class="color-change-image"
-        title="iva new member"
-      />
+      <Image src={ivanew} alt="Iva Valencic" title="iva new member" />
     </section>
   </main>
 </Layout>
@@ -407,10 +396,6 @@ const { project } = Astro.props;
       display: inline;
     }
 
-    .layout_new_member img {
-      width: 100%;
-      padding: 0;
-    }
     .layout_new_member div {
       width: 100%;
     }
@@ -424,6 +409,12 @@ const { project } = Astro.props;
 
     #jungle {
       background-color: #8f918c;
+    }
+
+    .hero {
+      animation: graying linear both;
+      animation-timeline: view(block);
+      animation-range: entry 30% contain 70%;
     }
     .carousel img {
       height: 150px;
@@ -447,6 +438,9 @@ const { project } = Astro.props;
       filter: grayscale(100%);
       width: fit-content;
       height: 30px;
+      animation: graying linear both;
+      animation-timeline: view(block);
+      animation-range: entry 50% contain 50%;
     }
     .layout_need_somebody {
       gap: 0;
@@ -458,6 +452,9 @@ const { project } = Astro.props;
       width: fit-content;
       height: 250px;
       padding: 5px;
+      animation: graying linear both;
+      animation-timeline: view(block);
+      animation-range: entry 50% contain 50%;
     }
     .layout_need_somebody div {
       width: 100%;
