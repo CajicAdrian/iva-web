@@ -32,7 +32,6 @@ const projects = await getCollection('projects');
               alt={project.data.image.alt}
               id={`${index}`}
               class="projects"
-              css={{}}
               width={800}
               height={700}
             />
@@ -51,22 +50,31 @@ const projects = await getCollection('projects');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Element enters the viewport - start color animation
-            entry.target.style.filter = 'grayscale(0%)';
-          } else {
-            // Element leaves the viewport - revert to grayscale
-            entry.target.style.filter = 'grayscale(100%)';
-          }
+          // Calculate the percentage of the item that is visible
+          const visiblePercentage = entry.intersectionRatio;
+
+          // Set the filter based on the visible percentage
+          entry.target.style.filter = `grayscale(${
+            (1 - visiblePercentage) * 100
+          }%)`;
         });
       },
-      { threshold: 0.75 }
-    ); // Triggers at both 0% and 100% visibility
+      { threshold: buildThresholdList() }
+    );
 
     document.querySelectorAll('.projects').forEach((project) => {
       observer.observe(project);
     });
   });
+
+  function buildThresholdList() {
+    let thresholds = [];
+    for (let i = 0; i <= 1.0; i += 0.1) {
+      // Thresholds at every 1%
+      thresholds.push(i);
+    }
+    return thresholds;
+  }
 </script>
 <style>
   .layout_ui {
@@ -101,7 +109,7 @@ const projects = await getCollection('projects');
   }
   @media (max-width: 768px) {
     .projects {
-      transition: filter 1s ease; /* Smooth transition for the filter property */
+      transition: filter 1.5s ease; /* Increased duration for a smoother transition */
       filter: grayscale(100%); /* Start with grayscale */
     }
 
