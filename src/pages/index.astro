@@ -162,6 +162,7 @@ const projects = await getCollection("projects");
       return;
     }
     isMoving = true;
+    g;
     curentIndex++;
     if (curentIndex > totalIndex - 3) {
       curentIndex = 0;
@@ -206,17 +207,6 @@ const projects = await getCollection("projects");
   }
   .layout_name_foto img:hover {
     filter: grayscale(0%);
-  }
-  #btn {
-    padding: 30px 40px;
-    border-bottom: 1px solid #000000;
-    border-left: 1px solid #000000;
-    border-top: 1px solid #fff;
-    border-right: 1px solid #fff;
-  }
-  #btn:hover {
-    border-top: 1px solid #000000;
-    border-right: 1px solid #000000;
   }
 
   .layout_new_member {
@@ -312,6 +302,7 @@ const projects = await getCollection("projects");
     background-color: #474747;
     margin: 0 1vw;
     filter: grayscale(100%);
+    transition: all 0.3s linear;
   }
 
   .carousel img:hover {
@@ -326,15 +317,6 @@ const projects = await getCollection("projects");
 
   #jungle:hover {
     background-color: #8f918c;
-  }
-  .mob_img {
-    display: none;
-  }
-  .projekt_mob_img {
-    display: none;
-  }
-  .wrapp_mob {
-    display: none;
   }
 
   @media (max-width: 768px) {
@@ -359,10 +341,6 @@ const projects = await getCollection("projects");
       padding: 0;
       margin-top: 60px;
     }
-
-    .color-change-image {
-      filter: grayscale(100%);
-    }
     h2 {
       font-size: 50px;
     }
@@ -385,15 +363,6 @@ const projects = await getCollection("projects");
     }
     .layout_new_member h4 {
       width: 100%;
-    }
-    .web_img {
-      display: none;
-    }
-    .projekt_web_img {
-      display: none;
-    }
-    .mob_img {
-      display: inline;
     }
 
     .layout_new_member div {
@@ -479,17 +448,6 @@ const projects = await getCollection("projects");
     .name h1 {
       font-size: 2.5rem;
     }
-    #btn {
-      font-size: 15px;
-      border-top: 1px solid #000000;
-      border-right: 1px solid #000000;
-      border-top: 1px solid #fff;
-      border-right: 1px solid #fff;
-    }
-    #btn:hover {
-      border-top: 1px solid #000000;
-      border-right: 1px solid #000000;
-    }
 
     .layout_new_member img {
       width: 70%;
@@ -550,19 +508,6 @@ const projects = await getCollection("projects");
     }
     .layout_need_somebody div {
       width: 100%;
-    }
-
-    .mob_img {
-      display: inline;
-      margin-left: 10px;
-    }
-    #ivasome {
-      display: inline;
-      margin-left: 8px;
-      padding: 0;
-    }
-    .web_img {
-      display: none;
     }
   }
 </style>
