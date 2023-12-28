@@ -70,9 +70,10 @@ const {
       <Image
         src={image.src}
         alt={image.alt}
-        width={700}
+        width={800}
         height={700}
         class="projekt_web_img"
+        transition:name={image.alt}
       />
     </div>
     <section class="desc">
@@ -419,7 +420,6 @@ const {
     z-index: -1;
   }
 
-  /* Modal Content */
   .modal-content {
     position: relative;
     margin: auto;
@@ -445,17 +445,6 @@ const {
     height: fit-content;
   }
 
-  .hover-shadow:hover {
-    box-shadow:
-      0 4px 8px 0 rgba(0, 0, 0, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  .mob_img {
-    display: none;
-  }
-  .projekt_mob_img {
-    display: none;
-  }
   @media (max-width: 768px) {
     h1 {
       font-size: 40px;
@@ -479,34 +468,16 @@ const {
       padding-top: 0px;
       padding-bottom: 20px;
     }
-    .projekt_mob_img {
-      width: 85%;
-      margin-left: 15%;
-      display: inline;
-    }
 
     .portfolio_ui_text {
       width: 100%;
       padding-top: 0px;
     }
 
-    .projekt_mob_img {
-      display: none;
-    }
-
-    .web_img_main {
-      display: none;
-    }
-    .mob_img {
-      display: inline;
-    }
     .projekt_web_img {
       display: none;
     }
-    .projekt_mob_img {
-      display: inline;
-      min-width: 700px;
-    }
+
     .gallery {
       height: 100px;
     }
