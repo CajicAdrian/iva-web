@@ -2,9 +2,9 @@
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Button from "../../components/Button.astro";
-import Modal from "../../components/Modal.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { fade } from "astro:transitions";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -74,6 +74,7 @@ const {
         height={700}
         class="projekt_web_img"
         transition:name={image.alt}
+        transition:animate={fade({ duration: "0.1s" })}
       />
     </div>
     <section class="desc">

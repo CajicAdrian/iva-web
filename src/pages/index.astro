@@ -162,7 +162,6 @@ const projects = await getCollection("projects");
       return;
     }
     isMoving = true;
-    g;
     curentIndex++;
     if (curentIndex > totalIndex - 3) {
       curentIndex = 0;
@@ -318,6 +317,9 @@ const projects = await getCollection("projects");
   #jungle:hover {
     background-color: #8f918c;
   }
+  #robin:hover {
+    background-color: #6cd2ff;
+  }
 
   @media (max-width: 768px) {
     .projects {
@@ -379,7 +381,9 @@ const projects = await getCollection("projects");
     #jungle {
       background-color: #8f918c;
     }
-
+    #robin {
+      background-color: #6cd2ff;
+    }
     .hero {
       animation: graying linear both;
       animation-timeline: view(block);
