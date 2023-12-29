@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import Button from "../../components/Button.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { fade } from "astro:transitions";
 
 type Props = {
   project: CollectionEntry<"projects">;
@@ -35,6 +36,7 @@ const projects = await getCollection("projects");
               width={800}
               height={700}
               transition:name={project.data.image.alt}
+              transition:animate={fade({ duration: "0.1s" })}
             />
             <a href={`/projects/${project.slug}`}>
               <Button id="projects">Read more</Button>
