@@ -4,6 +4,7 @@ texttitle: Leko and partners
 textsubtitle: Law firm
 textparagraph: Leko & Partners is a prestigious law firm with over 30 years of experience in providing exceptional legal consulting services. As a web designer, I had the privilege of creating a visually captivating online presence that truly reflects their status as a premium service.
 image: { src: "/src/assets/images/ui_design/leko.jpg", alt: Leko i Partneri }
+date: 2022
 
 href: "https://www.figma.com/proto/WcraIe19Y7ou6EZKvjgH3B/Leko-i-partneri?page-id=0%3A1&type=design&node-id=606-1105&viewport=391%2C373%2C0.03&t=9YycYTaCmyzzJMau-1&scaling=min-zoom&mode=design"
 

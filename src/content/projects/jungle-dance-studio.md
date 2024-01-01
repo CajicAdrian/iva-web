@@ -8,6 +8,8 @@ textparagraph:
   movement through an elegant and classic site. I had the pleasure of collaborating with my
   talented colleague, Tee Huljek, who created a stunning logo that served as the inspiration for
   this exquisite web design.
+date: 2022
+
 image:
   { src: "/src/assets/images/ui_design/jungle.jpg", alt: Jungle Dance Studio }
 href: https://www.figma.com/proto/XV01yFse3RNwkVUkXaLVcd/Jungle?page-id=0%3A1&type=designode-id=2-4&viewport=464%2C438%2C0.31&scaling=min-zoom&starting-point-node-id=2%3A4"
