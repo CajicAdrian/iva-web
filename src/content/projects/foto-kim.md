@@ -3,6 +3,8 @@ title: Foto Kim
 texttitle: Foto Kim
 textsubtitle: Event Photographer
 textparagraph: Foto KiM are a celebrated name in event photography, renowned for capturing moments that last a lifetime. As a Ui designer, I had the honor of crafting a digital showcase that mirrors their expertise and creativity. Through thoughtful design and innovative features, the web gallery embodies Foto Kim's commitment to capturing the essence of every event.
+date: 2023
+
 image: { src: "/src/assets/images/ui_design/kim.png", alt: Foto Kim }
 
 href: https://www.figma.com/proto/GhMRSuwlzzfldPfwrfFlXb/Foto-Karla?page-id=0%3A1&type=design&node-id=10-1107&viewport=368%2C380%2C0.05&t=B8bHYRT9jC6zqq6p-1&scaling=min-zoom&starting-point-node-id=10%3A1107&show-proto-sidebar=1&mode=design

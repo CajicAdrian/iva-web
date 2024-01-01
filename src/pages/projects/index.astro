@@ -38,7 +38,7 @@ const projects = await getCollection("projects");
               transition:name={project.data.image.alt}
               transition:animate={fade({ duration: "0.1s" })}
             />
-            <a href={`/projects/${project.slug}`}>
+            <a href={`/projects/${project.slug}`} class="projectsButton">
               <Button id="projects">Read more</Button>
             </a>
           </div>
@@ -109,6 +109,16 @@ const projects = await getCollection("projects");
   }
   .card {
     display: flex;
+  }
+  .projects {
+    animation: easeInBottom linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 30%;
+  }
+  .projectsButton {
+    animation: easeInRight linear both;
+    animation-timeline: view(block);
+    animation-range: entry 35% contain 30%;
   }
   @media (max-width: 768px) {
     .projects {

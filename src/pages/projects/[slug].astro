@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import Button from "../../components/Button.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { fade } from "astro:transitions";
+import { fade, slide } from "astro:transitions";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -25,6 +25,7 @@ const {
   texttitle,
   textsubtitle,
   textparagraph,
+  date,
   image,
   href,
   box1h,
@@ -61,7 +62,8 @@ const {
         <div class="portfolio_ui_text">
           <h1>{texttitle}</h1>
           <h2>{textsubtitle}</h2>
-          <p>{textparagraph}</p>
+          <p class="introdesc">{textparagraph}</p>
+          <p class="date">Made in: {date}</p>
           <a href={href} target="_blank"
             ><Button id="project">figma prototype</Button></a
           >
@@ -74,11 +76,11 @@ const {
         height={700}
         class="projekt_web_img"
         transition:name={image.alt}
-        transition:animate={fade({ duration: "0.1s" })}
+        transition:animate={fade({ duration: "1s" })}
       />
     </div>
     <section class="desc">
-      <div class="container">
+      <div class="container description">
         <div class="desc_box">
           <h5>{box1h}</h5>
           <p>{box1p}</p>
@@ -124,33 +126,35 @@ const {
         />
         <h4 class="title_box_right">{content4h}</h4>
       </div>
-      <div class="container gallery web_img">
-        {
-          images.map((image, index) => (
-            <Image
-              src={image.src}
-              alt={image.alt}
-              class="modalbtn"
-              width={500}
-              height={500}
-              id={`${index}`}
-            />
-          ))
-        }
-      </div>
-      <div class="container gallery web_img">
-        {
-          images2.map((image, index) => (
-            <Image
-              src={image.src}
-              alt={image.alt}
-              class="modalbtn"
-              width={500}
-              height={500}
-              id={`${index}`}
-            />
-          ))
-        }
+      <div class="galleryimages">
+        <div class="container gallery web_img">
+          {
+            images.map((image, index) => (
+              <Image
+                src={image.src}
+                alt={image.alt}
+                class="modalbtn"
+                width={500}
+                height={500}
+                id={`${index}`}
+              />
+            ))
+          }
+        </div>
+        <div class="container gallery web_img">
+          {
+            images2.map((image, index) => (
+              <Image
+                src={image.src}
+                alt={image.alt}
+                class="modalbtn"
+                width={500}
+                height={500}
+                id={`${index}`}
+              />
+            ))
+          }
+        </div>
       </div>
     </section>
   </main>
@@ -342,14 +346,22 @@ const {
     text-align: left;
     padding-top: 30px;
   }
-  .portfolio_ui_text p {
+  .introdesc {
     padding-top: 40px;
-    padding-bottom: 60px;
+    padding-bottom: 20px;
+  }
+  .date {
+    padding-bottom: 40px;
   }
   .desc {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     margin: 100px 0;
+  }
+  .description {
+    animation: easeInLeft linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
   }
   .desc_box {
     width: 25%;
@@ -365,6 +377,9 @@ const {
     width: 100%;
     height: auto;
     margin: 40px 0;
+    animation: easeInBottom linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
   }
   .title_box {
     border-bottom: 1px solid black;
@@ -372,6 +387,9 @@ const {
     width: 100%;
     padding: 10px;
     margin: 40px 0;
+    animation: easeInRight linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
   }
   .title_box_right {
     border-bottom: 1px solid black;
@@ -379,6 +397,9 @@ const {
     width: 100%;
     margin: 40px 0;
     padding: 10px;
+    animation: easeInLeft linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
   }
 
   .gallery {
@@ -389,6 +410,11 @@ const {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+  }
+  .galleryimages {
+    animation: easeInBottom linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
   }
   .desc_box h5 {
     margin-bottom: 10px;

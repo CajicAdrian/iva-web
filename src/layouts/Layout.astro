@@ -167,6 +167,49 @@ const { title } = Astro.props;
           filter: grayscale(100%);
         }
       }
+      @keyframes easeInBottom {
+        0% {
+          opacity: 0%;
+          transform: translateY(50%);
+        }
+        70% {
+          transform: translateY(0%);
+        }
+        100% {
+          opacity: 100%;
+        }
+      }
+
+      @keyframes easeInLeft {
+        0% {
+          opacity: 0%;
+          transform: translateX(-100%);
+        }
+        70% {
+          opacity: 100%;
+          transform: translateX(0%);
+        }
+      }
+      @keyframes easeInRight {
+        0% {
+          opacity: 0%;
+          transform: translateX(100%);
+        }
+        70% {
+          opacity: 100%;
+          transform: translateX(0%);
+        }
+      }
+      @keyframes easeInRightFast {
+        56% {
+          opacity: 0%;
+          transform: translateX(100%);
+        }
+        100% {
+          opacity: 100%;
+          transform: translateX(0%);
+        }
+      }
     </style>
   </body>
 </html>

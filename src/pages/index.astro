@@ -81,7 +81,7 @@ const projects = await getCollection("projects");
     </section>
 
     <section class="icon">
-      <div class="container">
+      <div class="container icons">
         <h4>What I use:</h4>
         <Image src={figma} alt="Figma" title="figma" />
         <Image src={photoshop} alt="Photoshop" title="photoshop" />
@@ -213,6 +213,9 @@ const projects = await getCollection("projects");
     flex-wrap: wrap;
     margin: 30px auto;
     gap: 5%;
+    animation: easeInBottom linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
   }
   .layout_new_member h4 {
     width: 100%;
@@ -239,6 +242,11 @@ const projects = await getCollection("projects");
     border-top: 1px solid #000000;
     border-bottom: 1px solid #000000;
   }
+  .icons {
+    animation: easeInRight linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
+  }
   .icon h4 {
     margin: auto 0;
   }
@@ -254,6 +262,9 @@ const projects = await getCollection("projects");
     flex-wrap: wrap;
     margin: 40px auto;
     gap: 5%;
+    animation: easeInBottom linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
   }
   .layout_need_somebody h4 {
     width: 100%;
@@ -293,6 +304,9 @@ const projects = await getCollection("projects");
     cursor: pointer;
     padding: 0 5vw;
     display: flex;
+    animation: easeInLeft linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
   }
 
   .carousel img {

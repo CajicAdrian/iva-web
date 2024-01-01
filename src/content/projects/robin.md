@@ -4,7 +4,7 @@ title: Robin Crafts
 texttitle: Robin Crafts
 textsubtitle: Webshop
 textparagraph: Introducing "Robin Crafts," people seeking to bring joy into their lives through handcrafted plushies. I had the privilege of translating the essence of Robin Crafts into a captivating online presence. Fueled by a passion for creating seamless and visually appealing web experiences, my goal was to weave together an online tapestry that mirrors the charm and craftsmanship of Robin Crafts' crochet plushies.
-
+date: 2024
 image: { src: "/src/assets/images/ui_design/robin.png", alt: Robin Crafts }
 
 href: https://www.figma.com/proto/ddOOGetUhlsavO9L0qAw8s/Josipa-web?type=design&node-id=1-2&t=zoFDRlEye2El3QCL-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=1%3A2&mode=design

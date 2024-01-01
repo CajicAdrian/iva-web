@@ -2,8 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Button from "../components/Button.astro";
-import content_img from "../assets/images/contact_img.png";
-
 import bcard from "../assets/images/Vizitka.png";
 import bcardback from "../assets/images/Vizitka hover.png";
 const key = import.meta.env.PUBLIC_EMAIL;
@@ -149,6 +147,9 @@ const key = import.meta.env.PUBLIC_EMAIL;
 
   .contact_img {
     border: none;
+    animation: easeInRightFast linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
   }
   .mail {
     height: 800px;
