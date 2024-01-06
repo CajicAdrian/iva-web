@@ -1,4 +1,26 @@
 ---
+metatitle: Iva Valencic | Portfolio  | Adrian Chajic
+metadesctiption: Web design for Adrian Cajic, a front-end and full-stack programmer. Utilizing neumorphism to create a futuristic design, showcasing his latest work.
+metakeywords:
+  [
+    UI Designer,
+    Croatia,
+    Zagreb,
+    Studant,
+    Minimalist,
+    Elegant Websites,
+    Figma,
+    Portfolio,
+    Iva Valencic,
+    Adrian Cajic,
+    front-end portfolio,
+    full-stack portfolio,
+    logo,
+    sitemap,
+    color palete,
+    web design,
+    neumorphism,
+  ]
 title: Adrian Chajic
 texttitle: Adrian Chajic
 textsubtitle: Frontend developer

@@ -1,6 +1,14 @@
 ---
-title: Robin Crafts
+metatitle: Iva Valencic | Portfolio  | Robin Crafts
+metadesctiption: Web design for Robin Crafts webshop. Showcase of web design for handmade crochet plushies. Fun and organised site for all that like crafts.
 
+metakeywords:
+  [
+UI Designer, Croatia, Zagreb, Studant, Minimalist, Elegant Websites, Figma, Portfolio, Iva Valencic, Robin Crafts, logo, Sitemap, color palete, web design, handmade crafts, crochet
+
+  ]
+
+title:  Robin Crafts
 texttitle: Robin Crafts
 textsubtitle: Webshop
 textparagraph: Introducing "Robin Crafts," people seeking to bring joy into their lives through handcrafted plushies. I had the privilege of translating the essence of Robin Crafts into a captivating online presence. Fueled by a passion for creating seamless and visually appealing web experiences, my goal was to weave together an online tapestry that mirrors the charm and craftsmanship of Robin Crafts' crochet plushies.
@@ -60,9 +68,10 @@ src: "/src/assets/images/projects/robin/contact.jpg",
 alt: contact,
 },
 ]
-logo: {
-src: "/src/assets/images/logo/robin.png",
-alt: Robin Crafts logo,
-id: robin,
-}
+logo: 
+    {
+        src: "/src/assets/images/logo/robin.png",
+        alt: Robin Crafts logo,
+        id: robin,
+    }
 ---

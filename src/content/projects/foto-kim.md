@@ -1,4 +1,25 @@
 ---
+metatitle: Iva Valencic | Portfolio  | Foto Kim
+metadesctiption: Web design for Foto KiM, event photographers. A web design crafted to showcase the brand's photography portfolio, accompanied by a user-friendly booking system.
+
+metakeywords:
+  [
+    UI Designer,
+    Croatia,
+    Zagreb,
+    Studant,
+    Minimalist,
+    Elegant Websites,
+    Figma,
+    Portfolio,
+    Iva Valencic,
+    Foto KiM,
+    logo,
+    Sitemap,
+    color palete,
+    web design,
+    photography portfolio,
+  ]
 title: Foto Kim
 texttitle: Foto Kim
 textsubtitle: Event Photographer
