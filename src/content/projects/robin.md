@@ -70,7 +70,7 @@ alt: contact,
 ]
 logo: 
     {
-        src: "/src/assets/images/logo/robin.png",
+        src: "/src/assets/images/logo/robin.svg",
         alt: Robin Crafts logo,
         id: robin,
     }
