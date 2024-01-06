@@ -21,7 +21,9 @@ type Props = {
 const projects = await getCollection("projects");
 const { project } = Astro.props;
 const {
-  title,
+  metatitle,
+  metadesctiption,
+  metakeywords,
   texttitle,
   textsubtitle,
   textparagraph,
@@ -48,7 +50,13 @@ const {
 } = project.data;
 ---
 
-<Layout title={title}>
+<Layout
+  title={metatitle}
+  ,
+  description={metadesctiption}
+  ,
+  keywords={metakeywords}
+>
   <main>
     <section class="Ostali_projekti">
       {

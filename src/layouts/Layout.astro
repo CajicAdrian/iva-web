@@ -4,16 +4,20 @@ import Nav from "../components/Nav.astro";
 import { ViewTransitions } from "astro:transitions";
 interface Props {
   title: string;
+  description: string;
+  keywords: Array<string>;
 }
 
-const { title } = Astro.props;
+const { title, description, keywords } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="author" content="Iva Valenčić" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link
       href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"

@@ -1,4 +1,26 @@
 ---
+metatitle: Iva Valencic | Portfolio  | Leko and partners
+metadesctiption: Web design for Leko and Partners, a law firm, created during my tenure at Luna & Tocka. UI design that exudes prestige and elegance.
+
+metakeywords:
+  [
+    UI Designer,
+    Croatia,
+    Zagreb,
+    Studant,
+    Minimalist,
+    Elegant Websites,
+    Figma,
+    Portfolio,
+    Iva Valencic,
+    Leko and partners,
+    Luna&Tocka,
+    logo,
+    sitemap,
+    color palete,
+    web design,
+    lew firm,
+  ]
 title: Leko i Partneri
 texttitle: Leko and partners
 textsubtitle: Law firm
