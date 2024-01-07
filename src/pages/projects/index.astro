@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import Button from "../../components/Button.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { fade } from "astro:transitions";
 
 type Props = {
   project: CollectionEntry<"projects">;
@@ -12,7 +13,13 @@ type Props = {
 const projects = await getCollection("projects");
 ---
 
-<Layout title="Iva Valencic - Designer">
+<Layout
+  title="Iva Valencic | Portfolio"
+  ,
+  description="UI design portfolio of Iva Valencic. Collection of elegant and minimalist website designs. Premium web solutions that captivate and showcase true online prestige. "
+  ,
+  keywords=" UI Designer, Croatia, Zagreb, Studant, Minimalist, Elegant Websites, Figma UI, Portfolio, Iva Valencic, Web Design Showcase"
+>
   <main>
     <section class="container layout_ui">
       <h1>Projects</h1>
@@ -25,15 +32,19 @@ const projects = await getCollection("projects");
 
     <section class="container">
       {
-        projects.map((project) => (
+        projects.map((project, index) => (
           <div class="card">
             <Image
               src={project.data.image.src}
               alt={project.data.image.alt}
+              id={`${index}`}
+              class="projects"
               width={800}
               height={700}
+              transition:name={project.data.image.alt}
+              transition:animate={fade({ duration: "0.1s" })}
             />
-            <a href={`/projects/${project.slug}`}>
+            <a href={`/projects/${project.slug}`} class="projectsButton">
               <Button id="projects">Read more</Button>
             </a>
           </div>
@@ -42,38 +53,38 @@ const projects = await getCollection("projects");
     </section>
   </main>
 </Layout>
-<!-- <script>
-  
 
-
-
-  if (window.matchMedia("(max-width: 1400px)").matches) {
-      const images = document.querySelectorAll(".color-change-image");
-
-      const options = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 1// Adjust this value based on how much of the image needs to be visible to trigger the color change
-      };
-
-      const observer = new IntersectionObserver((entries) => {
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // If the image is in the viewport, remove the grayscale filter
-            entry.target.style.filter = "none";
-          } else {
-            // If the image is not in the viewport, apply the grayscale filter
-            entry.target.style.filter = "grayscale(100%)";
-          }
-        });
-      }, options);
+          // Calculate the percentage of the item that is visible
+          const visiblePercentage = entry.intersectionRatio;
 
-      // Start observing each image
-      images.forEach((image) => {
-        observer.observe(image);
-      });
+          // Set the filter based on the visible percentage
+          entry.target.style.filter = `grayscale(${
+            (1 - visiblePercentage) * 100
+          }%)`;
+        });
+      },
+      { threshold: buildThresholdList() }
+    );
+
+    document.querySelectorAll(".projects").forEach((project) => {
+      observer.observe(project);
+    });
+  });
+
+  function buildThresholdList() {
+    let thresholds = [];
+    for (let i = 0; i <= 1.0; i += 0.1) {
+      // Thresholds at every 10%
+      thresholds.push(i);
     }
-  </script> -->
+    return thresholds;
+  }
+</script>
 <style>
   .layout_ui {
     border-bottom: 1px solid #000000;
@@ -105,7 +116,22 @@ const projects = await getCollection("projects");
   .card {
     display: flex;
   }
+  .projects {
+    animation: easeInBottom linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 30%;
+  }
+  .projectsButton {
+    animation: easeInRight linear both;
+    animation-timeline: view(block);
+    animation-range: entry 35% contain 30%;
+  }
   @media (max-width: 768px) {
+    .projects {
+      transition: filter 1.5s ease; /* Increased duration for a smoother transition */
+      filter: grayscale(100%); /* Start with grayscale */
+    }
+
     .layout_ui {
       border-bottom: 0px;
       border-right: 0px;
@@ -136,11 +162,8 @@ const projects = await getCollection("projects");
     a {
       margin: 0 0 15px 0;
     }
-    .color-change-image {
-      filter: grayscale(100%);
-    }
   }
-  @media only screen and (max-width: 1400px) and (min-width: 760px) {
+  @media only screen and (max-width: 1400px) and (min-width: 769px) {
     .layout_ui {
       border-bottom: 0px;
       border-right: 0px;
@@ -165,9 +188,6 @@ const projects = await getCollection("projects");
     }
     a {
       margin-top: 45%;
-    }
-    .color-change-image {
-      filter: grayscale(100%);
     }
   }
 </style>

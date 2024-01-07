@@ -1,4 +1,23 @@
 ---
+metatitle: Iva Valencic | Portfolio  | Jungle Dance Studio
+metadesctiption: Redesign for Jungle Dance Studio web site. Showcase of web design inspired by redesign od logo. Premium web solutions that captivate and showcase true online prestige.
+
+metakeywords:
+  [
+    UI Designer,
+    Croatia,
+    Zagreb,
+    Studant,
+    Minimalist,
+    Elegant Websites,
+    Figma,
+    Portfolio,
+    Iva Valencic,
+    Jungle Dance Studio,
+    Mood Board,
+    Color Palette,
+    web design,
+  ]
 title: Jungle Dance Studio
 texttitle: Jungle
 textsubtitle: Dance studio
@@ -8,6 +27,8 @@ textparagraph:
   movement through an elegant and classic site. I had the pleasure of collaborating with my
   talented colleague, Tee Huljek, who created a stunning logo that served as the inspiration for
   this exquisite web design.
+date: 2022
+
 image:
   { src: "/src/assets/images/ui_design/jungle.jpg", alt: Jungle Dance Studio }
 href: https://www.figma.com/proto/XV01yFse3RNwkVUkXaLVcd/Jungle?page-id=0%3A1&type=designode-id=2-4&viewport=464%2C438%2C0.31&scaling=min-zoom&starting-point-node-id=2%3A4"

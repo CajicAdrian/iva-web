@@ -4,6 +4,9 @@ export const collections = {
     projects: defineCollection ({
         type: "content",
         schema: ({image}) => z.object({
+            metatitle: z.string(),
+            metadesctiption: z.string(),
+            metakeywords: z.array( z.string()),
             title: z.string(),
             texttitle: z.string(),
             textsubtitle: z.string(),
@@ -12,6 +15,7 @@ export const collections = {
                 src: image(),
                 alt: z.string(),
               }),
+            date: z.number(),
             href: z.string(),
             box1h: z.string(),
             box1p: z.string(),

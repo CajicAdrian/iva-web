@@ -27,10 +27,15 @@ type Props = {
   project: CollectionEntry<"projects">;
 };
 const projects = await getCollection("projects");
-const { project } = Astro.props;
 ---
 
-<Layout title="Iva Valencic - Designer">
+<Layout
+  title="Iva Valencic | UI Designer"
+  ,
+  description="Freelance UI designer in Croatia, graduated from the Zagreb School of Fine Arts. Experienced in graphic design for C&A and Luna & Tocka. Collaborated with Amor Lingua School. Participant in the ICDC Challenge 2023. Specializing in minimalist and elegant website design. Seeking to join a larger team to enhance skills and contribute innovative ideas."
+  ,
+  keywords="UI Designer, Croatia, Zagreb, Studant, Minimalist, Elegant Websites, Figma, Iva Valencic, School of Fine Arts, C&A, Luna & Tocka, Amor Lingua School, ICDC Challenge 2023, Branding, Prestige"
+>
   <main>
     <section class="container layout_name_foto">
       <div class="name">
@@ -39,12 +44,7 @@ const { project } = Astro.props;
         <a href="/projects/"><Button>See the latest project</Button></a>
       </div>
 
-      <Image
-        src={ivafoto}
-        alt="Iva Valencic"
-        class="color-change-image"
-        title="iva foto"
-      />
+      <Image src={ivafoto} alt="Iva Valencic" class="hero" title="iva foto" />
     </section>
     <section class="carousel">
       <Button id="left">&#10094;</Button>
@@ -85,9 +85,8 @@ const { project } = Astro.props;
         </p>
       </div>
     </section>
-
     <section class="icon">
-      <div class="container">
+      <div class="container icons">
         <h4>What I use:</h4>
         <Image src={figma} alt="Figma" title="figma" />
         <Image src={photoshop} alt="Photoshop" title="photoshop" />
@@ -124,12 +123,7 @@ const { project } = Astro.props;
           the new way to solve their problems.
         </p>
       </div>
-      <Image
-        src={ivanew}
-        alt="Iva Valencic"
-        class="color-change-image"
-        title="iva new member"
-      />
+      <Image src={ivanew} alt="Iva Valencic" title="iva new member" />
     </section>
   </main>
 </Layout>
@@ -218,23 +212,15 @@ const { project } = Astro.props;
   .layout_name_foto img:hover {
     filter: grayscale(0%);
   }
-  #btn {
-    padding: 30px 40px;
-    border-bottom: 1px solid #000000;
-    border-left: 1px solid #000000;
-    border-top: 1px solid #fff;
-    border-right: 1px solid #fff;
-  }
-  #btn:hover {
-    border-top: 1px solid #000000;
-    border-right: 1px solid #000000;
-  }
 
   .layout_new_member {
     display: flex;
     flex-wrap: wrap;
     margin: 30px auto;
     gap: 5%;
+    animation: easeInBottom linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
   }
   .layout_new_member h4 {
     width: 100%;
@@ -261,6 +247,11 @@ const { project } = Astro.props;
     border-top: 1px solid #000000;
     border-bottom: 1px solid #000000;
   }
+  .icons {
+    animation: easeInRight linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
+  }
   .icon h4 {
     margin: auto 0;
   }
@@ -276,6 +267,9 @@ const { project } = Astro.props;
     flex-wrap: wrap;
     margin: 40px auto;
     gap: 5%;
+    animation: easeInBottom linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
   }
   .layout_need_somebody h4 {
     width: 100%;
@@ -315,6 +309,9 @@ const { project } = Astro.props;
     cursor: pointer;
     padding: 0 5vw;
     display: flex;
+    animation: easeInLeft linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
   }
 
   .carousel img {
@@ -323,6 +320,7 @@ const { project } = Astro.props;
     background-color: #474747;
     margin: 0 1vw;
     filter: grayscale(100%);
+    transition: all 0.3s linear;
   }
 
   .carousel img:hover {
@@ -338,14 +336,8 @@ const { project } = Astro.props;
   #jungle:hover {
     background-color: #8f918c;
   }
-  .mob_img {
-    display: none;
-  }
-  .projekt_mob_img {
-    display: none;
-  }
-  .wrapp_mob {
-    display: none;
+  #robin:hover {
+    background-color: #6cd2ff;
   }
 
   @media (max-width: 768px) {
@@ -370,10 +362,6 @@ const { project } = Astro.props;
       padding: 0;
       margin-top: 60px;
     }
-
-    .color-change-image {
-      filter: grayscale(100%);
-    }
     h2 {
       font-size: 50px;
     }
@@ -397,20 +385,7 @@ const { project } = Astro.props;
     .layout_new_member h4 {
       width: 100%;
     }
-    .web_img {
-      display: none;
-    }
-    .projekt_web_img {
-      display: none;
-    }
-    .mob_img {
-      display: inline;
-    }
 
-    .layout_new_member img {
-      width: 100%;
-      padding: 0;
-    }
     .layout_new_member div {
       width: 100%;
     }
@@ -424,6 +399,14 @@ const { project } = Astro.props;
 
     #jungle {
       background-color: #8f918c;
+    }
+    #robin {
+      background-color: #6cd2ff;
+    }
+    .hero {
+      animation: graying linear both;
+      animation-timeline: view(block);
+      animation-range: entry 30% contain 70%;
     }
     .carousel img {
       height: 150px;
@@ -447,6 +430,9 @@ const { project } = Astro.props;
       filter: grayscale(100%);
       width: fit-content;
       height: 30px;
+      animation: graying linear both;
+      animation-timeline: view(block);
+      animation-range: entry 50% contain 50%;
     }
     .layout_need_somebody {
       gap: 0;
@@ -458,6 +444,9 @@ const { project } = Astro.props;
       width: fit-content;
       height: 250px;
       padding: 5px;
+      animation: graying linear both;
+      animation-timeline: view(block);
+      animation-range: entry 50% contain 50%;
     }
     .layout_need_somebody div {
       width: 100%;
@@ -481,17 +470,6 @@ const { project } = Astro.props;
     }
     .name h1 {
       font-size: 2.5rem;
-    }
-    #btn {
-      font-size: 15px;
-      border-top: 1px solid #000000;
-      border-right: 1px solid #000000;
-      border-top: 1px solid #fff;
-      border-right: 1px solid #fff;
-    }
-    #btn:hover {
-      border-top: 1px solid #000000;
-      border-right: 1px solid #000000;
     }
 
     .layout_new_member img {
@@ -553,19 +531,6 @@ const { project } = Astro.props;
     }
     .layout_need_somebody div {
       width: 100%;
-    }
-
-    .mob_img {
-      display: inline;
-      margin-left: 10px;
-    }
-    #ivasome {
-      display: inline;
-      margin-left: 8px;
-      padding: 0;
-    }
-    .web_img {
-      display: none;
     }
   }
 </style>

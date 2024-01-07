@@ -2,14 +2,18 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Button from "../components/Button.astro";
-import content_img from "../assets/images/contact_img.png";
-
 import bcard from "../assets/images/Vizitka.png";
 import bcardback from "../assets/images/Vizitka hover.png";
 const key = import.meta.env.PUBLIC_EMAIL;
 ---
 
-<Layout title="Iva Valencic - Designer">
+<Layout
+  title="Iva Valencic | Contact"
+  ,
+  description="If you are looking to hire a UI designer with knowledge of capturing the premium aspects of a brand, you can contact me here."
+  ,
+  keywords="UI Designer, Croatia, Zagreb, Studant, Minimalist, Elegant Websites, Figma UI, Portfolio, Iva Valencic, Web Design Showcase, contact, messege"
+>
   <main>
     <section class="container layout_contact">
       <h3 class="">Send me <br class="mob_img" />a message</h3>
@@ -149,6 +153,9 @@ const key = import.meta.env.PUBLIC_EMAIL;
 
   .contact_img {
     border: none;
+    animation: easeInRightFast linear both;
+    animation-timeline: view(block);
+    animation-range: entry 30% contain 70%;
   }
   .mail {
     height: 800px;

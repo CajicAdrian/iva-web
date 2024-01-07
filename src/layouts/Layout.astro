@@ -1,156 +1,219 @@
 ---
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
+import { ViewTransitions } from "astro:transitions";
 interface Props {
   title: string;
+  description: string;
+  keywords: Array<string>;
 }
 
-const { title } = Astro.props;
+const { title, description, keywords } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="author" content="Iva Valenčić" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link
       href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     /><meta name="generator" content={Astro.generator} /><title>
       {title}
-    </title></head
-  >
+    </title>
+    <ViewTransitions />
+  </head>
 
-  <body>
+  <body transition:animate="none">
     <Nav />
-    <slot />
+    <div transition:animate="slide">
+      <slot />
+    </div>
     <Footer />
+    <style is:global>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        overflow-x: hidden;
+        background-color: #fbfaf8;
+      }
+      .container {
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      section {
+        padding: 30px 0;
+        height: fit-content;
+      }
+      p {
+        font-family: "Catamaran";
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 32px;
+        letter-spacing: 0.1em;
+      }
+      h1 {
+        font-family: "Playfair Display SC";
+        font-weight: 700;
+        font-size: 100px;
+        line-height: 114%;
+        letter-spacing: 0.1em;
+        color: #474747;
+        text-transform: uppercase;
+      }
+      h2 {
+        font-family: "Playfair Display SC";
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 228%;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #474747;
+      }
+      h3 {
+        font-family: "Playfair Display SC";
+        font-weight: 700;
+        font-size: 50px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #474747;
+      }
+      .h3_full {
+        font-size: 40px;
+        color: #474747;
+      }
+      h4 {
+        font-family: "Playfair Display SC";
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 40px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #474747;
+      }
+      h5 {
+        font-family: "Playfair Display SC";
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 40px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #474747;
+      }
+      @media only screen and (max-width: 1440px) and (min-width: 768px) {
+        p {
+          font-size: 16px;
+        }
+        h1 {
+          font-size: 70px;
+        }
+        h2 {
+          font-size: 40px;
+        }
+        h3 {
+          font-size: 30px;
+        }
+        .h3_full {
+          font-size: 30px;
+        }
+        h4 {
+          font-size: 25px;
+        }
+        h5 {
+          font-size: 20px;
+        }
+      }
+      @media only screen and (max-width: 768px) {
+        p {
+          font-size: 13px;
+        }
+        h1 {
+          font-size: 50px;
+        }
+        h2 {
+          font-size: 30px;
+          line-height: 40px;
+        }
+        h3 {
+          font-size: 25px;
+        }
+        .h3_full {
+          font-size: 20px;
+        }
+        h4 {
+          font-size: 15px;
+          line-height: 30px;
+        }
+        h5 {
+          font-size: 15px;
+        }
+      }
+
+      @keyframes graying {
+        from {
+          filter: grayscale(100%);
+        }
+        to {
+          filter: grayscale(0%);
+        }
+        0% {
+          filter: grayscale(100%);
+        }
+      }
+      @keyframes easeInBottom {
+        0% {
+          opacity: 0%;
+          transform: translateY(50%);
+        }
+        70% {
+          transform: translateY(0%);
+        }
+        100% {
+          opacity: 100%;
+        }
+      }
+
+      @keyframes easeInLeft {
+        0% {
+          opacity: 0%;
+          transform: translateX(-100%);
+        }
+        70% {
+          opacity: 100%;
+          transform: translateX(0%);
+        }
+      }
+      @keyframes easeInRight {
+        0% {
+          opacity: 0%;
+          transform: translateX(100%);
+        }
+        70% {
+          opacity: 100%;
+          transform: translateX(0%);
+        }
+      }
+      @keyframes easeInRightFast {
+        56% {
+          opacity: 0%;
+          transform: translateX(100%);
+        }
+        100% {
+          opacity: 100%;
+          transform: translateX(0%);
+        }
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    overflow-x: hidden;
-    background-color: #fbfaf8;
-  }
-  .container {
-    width: 70%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  section {
-    padding: 30px 0;
-    height: fit-content;
-  }
-  p {
-    font-family: "Catamaran";
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 32px;
-    letter-spacing: 0.1em;
-  }
-  h1 {
-    font-family: "Playfair Display SC";
-    font-weight: 700;
-    font-size: 100px;
-    line-height: 114%;
-    letter-spacing: 0.1em;
-    color: #474747;
-    text-transform: uppercase;
-  }
-  h2 {
-    font-family: "Playfair Display SC";
-    font-weight: 700;
-    font-size: 50px;
-    line-height: 228%;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #474747;
-  }
-  h3 {
-    font-family: "Playfair Display SC";
-    font-weight: 700;
-    font-size: 50px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #474747;
-  }
-  .h3_full {
-    font-size: 40px;
-    color: #474747;
-  }
-  h4 {
-    font-family: "Playfair Display SC";
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 40px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #474747;
-  }
-  h5 {
-    font-family: "Playfair Display SC";
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 40px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #474747;
-  }
-  @media only screen and (max-width: 1440px) and (min-width: 768px) {
-    p {
-      font-size: 16px;
-    }
-    h1 {
-      font-size: 70px;
-    }
-    h2 {
-      font-size: 40px;
-    }
-    h3 {
-      font-size: 30px;
-    }
-    .h3_full {
-      font-size: 30px;
-    }
-    h4 {
-      font-size: 25px;
-    }
-    h5 {
-      font-size: 20px;
-    }
-  }
-  @media only screen and (max-width: 768px) {
-    p {
-      font-size: 13px;
-    }
-    h1 {
-      font-size: 50px;
-    }
-    h2 {
-      font-size: 30px;
-      line-height: 40px;
-    }
-    h3 {
-      font-size: 25px;
-    }
-    .h3_full {
-      font-size: 20px;
-    }
-    h4 {
-      font-size: 15px;
-      line-height: 30px;
-    }
-    h5 {
-      font-size: 15px;
-    }
-  }
-</style>
