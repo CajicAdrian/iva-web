@@ -1,21 +1,21 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import Button from "../components/Button.astro";
-import ivafoto from "../assets/images/iva_foto.jpg";
-import ivanew from "../assets/images/iva_new_mamber.jpg";
-import figma from "../assets/images/icons/figma.png";
-import photoshop from "../assets/images/icons/ps.png";
-import indesign from "../assets/images/icons/ai.png";
-import affinity from "../assets/images/icons/affinity.png";
-import html from "../assets/images/icons/html.png";
-import css from "../assets/images/icons/css.png";
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import Button from '../components/Button.astro';
+import ivafoto from '../assets/images/iva_foto.jpg';
+import ivanew from '../assets/images/iva_new_mamber.jpg';
+import figma from '../assets/images/icons/figma.png';
+import photoshop from '../assets/images/icons/ps.png';
+import indesign from '../assets/images/icons/ai.png';
+import affinity from '../assets/images/icons/affinity.png';
+import html from '../assets/images/icons/html.png';
+import css from '../assets/images/icons/css.png';
 
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-  const projects = await getCollection("projects");
+  const projects = await getCollection('projects');
 
   return projects.map((project) => ({
     params: { slug: project.slug },
@@ -24,9 +24,9 @@ export async function getStaticPaths() {
 }
 
 type Props = {
-  project: CollectionEntry<"projects">;
+  project: CollectionEntry<'projects'>;
 };
-const projects = await getCollection("projects");
+const projects = await getCollection('projects');
 ---
 
 <Layout
@@ -34,7 +34,23 @@ const projects = await getCollection("projects");
   ,
   description="Freelance UI designer in Croatia, graduated from the Zagreb School of Fine Arts. Experienced in graphic design for C&A and Luna & Tocka. Collaborated with Amor Lingua School. Participant in the ICDC Challenge 2023. Specializing in minimalist and elegant website design. Seeking to join a larger team to enhance skills and contribute innovative ideas."
   ,
-  keywords="UI Designer, Croatia, Zagreb, Studant, Minimalist, Elegant Websites, Figma, Iva Valencic, School of Fine Arts, C&A, Luna & Tocka, Amor Lingua School, ICDC Challenge 2023, Branding, Prestige"
+  keywords={[
+    'UI Designer',
+    'Croatia',
+    'Zagreb',
+    'Student',
+    'Minimalist',
+    'Elegant Websites',
+    'Figma',
+    'Iva Valencic',
+    'School of Fine Arts',
+    'C&A',
+    'Luna & Tocka',
+    'Amor Lingua School',
+    'ICDC Challenge 2023',
+    'Branding',
+    'Prestige',
+  ]}
 >
   <section class="container layout_name_foto">
     <div class="name">
@@ -126,9 +142,9 @@ const projects = await getCollection("projects");
   </section>
 </Layout>
 <script>
-  const left = document.getElementById("left");
-  const right = document.getElementById("right");
-  const boxes = document.querySelectorAll(".project");
+  const left = document.getElementById('left');
+  const right = document.getElementById('right');
+  const boxes = document.querySelectorAll('.project');
 
   let isMoving: boolean;
   isMoving = false;
@@ -141,9 +157,9 @@ const projects = await getCollection("projects");
   function moveSlider() {
     for (let i = 0; i < totalIndex; i++) {
       if (i >= curentIndex && i < curentIndex + 3) {
-        boxes[i].style.display = "block";
+        boxes[i].style.display = 'block';
       } else {
-        boxes[i].style.display = "none";
+        boxes[i].style.display = 'none';
       }
     }
   }
@@ -173,8 +189,8 @@ const projects = await getCollection("projects");
     isMoving = false;
   }
 
-  left?.addEventListener("click", handleLeft);
-  right?.addEventListener("click", handleRight);
+  left?.addEventListener('click', handleLeft);
+  right?.addEventListener('click', handleRight);
 </script>
 <style>
   .layout_name_foto {
