@@ -1,14 +1,14 @@
 ---
-import Footer from "../components/Footer.astro";
-import Nav from "../components/Nav.astro";
-import { ViewTransitions } from "astro:transitions";
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+import { ViewTransitions } from 'astro:transitions';
 interface Props {
   title: string;
   description: string;
   keywords: Array<string>;
 }
 
-const { title, description, keywords } = Astro.props;
+const { title, description, keywords = [] } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,16 +26,16 @@ const { title, description, keywords } = Astro.props;
       {title}
     </title>
     <script>
-      import posthog from "posthog-js";
+      import posthog from 'posthog-js';
 
       if (
-        !window.location.host.includes("127.0.0.1") &&
-        !window.location.host.includes("localhost") &&
-        window.location.host.includes("uiiva.com")
+        !window.location.host.includes('127.0.0.1') &&
+        !window.location.host.includes('localhost') &&
+        window.location.host.includes('uiiva.com')
       ) {
-        posthog.init("phc_B7jYnmsVf6D2AT7AzF7jxpQ4806lXXVgu4k5YeYOe0Z", {
-          api_host: "https://eu.posthog.com",
-          persistence: "localStorage",
+        posthog.init('phc_B7jYnmsVf6D2AT7AzF7jxpQ4806lXXVgu4k5YeYOe0Z', {
+          api_host: 'https://eu.posthog.com',
+          persistence: 'localStorage',
         });
       }
     </script>
@@ -75,14 +75,14 @@ const { title, description, keywords } = Astro.props;
         height: fit-content;
       }
       p {
-        font-family: "Catamaran";
+        font-family: 'Catamaran';
         font-weight: 300;
         font-size: 18px;
         line-height: 32px;
         letter-spacing: 0.1em;
       }
       h1 {
-        font-family: "Playfair Display SC";
+        font-family: 'Playfair Display SC';
         font-weight: 700;
         font-size: 100px;
         line-height: 114%;
@@ -91,7 +91,7 @@ const { title, description, keywords } = Astro.props;
         text-transform: uppercase;
       }
       h2 {
-        font-family: "Playfair Display SC";
+        font-family: 'Playfair Display SC';
         font-weight: 700;
         font-size: 50px;
         line-height: 228%;
@@ -100,7 +100,7 @@ const { title, description, keywords } = Astro.props;
         color: #474747;
       }
       h3 {
-        font-family: "Playfair Display SC";
+        font-family: 'Playfair Display SC';
         font-weight: 700;
         font-size: 50px;
         letter-spacing: 0.1em;
@@ -112,7 +112,7 @@ const { title, description, keywords } = Astro.props;
         color: #474747;
       }
       h4 {
-        font-family: "Playfair Display SC";
+        font-family: 'Playfair Display SC';
         font-weight: 700;
         font-size: 30px;
         line-height: 40px;
@@ -121,7 +121,7 @@ const { title, description, keywords } = Astro.props;
         color: #474747;
       }
       h5 {
-        font-family: "Playfair Display SC";
+        font-family: 'Playfair Display SC';
         font-weight: 700;
         font-size: 20px;
         line-height: 40px;
