@@ -1,9 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import Button from "../components/Button.astro";
-import bcard from "../assets/images/Vizitka.png";
-import bcardback from "../assets/images/Vizitka hover.png";
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import Button from '../components/Button.astro';
+import bcard from '../assets/images/Vizitka.png';
+import bcardback from '../assets/images/Vizitka hover.png';
 const key = import.meta.env.PUBLIC_EMAIL;
 ---
 
@@ -12,7 +12,20 @@ const key = import.meta.env.PUBLIC_EMAIL;
   ,
   description="If you are looking to hire a UI designer with knowledge of capturing the premium aspects of a brand, you can contact me here."
   ,
-  keywords="UI Designer, Croatia, Zagreb, Studant, Minimalist, Elegant Websites, Figma UI, Portfolio, Iva Valencic, Web Design Showcase, contact, messege"
+  keywords={[
+    'UI Designer',
+    'Croatia',
+    'Zagreb',
+    'Student',
+    'Minimalist',
+    'Elegant Websites',
+    'Figma UI',
+    'Portfolio',
+    'Iva Valencic',
+    'Web Design Showcase',
+    'Contact',
+    'Message',
+  ]}
 >
   <section class="container layout_contact">
     <h3 class="">Send me <br class="mob_img" />a message</h3>
@@ -51,27 +64,27 @@ const key = import.meta.env.PUBLIC_EMAIL;
   </section>
 </Layout>
 <script is:inline>
-  const form = document.getElementById("form");
-  const result = document.getElementById("result");
+  const form = document.getElementById('form');
+  const result = document.getElementById('result');
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
-    form.classList.add("was-validated");
+    form.classList.add('was-validated');
     if (!form.checkValidity()) {
-      form.querySelectorAll(":invalid")[0].focus();
+      form.querySelectorAll(':invalid')[0].focus();
       return;
     }
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
-    result.innerHTML = "Sending...";
+    result.innerHTML = 'Sending...';
 
-    fetch("https://api.web3forms.com/submit", {
-      method: "POST",
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
       },
       body: json,
     })
@@ -86,27 +99,27 @@ const key = import.meta.env.PUBLIC_EMAIL;
       })
       .catch((error) => {
         console.log(error);
-        result.innerHTML = "Something went wrong!";
+        result.innerHTML = 'Something went wrong!';
       })
       .then(function () {
         form.reset();
-        form.classList.remove("was-validated");
+        form.classList.remove('was-validated');
         setTimeout(() => {
-          result.style.display = "none";
+          result.style.display = 'none';
         }, 5000);
       });
   });
-  let bcard = document.getElementById("bcard");
-  let bcardback = document.getElementById("bcardback");
+  let bcard = document.getElementById('bcard');
+  let bcardback = document.getElementById('bcardback');
 
-  bcard.addEventListener("mouseenter", () => {
-    bcard.style.display = "none";
-    bcardback.style.display = "block";
+  bcard.addEventListener('mouseenter', () => {
+    bcard.style.display = 'none';
+    bcardback.style.display = 'block';
   });
 
-  bcardback.addEventListener("mouseleave", () => {
-    bcard.style.display = "block";
-    bcardback.style.display = "none";
+  bcardback.addEventListener('mouseleave', () => {
+    bcard.style.display = 'block';
+    bcardback.style.display = 'none';
   });
 </script>
 <style>

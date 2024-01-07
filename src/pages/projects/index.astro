@@ -1,16 +1,16 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import Button from "../../components/Button.astro";
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-import { fade } from "astro:transitions";
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import Button from '../../components/Button.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { fade } from 'astro:transitions';
 
 type Props = {
-  project: CollectionEntry<"projects">;
+  project: CollectionEntry<'projects'>;
 };
 
-const projects = await getCollection("projects");
+const projects = await getCollection('projects');
 ---
 
 <Layout
@@ -18,7 +18,18 @@ const projects = await getCollection("projects");
   ,
   description="UI design portfolio of Iva Valencic. Collection of elegant and minimalist website designs. Premium web solutions that captivate and showcase true online prestige. "
   ,
-  keywords=" UI Designer, Croatia, Zagreb, Studant, Minimalist, Elegant Websites, Figma UI, Portfolio, Iva Valencic, Web Design Showcase"
+  keywords={[
+    'UI Designer',
+    'Croatia',
+    'Zagreb',
+    'Student',
+    'Minimalist',
+    'Elegant Websites',
+    'Figma UI',
+    'Portfolio',
+    'Iva Valencic',
+    'Web Design Showcase',
+  ]}
 >
   <section class="container layout_ui">
     <h1>Projects</h1>
@@ -41,7 +52,7 @@ const projects = await getCollection("projects");
             width={800}
             height={700}
             transition:name={project.data.image.alt}
-            transition:animate={fade({ duration: "0.1s" })}
+            transition:animate={fade({ duration: '0.1s' })}
           />
           <a href={`/projects/${project.slug}`} class="projectsButton">
             <Button id="projects">Read more</Button>
@@ -50,142 +61,142 @@ const projects = await getCollection("projects");
       ))
     }
   </section>
-</Layout>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          // Calculate the percentage of the item that is visible
-          const visiblePercentage = entry.intersectionRatio;
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // Calculate the percentage of the item that is visible
+            const visiblePercentage = entry.intersectionRatio;
 
-          // Set the filter based on the visible percentage
-          entry.target.style.filter = `grayscale(${
-            (1 - visiblePercentage) * 100
-          }%)`;
-        });
-      },
-      { threshold: buildThresholdList() }
-    );
+            // Set the filter based on the visible percentage
+            entry.target.style.filter = `grayscale(${
+              (1 - visiblePercentage) * 100
+            }%)`;
+          });
+        },
+        { threshold: buildThresholdList() }
+      );
 
-    document.querySelectorAll(".projects").forEach((project) => {
-      observer.observe(project);
+      document.querySelectorAll('.projects').forEach((project) => {
+        observer.observe(project);
+      });
     });
-  });
 
-  function buildThresholdList() {
-    let thresholds = [];
-    for (let i = 0; i <= 1.0; i += 0.1) {
-      // Thresholds at every 10%
-      thresholds.push(i);
+    function buildThresholdList() {
+      let thresholds = [];
+      for (let i = 0; i <= 1.0; i += 0.1) {
+        // Thresholds at every 10%
+        thresholds.push(i);
+      }
+      return thresholds;
     }
-    return thresholds;
-  }
-</script>
-<style>
-  .layout_ui {
-    border-bottom: 1px solid #000000;
-    border-right: 1px solid #000000;
-    margin: 50px auto;
-  }
-  h1 {
-    width: 60%;
-    margin: auto 0;
-  }
-  p {
-    width: 40%;
-    padding: 30px;
-  }
-
-  img {
-    padding-bottom: 10%;
-    filter: grayscale(100%);
-    transition: all 0.5s linear;
-  }
-  img:hover {
-    filter: grayscale(0%);
-  }
-  a {
-    height: fit-content;
-    margin-top: 55%;
-    margin-left: 15px;
-  }
-  .card {
-    display: flex;
-  }
-  .projects {
-    animation: easeInBottom linear both;
-    animation-timeline: view(block);
-    animation-range: entry 30% contain 30%;
-  }
-  .projectsButton {
-    animation: easeInRight linear both;
-    animation-timeline: view(block);
-    animation-range: entry 35% contain 30%;
-  }
-  @media (max-width: 768px) {
-    .projects {
-      transition: filter 1.5s ease; /* Increased duration for a smoother transition */
-      filter: grayscale(100%); /* Start with grayscale */
-    }
-
+  </script>
+  <style>
     .layout_ui {
-      border-bottom: 0px;
-      border-right: 0px;
-      margin: 10px auto;
-    }
-    h1 {
-      width: 100%;
       border-bottom: 1px solid #000000;
       border-right: 1px solid #000000;
-      padding-bottom: 10px;
-      padding-right: 20px;
-      font-size: 38px;
+      margin: 50px auto;
+    }
+    h1 {
+      width: 60%;
+      margin: auto 0;
     }
     p {
-      width: 100%;
-      padding: 20px 0;
+      width: 40%;
+      padding: 30px;
     }
 
     img {
-      width: 100%;
-      height: 100%;
-      padding-bottom: 20px;
-      filter: grayscale(0);
+      padding-bottom: 10%;
+      filter: grayscale(100%);
+      transition: all 0.5s linear;
+    }
+    img:hover {
+      filter: grayscale(0%);
+    }
+    a {
+      height: fit-content;
+      margin-top: 55%;
+      margin-left: 15px;
     }
     .card {
-      display: grid;
+      display: flex;
     }
-    a {
-      margin: 0 0 15px 0;
+    .projects {
+      animation: easeInBottom linear both;
+      animation-timeline: view(block);
+      animation-range: entry 30% contain 30%;
     }
-  }
-  @media only screen and (max-width: 1400px) and (min-width: 769px) {
-    .layout_ui {
-      border-bottom: 0px;
-      border-right: 0px;
-      margin: 10px auto;
+    .projectsButton {
+      animation: easeInRight linear both;
+      animation-timeline: view(block);
+      animation-range: entry 35% contain 30%;
     }
-    h1 {
-      width: 100%;
-      border-bottom: 1px solid #000000;
-      border-right: 1px solid #000000;
-      padding-bottom: 10px;
-      padding-right: 20px;
-      font-size: 40px;
+    @media (max-width: 768px) {
+      .projects {
+        transition: filter 1.5s ease; /* Increased duration for a smoother transition */
+        filter: grayscale(100%); /* Start with grayscale */
+      }
+
+      .layout_ui {
+        border-bottom: 0px;
+        border-right: 0px;
+        margin: 10px auto;
+      }
+      h1 {
+        width: 100%;
+        border-bottom: 1px solid #000000;
+        border-right: 1px solid #000000;
+        padding-bottom: 10px;
+        padding-right: 20px;
+        font-size: 38px;
+      }
+      p {
+        width: 100%;
+        padding: 20px 0;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 20px;
+        filter: grayscale(0);
+      }
+      .card {
+        display: grid;
+      }
+      a {
+        margin: 0 0 15px 0;
+      }
     }
-    p {
-      width: 100%;
-      padding: 20px 0;
+    @media only screen and (max-width: 1400px) and (min-width: 769px) {
+      .layout_ui {
+        border-bottom: 0px;
+        border-right: 0px;
+        margin: 10px auto;
+      }
+      h1 {
+        width: 100%;
+        border-bottom: 1px solid #000000;
+        border-right: 1px solid #000000;
+        padding-bottom: 10px;
+        padding-right: 20px;
+        font-size: 40px;
+      }
+      p {
+        width: 100%;
+        padding: 20px 0;
+      }
+      img {
+        width: 70%;
+        height: 100%;
+        margin-bottom: 10px;
+      }
+      a {
+        margin-top: 45%;
+      }
     }
-    img {
-      width: 70%;
-      height: 100%;
-      margin-bottom: 10px;
-    }
-    a {
-      margin-top: 45%;
-    }
-  }
-</style>
+  </style>
+</Layout>
