@@ -20,38 +20,36 @@ const projects = await getCollection("projects");
   ,
   keywords=" UI Designer, Croatia, Zagreb, Studant, Minimalist, Elegant Websites, Figma UI, Portfolio, Iva Valencic, Web Design Showcase"
 >
-  <main>
-    <section class="container layout_ui">
-      <h1>Projects</h1>
-      <p>
-        Here is a selection of UI projects that showcase my personal style and
-        knowledge. This mix includes projects completed for clients as well as
-        projects created during my time in college.
-      </p>
-    </section>
+  <section class="container layout_ui">
+    <h1>Projects</h1>
+    <p>
+      Here is a selection of UI projects that showcase my personal style and
+      knowledge. This mix includes projects completed for clients as well as
+      projects created during my time in college.
+    </p>
+  </section>
 
-    <section class="container">
-      {
-        projects.map((project, index) => (
-          <div class="card">
-            <Image
-              src={project.data.image.src}
-              alt={project.data.image.alt}
-              id={`${index}`}
-              class="projects"
-              width={800}
-              height={700}
-              transition:name={project.data.image.alt}
-              transition:animate={fade({ duration: "0.1s" })}
-            />
-            <a href={`/projects/${project.slug}`} class="projectsButton">
-              <Button id="projects">Read more</Button>
-            </a>
-          </div>
-        ))
-      }
-    </section>
-  </main>
+  <section class="container">
+    {
+      projects.map((project, index) => (
+        <div class="card">
+          <Image
+            src={project.data.image.src}
+            alt={project.data.image.alt}
+            id={`${index}`}
+            class="projects"
+            width={800}
+            height={700}
+            transition:name={project.data.image.alt}
+            transition:animate={fade({ duration: "0.1s" })}
+          />
+          <a href={`/projects/${project.slug}`} class="projectsButton">
+            <Button id="projects">Read more</Button>
+          </a>
+        </div>
+      ))
+    }
+  </section>
 </Layout>
 
 <script>

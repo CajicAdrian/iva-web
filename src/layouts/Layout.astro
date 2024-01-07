@@ -30,9 +30,9 @@ const { title, description, keywords } = Astro.props;
 
   <body transition:animate="none">
     <Nav />
-    <div transition:animate="slide">
+    <main transition:animate="slide" class="body">
       <slot />
-    </div>
+    </main>
     <Footer />
     <style is:global>
       * {
@@ -43,6 +43,10 @@ const { title, description, keywords } = Astro.props;
       body {
         overflow-x: hidden;
         background-color: #fbfaf8;
+      }
+      .body {
+        max-width: 2560px;
+        margin: 0 auto;
       }
       .container {
         width: 70%;

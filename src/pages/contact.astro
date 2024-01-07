@@ -14,48 +14,41 @@ const key = import.meta.env.PUBLIC_EMAIL;
   ,
   keywords="UI Designer, Croatia, Zagreb, Studant, Minimalist, Elegant Websites, Figma UI, Portfolio, Iva Valencic, Web Design Showcase, contact, messege"
 >
-  <main>
-    <section class="container layout_contact">
-      <h3 class="">Send me <br class="mob_img" />a message</h3>
-      <p>
-        I would love to hear from you! Use this form to send me an email and ask
-        any questions you may have.
-      </p>
-      <div class="form">
-        <form
-          action="https://api.web3forms.com/submit"
-          method="POST"
-          id="form"
-          class="needs-validation mail"
-          novalidate
-        >
-          <input type="hidden" name="access_key" value={key} />
-          <label for="ime">Name and surname:</label>
-          <input id="name" name="Name" type="text" required />
-          <label for="Email">Email:</label>
-          <input id="email" name="Email" type="email" required />
-          <label for="Message">Text:</label>
-          <textarea name="Message" id="message" rows="10"></textarea>
-          <Button type="submit" id="contact">Reach Out</Button>
-          <div id="result"></div>
-        </form>
-      </div>
-      <div class="contact_img">
-        <Image
-          src={bcard}
-          alt="Iva Valencic"
-          id="bcard"
-          title="business card"
-        />
-        <Image
-          src={bcardback}
-          alt="Iva Valencic"
-          id="bcardback"
-          title="business card back"
-        />
-      </div>
-    </section>
-  </main>
+  <section class="container layout_contact">
+    <h3 class="">Send me <br class="mob_img" />a message</h3>
+    <p>
+      I would love to hear from you! Use this form to send me an email and ask
+      any questions you may have.
+    </p>
+    <div class="form">
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        id="form"
+        class="needs-validation mail"
+        novalidate
+      >
+        <input type="hidden" name="access_key" value={key} />
+        <label for="ime">Name and surname:</label>
+        <input id="name" name="Name" type="text" required />
+        <label for="Email">Email:</label>
+        <input id="email" name="Email" type="email" required />
+        <label for="Message">Text:</label>
+        <textarea name="Message" id="message" rows="10"></textarea>
+        <Button type="submit" id="contact">Reach Out</Button>
+        <div id="result"></div>
+      </form>
+    </div>
+    <div class="contact_img">
+      <Image src={bcard} alt="Iva Valencic" id="bcard" title="business card" />
+      <Image
+        src={bcardback}
+        alt="Iva Valencic"
+        id="bcardback"
+        title="business card back"
+      />
+    </div>
+  </section>
 </Layout>
 <script is:inline>
   const form = document.getElementById("form");

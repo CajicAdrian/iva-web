@@ -57,115 +57,110 @@ const {
   ,
   keywords={metakeywords}
 >
-  <main>
-    <section class="Ostali_projekti">
-      {
-        projects.map((project) => (
-          <a href={project.slug}>{project.data.title}</a>
-        ))
-      }
+  <section class="Ostali_projekti">
+    {projects.map((project) => <a href={project.slug}>{project.data.title}</a>)}
+  </section>
+  <div class="mockup_right">
+    <section class="portfolio_ui_web">
+      <div class="portfolio_ui_text">
+        <h1>{texttitle}</h1>
+        <h2>{textsubtitle}</h2>
+        <p class="introdesc">{textparagraph}</p>
+        <p class="date">Made in: {date}</p>
+        <a href={href} target="_blank"
+          ><Button id="project">figma prototype</Button></a
+        >
+      </div>
     </section>
-    <div class="mockup_right">
-      <section class="portfolio_ui_web">
-        <div class="portfolio_ui_text">
-          <h1>{texttitle}</h1>
-          <h2>{textsubtitle}</h2>
-          <p class="introdesc">{textparagraph}</p>
-          <p class="date">Made in: {date}</p>
-          <a href={href} target="_blank"
-            ><Button id="project">figma prototype</Button></a
-          >
-        </div>
-      </section>
-      <Image
-        src={image.src}
-        alt={image.alt}
-        width={800}
-        height={700}
-        class="projekt_web_img"
-        transition:name={image.alt}
-        transition:animate={fade({ duration: "1s" })}
-      />
+    <Image
+      src={image.src}
+      alt={image.alt}
+      width={800}
+      height={700}
+      class="projekt_web_img"
+      transition:name={image.alt}
+      transition:animate={fade({ duration: "1s" })}
+    />
+  </div>
+  <section class="desc">
+    <div class="container description">
+      <div class="desc_box">
+        <h5>{box1h}</h5>
+        <p>{box1p}</p>
+      </div>
+      <div class="desc_box">
+        <h5>{box2h}</h5>
+        <p>{box2p}</p>
+      </div>
+      <div class="desc_box">
+        <h5>{box3h}</h5>
+        <p>{box3p}</p>
+      </div>
     </div>
-    <section class="desc">
-      <div class="container description">
-        <div class="desc_box">
-          <h5>{box1h}</h5>
-          <p>{box1p}</p>
-        </div>
-        <div class="desc_box">
-          <h5>{box2h}</h5>
-          <p>{box2p}</p>
-        </div>
-        <div class="desc_box">
-          <h5>{box3h}</h5>
-          <p>{box3p}</p>
-        </div>
+  </section>
+  <section class="container">
+    <div class="content">
+      <Image
+        src={contentimage.src}
+        alt={contentimage.alt}
+        width={500}
+        height={500}
+      />
+      <h4 class="title_box">{content1h}</h4>
+      <Image
+        src={content1image.src}
+        alt={content1image.alt}
+        width={500}
+        height={500}
+      />
+      <h4 class="title_box_right">{content2h}</h4>
+      <Image
+        src={content2image.src}
+        alt={content2image.alt}
+        width={500}
+        height={500}
+      />
+      <h4 class="title_box">{content3h}</h4>
+      <Image
+        src={content3image.src}
+        alt={content3image.alt}
+        width={500}
+        height={500}
+      />
+      <h4 class="title_box_right">{content4h}</h4>
+    </div>
+    <div class="galleryimages">
+      <div class="container gallery web_img">
+        {
+          images.map((image, index) => (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              class="modalbtn"
+              width={500}
+              height={500}
+              id={`${index}`}
+            />
+          ))
+        }
       </div>
-    </section>
-    <section class="container">
-      <div class="content">
-        <Image
-          src={contentimage.src}
-          alt={contentimage.alt}
-          width={500}
-          height={500}
-        />
-        <h4 class="title_box">{content1h}</h4>
-        <Image
-          src={content1image.src}
-          alt={content1image.alt}
-          width={500}
-          height={500}
-        />
-        <h4 class="title_box_right">{content2h}</h4>
-        <Image
-          src={content2image.src}
-          alt={content2image.alt}
-          width={500}
-          height={500}
-        />
-        <h4 class="title_box">{content3h}</h4>
-        <Image
-          src={content3image.src}
-          alt={content3image.alt}
-          width={500}
-          height={500}
-        />
-        <h4 class="title_box_right">{content4h}</h4>
+      <div class="container gallery web_img">
+        {
+          images2.map((image, index) => (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              class="modalbtn"
+              width={500}
+              height={500}
+              id={`${index}`}
+            />
+          ))
+        }
       </div>
-      <div class="galleryimages">
-        <div class="container gallery web_img">
-          {
-            images.map((image, index) => (
-              <Image
-                src={image.src}
-                alt={image.alt}
-                class="modalbtn"
-                width={500}
-                height={500}
-                id={`${index}`}
-              />
-            ))
-          }
-        </div>
-        <div class="container gallery web_img">
-          {
-            images2.map((image, index) => (
-              <Image
-                src={image.src}
-                alt={image.alt}
-                class="modalbtn"
-                width={500}
-                height={500}
-                id={`${index}`}
-              />
-            ))
-          }
-        </div>
-      </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
   <div id="modal">
     <Button id="close">&times;</Button>
     <div class="modal-content">

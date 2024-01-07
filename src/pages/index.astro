@@ -36,96 +36,94 @@ const projects = await getCollection("projects");
   ,
   keywords="UI Designer, Croatia, Zagreb, Studant, Minimalist, Elegant Websites, Figma, Iva Valencic, School of Fine Arts, C&A, Luna & Tocka, Amor Lingua School, ICDC Challenge 2023, Branding, Prestige"
 >
-  <main>
-    <section class="container layout_name_foto">
-      <div class="name">
-        <p>ui designer</p>
-        <h1>Iva Valenčić</h1>
-        <a href="/projects/"><Button>See the latest project</Button></a>
-      </div>
+  <section class="container layout_name_foto">
+    <div class="name">
+      <p>ui designer</p>
+      <h1>Iva Valenčić</h1>
+      <a href="/projects/"><Button>See the latest project</Button></a>
+    </div>
 
-      <Image src={ivafoto} alt="Iva Valencic" class="hero" title="iva foto" />
-    </section>
-    <section class="carousel">
-      <Button id="left">&#10094;</Button>
-      <div class="projects">
-        {
-          projects.map((project, index) => (
-            <a href={`/projects/${project.slug}`} class="project">
-              <Image
-                src={project.data.logo.src}
-                alt={project.data.logo.alt}
-                width={500}
-                height={500}
-                id={project.data.logo.id}
-              />
-            </a>
-          ))
-        }
-      </div>
-      <Button id="right">&#10095;</Button>
-    </section>
-    <section class="container layout_new_member">
-      <h4>Looking for a new member for your creative team?</h4>
+    <Image src={ivafoto} alt="Iva Valencic" class="hero" title="iva foto" />
+  </section>
+  <section class="carousel">
+    <Button id="left">&#10094;</Button>
+    <div class="projects">
+      {
+        projects.map((project, index) => (
+          <a href={`/projects/${project.slug}`} class="project">
+            <Image
+              src={project.data.logo.src}
+              alt={project.data.logo.alt}
+              width={500}
+              height={500}
+              id={project.data.logo.id}
+            />
+          </a>
+        ))
+      }
+    </div>
+    <Button id="right">&#10095;</Button>
+  </section>
+  <section class="container layout_new_member">
+    <h4>Looking for a new member for your creative team?</h4>
 
-      <div class="text_padding">
-        <p>
-          I am a Croatia-based designer. A graduate of the Zagreb School of Fine
-          Arts and a student of Algebraic Visual communication design. I worked
-          as a graphic designer for C&A, began my Ui design career at
-          Luna&Tocka, a marketing company, and even collaborated with Amor
-          Lingua School to create one of their pages. I took part in the ICDC
-          Challenge 2023 as a member of the Croatian team.
-        </p>
+    <div class="text_padding">
+      <p>
+        I am a Croatia-based designer. A graduate of the Zagreb School of Fine
+        Arts and a student of Algebraic Visual communication design. I worked as
+        a graphic designer for C&A, began my Ui design career at Luna&Tocka, a
+        marketing company, and even collaborated with Amor Lingua School to
+        create one of their pages. I took part in the ICDC Challenge 2023 as a
+        member of the Croatian team.
+      </p>
 
-        <p>
-          As a freelancer, I continue to work with smaller companies, but I
-          would like to join a larger team of designers so that I may learn from
-          more knowledgeble and skilled people and bring my ideas to the time.
-        </p>
-      </div>
-    </section>
-    <section class="icon">
-      <div class="container icons">
-        <h4>What I use:</h4>
-        <Image src={figma} alt="Figma" title="figma" />
-        <Image src={photoshop} alt="Photoshop" title="photoshop" />
-        <Image src={indesign} alt="Indesign" title="indesign" />
-        <Image src={affinity} alt="Affinity" title="affinity" />
-        <Image src={html} alt="HTML" title="html" />
-        <Image src={css} alt="CSS" title="css" />
-      </div>
-    </section>
+      <p>
+        As a freelancer, I continue to work with smaller companies, but I would
+        like to join a larger team of designers so that I may learn from more
+        knowledgeble and skilled people and bring my ideas to the time.
+      </p>
+    </div>
+  </section>
+  <section class="icon">
+    <div class="container icons">
+      <h4>What I use:</h4>
+      <Image src={figma} alt="Figma" title="figma" />
+      <Image src={photoshop} alt="Photoshop" title="photoshop" />
+      <Image src={indesign} alt="Indesign" title="indesign" />
+      <Image src={affinity} alt="Affinity" title="affinity" />
+      <Image src={html} alt="HTML" title="html" />
+      <Image src={css} alt="CSS" title="css" />
+    </div>
+  </section>
 
-    <section class="container layout_need_somebody">
-      <h4>
-        Need somebody to help you create
-        <br class="web_br" /> interesting and challenging designs?
-      </h4>
-      <div class="text_padding">
-        <p>
-          I am a UI designer that specializes in minimalistic and elegant
-          websites. I enjoy demonstrating the prestige of products and services
-          using colors and white space.
-        </p>
+  <section class="container layout_need_somebody">
+    <h4>
+      Need somebody to help you create
+      <br class="web_br" /> interesting and challenging designs?
+    </h4>
+    <div class="text_padding">
+      <p>
+        I am a UI designer that specializes in minimalistic and elegant
+        websites. I enjoy demonstrating the prestige of products and services
+        using colors and white space.
+      </p>
 
-        <p>
-          I build premium websites with easily accessible information by fusing
-          aesthetic appeal with technical usability. I use figma and adobe
-          programs to create sites that showcase brands class as well as their
-          knowledge. I work to make smaller brands find their customers and
-          captivate them with their prestige.
-        </p>
-        <p>
-          Elegance is felt in every click a customer makes before deciding to
-          purchase goods or use service. My goal is for brands to find their
-          true prestige in their online presence, and to show their customers
-          the new way to solve their problems.
-        </p>
-      </div>
-      <Image src={ivanew} alt="Iva Valencic" title="iva new member" />
-    </section>
-  </main>
+      <p>
+        I build premium websites with easily accessible information by fusing
+        aesthetic appeal with technical usability. I use figma and adobe
+        programs to create sites that showcase brands class as well as their
+        knowledge. I work to make smaller brands find their customers and
+        captivate them with their prestige.
+      </p>
+      <p>
+        Elegance is felt in every click a customer makes before deciding to
+        purchase goods or use service. My goal is for brands to find their true
+        prestige in their online presence, and to show their customers the new
+        way to solve their problems.
+      </p>
+    </div>
+    <Image src={ivanew} alt="Iva Valencic" title="iva new member" />
+  </section>
 </Layout>
 <script>
   const left = document.getElementById("left");
