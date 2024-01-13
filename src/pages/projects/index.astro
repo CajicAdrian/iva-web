@@ -1,16 +1,16 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import Button from '../../components/Button.astro';
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
-import { fade } from 'astro:transitions';
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import Button from "../../components/Button.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { fade } from "astro:transitions";
 
 type Props = {
-  project: CollectionEntry<'projects'>;
+  project: CollectionEntry<"projects">;
 };
 
-const projects = await getCollection('projects');
+const projects = await getCollection("projects");
 ---
 
 <Layout
@@ -19,16 +19,16 @@ const projects = await getCollection('projects');
   description="UI design portfolio of Iva Valencic. Collection of elegant and minimalist website designs. Premium web solutions that captivate and showcase true online prestige. "
   ,
   keywords={[
-    'UI Designer',
-    'Croatia',
-    'Zagreb',
-    'Student',
-    'Minimalist',
-    'Elegant Websites',
-    'Figma UI',
-    'Portfolio',
-    'Iva Valencic',
-    'Web Design Showcase',
+    "UI Designer",
+    "Croatia",
+    "Zagreb",
+    "Student",
+    "Minimalist",
+    "Elegant Websites",
+    "Figma UI",
+    "Portfolio",
+    "Iva Valencic",
+    "Web Design Showcase",
   ]}
 >
   <section class="container layout_ui">
@@ -52,10 +52,10 @@ const projects = await getCollection('projects');
             width={800}
             height={700}
             transition:name={project.data.image.alt}
-            transition:animate={fade({ duration: '0.1s' })}
+            transition:animate={fade({ duration: "0.1s" })}
           />
           <a href={`/projects/${project.slug}`} class="projectsButton">
-            <Button id="projects">Read more</Button>
+            <Button class="projects">Read more</Button>
           </a>
         </div>
       ))
@@ -63,7 +63,7 @@ const projects = await getCollection('projects');
   </section>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener("DOMContentLoaded", () => {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -79,7 +79,7 @@ const projects = await getCollection('projects');
         { threshold: buildThresholdList() }
       );
 
-      document.querySelectorAll('.projects').forEach((project) => {
+      document.querySelectorAll(".projects").forEach((project) => {
         observer.observe(project);
       });
     });
