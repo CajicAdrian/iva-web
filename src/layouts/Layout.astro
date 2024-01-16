@@ -1,7 +1,6 @@
 ---
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
-import { ViewTransitions } from "astro:transitions";
 interface Props {
   title: string;
   description: string;
@@ -39,12 +38,11 @@ const { title, description, keywords = [] } = Astro.props;
         });
       }
     </script>
-    <!-- <ViewTransitions /> -->
   </head>
 
-  <body transition:animate="none">
+  <body>
     <Nav />
-    <main transition:animate="slide" class="body">
+    <main class="body">
       <slot />
     </main>
     <Footer />
