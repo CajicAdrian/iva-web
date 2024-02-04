@@ -1,6 +1,8 @@
 ---
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
+import iva_logo from "../assets/images/logo/iva_logo.svg";
+
 interface Props {
   title: string;
   description: string;
@@ -18,7 +20,13 @@ const { title, description, keywords = [] } = Astro.props;
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(", ")} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/images/logo/iva_logo.svg"
+      sizes="any"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     /><meta name="generator" content={Astro.generator} /><title>
