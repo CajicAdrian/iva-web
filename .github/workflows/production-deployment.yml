@@ -5,16 +5,9 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
-  workflow_call:
-    inputs:
-      environment:
-        description: "The deployment environment"
-        required: true
-        type: string
-      build_option:
-        description: "The build option (e.g., --preview or --prod)"
-        required: false
-        type: string
+  push:
+    branches:
+      - main
 
 jobs:
   Deploy:
